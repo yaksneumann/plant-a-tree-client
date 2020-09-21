@@ -1,0 +1,123 @@
+    
+<div class="col-12 context backgountimg">
+
+<div class="Main-title greencolor">
+     {{ 'CONTACT-US.contact-us' | translate }}
+</div>
+<div class="greencolor fontLite">
+    {{ 'CONTACT-US.Weare' | translate }}
+</div>
+
+<div class="row Contactpeople1">
+    <div class="col-1"></div>
+    <div class="col-2 pad0">
+        <img src="./assets/img/NewV2/New folder/Group1061.png" alt="">
+    </div>
+    <div class="col-7 textleft">
+        <div class="fontbold">  {{ 'CONTACT-US.Eran' | translate }} </div>
+        <div class="fontLite">  {{ 'CONTACT-US.Tsara' | translate }} </div>
+        <div class="row padtop15p">
+            <div class="col-6 centertext pointer">
+                <div> 
+                    <img src="./assets/img/NewV2/New folder/Group 1911.svg" alt="" (click)="sendSms()" >
+                </div>
+                <div class="fontLite">
+                    {{ 'CONTACT-US.Mobile' | translate }}
+                </div>
+            </div>
+            
+            <div class="col-6 centertext pointer">
+                <div> 
+                    <img src="./assets/img/NewV2/New folder/Group 1911.svg" alt="" (click)="sendWhatsapp()" >
+                </div>
+                <div class="fontLite">
+                    {{ 'CONTACT-US.WhatsApp' | translate }}
+                </div>
+            </div>
+             
+        </div>
+
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <hr/>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 pad0">
+        <img src="./assets/img/NewV2/New folder/Group 1072.png" alt="">
+    </div>
+    <div class="col-7 textleft">
+        <div class="fontbold">  {{ 'CONTACT-US.Michal' | translate }} </div>
+        <div class="fontLite">  {{ 'CONTACT-US.Work' | translate }} {{ 'CONTACT-US.Work2' | translate }} </div>
+        <div class="fontLite">  {{ 'CONTACT-US.Work3' | translate }}</div>
+        <div class="row padtop15p">
+            <div class="col-6 centertext pointer">
+                <div> 
+                    <img src="./assets/img/NewV2/New folder/Group 1913.svg" alt="" (click)="sendEmail()"  >
+                </div>
+                <div class="fontLite">
+                    {{ 'CONTACT-US.Email' | translate }}
+                </div>
+            </div>
+            
+            <div class="col-6 centertext pointer">
+                <div> 
+                    <img src="./assets/img/NewV2/New folder/Group 1914.svg" alt="" (click)="callOffice()" >
+                </div>
+                <div class="fontLite">
+                    {{ 'CONTACT-US.TelOffice' | translate }}
+                </div>
+            </div> 
+        </div> 
+    </div>
+    <div class="col-2"></div>
+</div> 
+</div>
+ 
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#87bb40" type="ball-scale-multiple">
+</ngx-spinner>
+
+<jw-modal id="error-modal" style="display:none">
+    <div class="errorMsg">{{errMsg}}</div> 
+    <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+</jw-modal>
+ 
+<jw-modal id="certificate-modal" style="display:none;">  
+    <div class="certificate-img">
+        <div width="280" height="90" class="canvas" *ngIf="!editCertificateText">
+            {{ceremonyDetails.CertificateText}}
+        </div>
+    </div>  
+    <div class="btn-wrapper" *ngIf="!editCertificateText">    
+        <button (click)="closeModal('certificate-modal');" class="btn btn-primary popup-ok-btn"
+        style="margin:0px 0 0 0;">{{ 'close' | translate }}</button>
+        <button (click)="editCertificate();" class="btn btn-success popup-ok-btn"
+        style="margin:0px 0 0 0; float: right;">{{ 'edit' | translate }}</button>
+    </div>
+    <div class="btn-wrapper" *ngIf="editCertificateText">
+        <button (click)="closeModal('certificate-modal');" class="btn btn-primary popup-ok-btn"
+        style="margin:0px 0 0 0;">{{ 'cancel' | translate }}</button>
+        <button (click)="confirmCertificate();" class="btn btn-success popup-ok-btn"
+        style="margin:0px 0 0 0; float: right;">{{ 'confirm' | translate }}</button>
+    </div> 
+</jw-modal>
+
+<jw-modal id="prayer-modal" style="display:none;">  
+    <div class="planting-prayer">
+    </div>  
+    <!-- 30-7-2020 add other lang !!!   --> 
+    <div class="btn-wrapper">    
+        <button (click)="closeModal('prayer-modal');" class="btn btn-primary popup-ok-btn"
+        style="margin:0px 0 0 0;">{{ 'close' | translate }}</button>        
+    </div>    
+</jw-modal>
+
+ 

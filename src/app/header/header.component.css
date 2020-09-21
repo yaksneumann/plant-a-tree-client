@@ -1,0 +1,57 @@
+ .logos{
+     margin: auto;
+     text-align: center;
+    padding-top: 10%;
+ }
+ .kkl-icon1{
+     width: 30%;
+ }
+ .kkl-icon2{
+    width: 20%;
+    margin-top: 3%;
+}
+
+.container-logo{
+    padding-left: 10%;
+}
+
+/* --- Mobil CSS ---*/
+
+@media (min-width: 270px) and (max-width: 315px) {
+    .amountTrees{
+        font-size: small;
+    }
+    .amountTreesdiv{
+        margin-top: 20%;
+    }
+    .cap-icon{ 
+        left: 20%;
+        top: -40%;
+    }
+    .totalSum{
+        font-size: 0.8em;
+    }
+    .totalSum2{
+        font-size:  small;
+    }
+    .pages-menu{
+        min-height: 25px;
+    }
+    .selectedmenu > div{
+        transform: translate(4px, 0px);
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1025px) {
+    
+  
+    
+}
+@media (min-width: 360px) and (max-width: 400px) {
+    
+   
+}
+@media (min-width: 400px) and (max-width: 460px) {
+     
+    
+}

@@ -1,0 +1,27 @@
+.backgountimg{
+    background: url(../../assets/img/NewV2/MaskGroup17.png); 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+ 
+.Main-title{
+    font-size: 6vw;
+    padding-top: 10%;
+}
+.Contactpeople1{
+    padding-top: 30%;
+}
+.greencolor{
+    color: #1F701F;
+}
+.fontbold{
+    font-weight: 900;
+}
+
+.padtop15p{
+    padding-top: 15%;
+}
+.pointer{
+    cursor: pointer;
+}
+

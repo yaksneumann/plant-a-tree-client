@@ -1,0 +1,114 @@
+<div class="row number-menu">
+  <div class="col">
+    <img src="./assets/img/blue-number.svg" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number2.svg" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number3.svg" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number4.svg" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number5.svg" height="" width="" class="">
+  </div>
+</div>
+
+<div class="container main" style="position: relative;">
+
+  <div class="michal-container">
+    <div class="michal">
+    </div>
+    <div class="im-michal">
+      {{ 'CHOOSE-AREA.michal-hello' | translate }}
+      <!-- Shalom, I'm Michal. -->
+    </div>
+    <div style="padding: 5px 0px 0px 0px; font-size: 15px;font-weight: 400;">
+      {{ 'CHOOSE-AREA.michal-intro' | translate }}
+
+      <!-- Director of the Tree planting department. -->
+    </div>
+    <div class="title michal-text" style="font-size: 18px; font-weight: 800; padding-top: 5px;">
+     <!-- For planting via ZOOM only Tzora forest is available. -->
+      {{ 'CHOOSE-AREA.michal-choose' | translate }}
+      <!-- Please choose your preferred tree planting center. -->
+    </div>
+   
+    <!-- zoom -->
+    <!-- <div class="forester-container" *ngIf="chooseGolani">
+      <div class="forester lavi"></div>
+      <p class="hover-area"> -->
+        <!-- <b>Hi, I am the forest ranger David,</b>
+        our planting center is located by the Gloani junction,
+        a short drive from Tiberias, Haifa and Nazareth. -->
+        <!-- <b> {{ 'CHOOSE-AREA.golani-forester' | translate }} </b>       
+        {{ 'CHOOSE-AREA.golani-about' | translate }}
+      </p>
+    </div> -->
+  
+    <div class="forester-container" *ngIf="chooseTzora">
+      <!-- <div class="forester-container"> -->
+
+      <div class="forester tzora"></div>
+      <p class="hover-area">
+        <!-- <b>Hi, I am the forest ranger Eran,</b>
+        our planting center is located in the Judean foothills
+        between Jerusalem and Tel-Aviv.</p> -->
+
+        <b> {{ 'CHOOSE-AREA.tzora-forester' | translate }} </b>      
+        {{ 'CHOOSE-AREA.tzora-about' | translate }}
+    </div>
+  </div>
+
+  <div class="map-wrapper">
+
+  <div class="map-container">
+    <div class="map-pic">
+    </div>
+
+    <div class="small-circle" (click)="onChooseGolani()">
+      <!-- zoom -->
+      <img src="./assets/img/circle-tree.svg" alt="area" class="golani-area">
+    </div>
+
+    <div class="small-circle" (click)="onChooseTzora()">
+      <img src="./assets/img/circle-tree.svg" alt="area" class="tzora-area">
+    </div>
+  
+
+    <div class="forester-container" *ngIf="chooseGolani">
+      <img src="./assets/img/circle-tree-lg.svg" alt="area" class="golani-area-lg">
+    </div>
+<!-- zoom -->
+    <!-- <div class="forester-container" *ngIf="chooseTzora"> -->
+      <div class="forester-container" *ngIf="chooseTzora">
+
+      <img src="./assets/img/circle-tree-lg-tzora.svg" alt="area" class="tzora-area-lg">
+    </div>
+
+  </div>
+</div>
+
+
+<div class="next-btn">
+  <button type="button" class="btn btn-block btn-success" (click)="onChooseNext()">        
+    {{ 'NEXT-BUTTON' | translate }}
+  </button>
+</div>
+<!-- NEXT -->
+
+  <!-- <div class="col-sm-12" style="margin-bottom: 20px;">
+    <button type="button" class="btn btn-block btn-success" (click)="onChooseNext()">NEXT</button>
+  </div> -->
+
+</div>
+
+<jw-modal id="error-modal" style="display:none">
+  <!-- <h4>Plant a tree</h4>
+  <hr> -->
+  <div class="errorMsg">{{errMsg}}</div>
+  <hr>
+  <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+</jw-modal>

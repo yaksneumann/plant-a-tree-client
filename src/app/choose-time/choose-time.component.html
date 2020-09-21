@@ -1,0 +1,148 @@
+<div class="row number-menu">
+  <div class="col">
+    <img src="./assets/img/circle-v.svg" routerLink="/choose-area" alt="" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/blue-number2.svg" alt="" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number3.svg" alt="" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number4.svg" alt="" height="" width="" class="">
+  </div>
+  <div class="col">
+    <img src="./assets/img/grey-number5.svg" alt="" height="" width="" class="">
+  </div>
+</div>
+
+<div class="container main">
+
+  <h3 class="main-title">
+    <!-- When would you like to plant? -->
+    {{ 'CHOOSE-TIME.title' | translate }}
+  </h3>
+    <!-- Choose a date{{ 'CHOOSE-TIME.date' | translate }} -->
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="date">{{ 'CHOOSE-TIME.date' | translate }}</label>
+          <input ngbDatepicker type="text" readonly #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
+            [markDisabled]="isDisabled" class="form-control date" id="date" name="date" required ngModel
+            [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)" style="color: #000700" firstDayOfWeek="7"
+            (click)="d.toggle(); $event.stopPropagation();">
+          <span class="invalid-input" *ngIf="invalidDate">Invalid Date</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- (document:click)="closeFix($event, d)" -->
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="time">{{ 'CHOOSE-TIME.time' | translate }}</label>
+          <select name="time" class="form-control time" id="time" [(ngModel)]="timeId"
+          (change)="onTimeChange($event.target.value)" required style="color: #000700">
+            <option *ngFor="let time of localAvailableTime" [ngValue]="time.AvailTime">
+              <!-- {{ time.AvailTime | date:'shortTime' }} -->
+              {{ time.AvailTime | date:'short' }}
+
+            </option>
+          </select>
+          <span class="invalid-input" *ngIf="invalidTime">Invalid Time</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hours-warning">
+      {{ 'CHOOSE-TIME.localZone' | translate }}
+      <!-- the hours are according to -->
+       {{ localZone }} 
+       <!-- time -->
+    </div>
+
+    <!-- <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="time">Choose a time</label>
+          <select name="time" class="form-control time" id="time" [(ngModel)]="timeId" required style="color: #000700">
+            <option *ngFor="let time of israelAvailableTime" [ngValue]="time.AvailTime">
+              {{ time.AvailTime | date:'shortTime' }} your time</option>
+          </select>
+          <span class="invalid-input" *ngIf="invalidTime">Invalid Time</span>
+        </div>
+        the hours are israel time!!
+      </div>
+    </div> -->
+
+    <!-- works for iL time -->
+    <!-- <option *ngFor="let time of localAvailableTime" 
+    [ngValue]="time.AvailTime">{{ time.AvailTime | date:'shortTime' }}(Israel time)</option>
+   -->
+
+
+
+    <!-- del for zoom -->
+    <!-- Number of adults -->
+    <!-- <div class="row">
+      <div class="col col-sm-6">
+        <div class="form-group">
+
+          <label for="adultNum" style="font-size: .7rem;">{{ 'CHOOSE-TIME.adults' | translate }}</label>
+          <input type="number" class="form-control pplNum" id="adultNum" name="numberOfAdults" placeholder=""
+            maxlength="3" [(ngModel)]="adultNum" required>
+          <span class="invalid-input" *ngIf="invalidPpl">One adualt must be chosen</span>
+        </div>
+      </div> -->
+
+    <!-- Number of Children -->
+    <!-- (Under 18) -->
+
+    <!-- <div class="col col-sm-6">
+        <div class="form-group">
+          <label for="childrenNum" style="font-size: .7rem;">{{ 'CHOOSE-TIME.kids' | translate }}
+            <span class="under-18" style="font-size: .5rem;"> {{ 'CHOOSE-TIME.under18' | translate }}</span></label>
+          <input type="number" class="form-control pplNum" id="childrenNum" name="numberOfChildren" placeholder=""
+            maxlength="3" [(ngModel)]="childrenNum">
+        </div>
+      </div>
+    </div> -->
+
+    <!-- NEXT -->
+    <div class="next-btn">
+      <!-- <div class="form-group"> -->
+      <button type="submit" class="btn btn-block btn-success">{{ 'NEXT-BUTTON' | translate }}</button>
+      <!-- </div> -->
+    </div>
+    <!-- {{ 'NEXT-BUTTON' | translate }} -->
+
+  </form>
+
+</div>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#87bb40" type="ball-scale-multiple">
+</ngx-spinner>
+
+<jw-modal id="date-modal">
+  <!-- <hr> -->
+  <h5 style="text-align: center;">{{ 'CHOOSE-TIME.be-aware' | translate }}</h5>
+  <div class="dateMsg">{{ localTime | date:'short' }} 
+    <br>
+    {{ localZone }} time!</div>
+  <!-- <hr> -->
+  <h5 style="text-align: center;">{{ 'CHOOSE-TIME.be-aware2' | translate }}</h5>
+  <div class="dateMsg"> {{ israelTime | date:'short' }}</div>
+  <hr>
+  <button (click)="closeModal('date-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+  <!-- <button (click)="closeModal('date-modal');" class="btn btn-primary popup-ok-btn">Change the time</button> -->
+</jw-modal>
+
+<jw-modal id="error-modal" style="display:none">
+  <!-- <h4>kkl alert</h4>
+    <hr> -->
+  <div class="errorMsg">{{errMsg}}</div>
+  <hr>
+  <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+</jw-modal>

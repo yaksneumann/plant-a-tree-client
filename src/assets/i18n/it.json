@@ -1,0 +1,89 @@
+{
+  "HOME-PAGE": {
+    "select": "language",
+    "button":  "Schedule your tree planting",
+    "xl-title": "Plant a tree in Israel",
+    "xl-title2": "with your own hands!",
+    "md-title": "Traveling in Israel?",
+    "md-title2": "Do something different!",
+    "md-title3": "Plant a Tree and help a forest grow in Israel.",
+    "verse-para":  "When you come into the Land, and plant all kinds of trees…",
+    "about-kkl":  "KKL-JNF invites you to a unique, meaningful Israeli experience. Perfect for commemorating a special event or a loved one. Feel the land and plant roots – creating a better, greener tomorrow. Planting a tree is a unique opportunity to come face to face with the Land of Israel and connect to the soil through your hands. We have two beautiful planting centers: Tzor’a Forest, located in the center of the country, and Golani Junction in the north. You will also receive a beautiful certificate as a memento.",
+    "Testimonials":  "Testimonials",
+    "Testimonial1":  "I felt connected on a deeper level",
+    "Testimonial2":  "Planting a tree is so symbolic of the continuity of life and future of Israel",
+    "Testimonial3":  "This creates a connection with Israel and is a way of leaving a part of us here",
+    "Testimonial4":  "Planting a tree in Israel thrills me every time",
+    "button2":  "Roll up your sleeves and get your hands dirty" 
+  },
+  "CHOOSE-AREA": {    
+    "michal-hello": "Shalom, I'm Michal.",
+    "michal-intro": "Director of the tree planting department.",
+    "michal-choose": "Please choose your preferred tree planting center.",
+    "golani-forester": "Hi, I am the forest ranger David,",
+    "golani-about": "our planting center is located by the Gloani junction, a short drive from Tiberias, Haifa and Nazareth.",
+    "tzora-forester": "Hi, I am the forest ranger Eran,",
+    "tzora-about": "our planting center is located in the Judean foothills between Jerusalem and Tel-Aviv.",
+    "next-button": "NEXT"    
+  },
+  "CHOOSE-TIME": {
+    "title": "When would you like to plant?",
+    "date": "Choose a date.",
+    "time": "Choose a time.",
+    "adults": "Number of adults",
+    "kids": "Number of Children",
+    "under18": "Under 18"            
+  },
+  "CHOOSE-PLANTS": {
+    "title": "How many trees",
+    "title2": "do you wish to plant?",
+    "tree": "Tree",
+    "total": "TOTAL DONATION",
+    "under18": "Under 18"
+  },
+  "DONORS-DETAILS": {
+    "title": "Your Information",
+    "optional": "Optional",
+    "fName": "Firstst Name.",
+    "lName": "Last Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "country": "Country",
+    "select-country": "Select Country",
+    "phone-il": "Israeli Phone"
+  },
+  "DONATION-DETAILS": {
+    "title": "DONATION DETAILS",
+    "total": "TOTAL DONATION",
+    "pay": "PAY NOW"
+  },
+  "MORE-ITEMS": {
+    "title": "You might be interested...",
+    "cap": "KKL-JNF Cap",
+    "box": "Blue Box",
+    "total": "Total",
+    "under18": "Under 18"
+  },
+  "PAYMENT-SUCCESSFUL": {
+    "thanks": "Thank you ",
+    "thanks2": "for your contribution to Israel's and the world's ecology.",
+    "reservation": "Your reservation for the tree planting is confirmed.",
+    "reference": "Your reference number is ",
+    "reference2": "Please check your email for updates.",
+    "manage": "Manage your reservation here",
+    "partners": "Your partners at KKL-JNF",
+    "department": "Plant A Tree Department",
+    "share": "Share with your friends",
+    "seeYou": "See you soon!"    
+  },
+  "CEREMONY-DETAILS": {
+    "welcome": "Welcome ",
+    "h5": "we look foward seeing you at",
+    "contact": "Contact forest ranger",
+    "or": "Or",
+    "contact-office": "contact our office",
+    "way": "Find your way to our planting center"
+  },
+  "NEXT-BUTTON": "NEXT",
+  "BACK-BUTTON": "BACK"
+}

@@ -1,0 +1,32 @@
+ .greenbold{
+    color: #1F701F;
+    font-weight: 900;
+    font-size: 4vw;
+ }
+
+ .padtop{
+     padding-top: 15%;
+ }
+ .fontlite{
+     font-weight: 100;
+     font-size: 4vw;
+ }
+ .witheback{ 
+    background-color: white;
+    min-height: 5vh;
+    border-radius: 30px; 
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+ }
+ .padt5p{
+     padding-top: 5%;
+ }
+
+ .padb7p{
+     padding-bottom:7% ;
+ }
+
+ .padb4p{
+    padding-bottom:4% ;
+}

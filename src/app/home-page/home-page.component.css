@@ -1,0 +1,212 @@
+ .planting-img{
+     background-image: url(../../assets/img/NewV2/Biriya_Forest.png) ;
+     background-size: 100%;
+     background-repeat: no-repeat;
+     background-position: center; 
+     margin-top: -22%;
+     height: auto; 
+ }
+
+ .contertext{
+     color: white; 
+     padding-top: 75%; 
+ }
+
+ .about-kkl-jnf1{ 
+    font-size: 1.5em;
+    
+ } 
+ .about-kkl-jnf2{
+    font-size: 1.2em;
+ }
+
+.btn-to-donate {
+    margin-top: 80%;
+}
+.LifeText{
+     color: #926427;  
+     font-size: 0.9em;
+}
+.scrolldiv{
+    padding-bottom: 3%;
+}
+.HappyFamally{
+    z-index: -1;
+}
+.peoplecounter{
+    z-index: 200;
+    margin-top: -10%;
+    background: white;
+    border-radius: 50px;
+}
+
+.Peoplepaymentcounter{ 
+    padding-top: 5%;
+    padding-bottom: 2%;
+    font-size: 2.3em;
+}
+  
+ .greencolortext{
+    color: #1F701F;
+ }
+ .pepoleimgDiv{
+     margin-top: 2%;
+ }
+.peopletxt{
+    text-align:left;
+}
+ 
+ .donatebut{
+    background: linear-gradient(to left, #628CD5, #94B9F1); 
+    border-radius: 50px;
+    padding-bottom: 3%;
+    color: white;
+    min-height: 41px;
+    font-size: 1em;
+    padding-top: 3%;
+   
+    }
+
+.margtm2p{
+    margin-top: -2%;
+}
+ .pepoleimg{
+    border-radius: 50%;
+    width: 70%;
+ }
+ 
+ .nbsp {
+    font-family: Times New Roman, Bold;
+    font-size: 3em;
+    line-height: 40px;
+    padding-top: 15%;
+ }
+ 
+ .treeimg{
+    position: absolute;
+    top: -200%;
+    right: 40%; 
+ }
+
+ .TreeImg{
+    width: 130%;
+ }
+ 
+ .greencoolr{
+     background-color: #90C493;
+ }
+.botdonatebtn{
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+ .footerbutons{
+    padding-bottom: 3%;
+   
+    margin: auto;
+ }
+ .withetext{
+     color: white;
+     opacity: 0.8; 
+ }
+ 
+ .footerbutton:focus, .footerbutton:hover{
+    font-weight: bold; 
+    opacity: 1;
+} 
+
+ /* Mobile CSS */
+ @media (min-width:280px) and (max-width: 300px)  {
+   
+    .fontsttyle{
+        font-size: 0.6em;
+    } 
+}
+ @media (min-width:320px) and (max-width: 374px)  {
+   
+    .fontsttyle{
+        font-size: 0.8em;
+    } 
+}
+@media (min-width:375px) and (max-width: 380px)  {
+   
+    .fontsttyle{
+        font-size: 0.9em;
+    } 
+}
+
+ @media (min-width:480px) and (max-width: 500px)  {
+   
+    .btn-to-donate {
+        margin-top: 88%;
+    }  
+}
+@media (min-width:540px) and (max-width: 600px)  {
+   
+    .fontsttyle{
+        font-size: 1.4em;
+    }  
+}
+
+
+
+@media (min-width: 639px) and (max-width: 719px)  {
+    .fontsttyle{
+        font-size: 1.7em;
+    }
+}
+
+@media (min-width: 1280px) and  (max-width: 1367px)  {
+    .peoplecounter{
+        border-radius: 100px;
+    }
+    .treeimg{
+        top: -210%;
+        right: 26%;
+        zoom: 3;
+    }
+     
+    .btn-to-donate {
+        margin-top: 80%;
+    }
+    .peopletxt{
+        font-size: 3vw;
+    }   
+}
+
+ 
+@media (min-width:720px) and (max-width: 880px)  {
+   
+    .fontsttyle{
+         font-size: 2em;
+     }
+     .scroller{
+         zoom: 2;
+     }
+}
+@media (min-width:1024px) and (max-width: 1110px)  {
+   
+    .fontsttyle{
+         font-size: 2.9em;
+     }
+     .scroller{
+        zoom: 2;
+    }
+}
+@media (min-width:1366px)  {
+   
+    .fontsttyle{
+         font-size: 2em;
+     }
+     .scroller{
+        zoom: 2;
+    }
+    .donatebut{
+         border-radius: 100px;  
+        } 
+}
+ 
+@media (min-height:1025px){
+    .fontsttyle{
+        font-size: 1.3em !important;
+    }
+}

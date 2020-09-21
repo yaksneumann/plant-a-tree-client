@@ -1,0 +1,170 @@
+ 
+<div class="col-12 pad0 backgroundmobileimg"> 
+<div class="row col-12 pages-menu margbut0 padl10p"> 
+  <div class="col-2 pad0"> </div>
+  <div class="col-2 pad0">
+    <div class="row">
+      <div class="col-6 pad"><div class="btnmenu " routerLink="/choose-orderplants"><div>&#10003;</div></div></div>
+      <div class="col6 hrdiv"><hr class="menuline"/></div>
+    </div>  
+  </div>
+  <div class="col-2 pad0">
+    <div class="row">
+      <div class="col-6 pad"><div class="btnmenu  " routerLink="/donors-details"><div>&#10003;</div></div></div>
+      <div class="col6 hrdiv"><hr class="menuline"/></div>
+    </div>  
+  </div>
+  <div class="col-2 pad0">
+    <div class="row">
+      <div class="col-6 pad"><div class="btnmenu  selectedmenu"></div></div>
+      <div class="col6 hrdiv"><hr class="menuline"/></div>
+    </div>  
+  </div>
+  <div class="col-2 pad0">
+    <div class="row">
+      <div class="col-6 pad"><div class="btnmenu  "></div></div>
+      <div class="col6  "> </div>
+    </div>  
+  </div>
+</div>
+
+<div class="row padt3p ">
+  <div class="col-2 pad0"> </div>
+ <div class="col-8 pad0">
+   <hr class="marg0"/>
+</div>
+  <div class="col-2 pad0"></div>
+</div>
+
+
+<h6 class="rgl-title fslarge fontbolder">
+  {{ 'CIRTIFICATE.title' | translate }}
+   <br>
+   {{ 'CIRTIFICATE.title2' | translate }}
+</h6>
+ 
+<div class="row col-12 pad0">
+  <div class="col-1 pad0"></div>
+  <div class="col-10 pad0">
+   <div class="small-text fontLite">
+         {{ 'CIRTIFICATE.certificate' | translate }}
+       </div>
+  </div>
+  <div class="col-1 pad0"></div>
+</div>
+
+<div class="row col-12 pad0 marg0 certificateText1">
+  <div class="col-1 pad0"></div>
+  <div class="col-10 pad0 certificateText0"> 
+      <textarea class="certificateText col-10 pad0" id="certificateText" name="certificateText"
+      rows="5" cols="40" maxlength="260"  cols="6" rows="5"
+      [(ngModel)]="certificateText" (change)="onTextChange()" ></textarea> 
+      <div class="counttext">{{counttext}}/260</div>
+  </div>
+  <div class="col-1 pad0"></div>
+</div>
+
+<div class="container main certificate-con">
+  <div class="form-group">  
+ </div>
+<div class="row">
+<div class="col-1 pad0"></div>
+<div class="col-10 pad0">
+  <div class="personalcertificate">
+    <button type="button" class="btn btn-link btn-block personalcertificatebtn" (click)="viewCertificatePdf()" style="margin: 10px 0 7px 0;">
+    <u class="cerficbut">{{ 'CIRTIFICATE.personalcertificate' | translate }}</u>
+    </button>
+  </div>
+</div>
+<div class="col-1 pad0"></div>
+</div>
+  
+<footer class="footer-distributed col-12">
+  <div class="col-12  ">
+     <div class="row  ">
+  <div class="col-3 pad0">
+  </div>
+   <div class="col-6 pad0">
+    <button type="submit" class="submitbut col-12 "  (click)="onNextBtn()"> 
+      <div class="nexttext fontsxxlarge">
+         {{ 'NEXT-BUTTON' | translate }}
+       </div>
+   </button> 
+     
+  </div>
+  <div class="col-3 pad0"></div>
+     </div> 
+  </div> 
+</footer>
+
+<ngx-spinner bdColor="rgba(255,255,255,0.8)" size="medium" color="#926427" type="ball-scale-multiple">
+</ngx-spinner>
+
+
+  
+<jw-modal id="error-modal" style="display:none">
+  <!-- <h4>kkl alert</h4>
+<hr> -->
+  <div class="errorMsg">{{errMsg}}</div>
+  <hr>
+  <button (click)="closeModal('error-modal', 'no');" style="margin:0px 0 0 0;"
+  class="btn popup-ok-btn">{{ 'go-back' | translate }}</button>
+  <button (click)="closeModal('error-modal', 'yes');"style="margin:0px 0 0 0;float: right;"
+   class="btn popup-ok-btn">{{ 'yes-sure' | translate }}</button> 
+</jw-modal>
+
+
+<jw-modal id="certificate-modal" class="Certificatepopup" style="display:none;">
+<div class="certificate-img">
+  <div width="280" height="90" class="canvas">
+      <div class="col-12 pad0">
+        <div class="row">
+          <div class="col-3"> </div>
+          <div class="col-6 pad0 centertext">
+          <div class="ModalTitle certiftext ">  {{"certificate" | translate}}</div>  
+          <hr class="certifhr"/>
+          <div class="cirtifimg">
+            <img src="./assets/img/NewV2/trees_img.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+          </div>
+
+          </div> 
+          <div class="col-3"> </div>
+        </div>
+
+        <div class="row">
+          <div class="col-1 pad0"></div>
+          <div class="col-10 pad0">
+              <div class="centertext fslarge certiftext"> {{"certificateText" | translate}}</div>
+              <div class="centertext fslarge certiftext" > {{"certificateText2" | translate}}</div>
+<div class=" pad5p">
+  <div>
+    <button (click)="CertifYes('certificate-modal', 'no');" style="margin:0px 0 0 0;"
+    class="btn divbtnYes certiftext col-12 pad0 centertext popup-ok-btn">{{ 'yes_I_Want' | translate }}</button>
+  </div> 
+</div>
+
+<div class="pad5p padb8p">
+  <div>
+    <button (click)="CertifWant('certificate-modal', 'no');" style="margin:0px 0 0 0;"
+    class="btn certiftext divbtnWant col-12 pad0 centertext popup-ok-btn">{{ 'BlabkCertificate' | translate }}</button>
+  </div> 
+</div>
+          </div> 
+          <div class="col-1 pad0"></div>
+        </div> 
+      </div> 
+   </div> 
+</div>
+  
+</jw-modal>
+
+
+<jw-modal id="certificate-modal2" style="display:none;">
+  <div class="certificate-img2">
+    <div width="280" height="90" class="canvas2">
+      {{certificateText}}
+     </div> 
+  </div>
+    <button (click)="closeModal('certificate-modal2', 'no');"
+    class="btn btn-primary popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button> 
+  </jw-modal>
