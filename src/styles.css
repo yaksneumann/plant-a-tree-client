@@ -494,7 +494,7 @@ input:-internal-autofill-selected {
         position: static !important;
     }
  }
- @media (min-height: 1024px){
+ @media (min-height: 812px){
      
     footer{
         padding-top: 10%;

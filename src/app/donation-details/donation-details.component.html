@@ -112,7 +112,7 @@
   <div class="col-7 pad0">
     <div *ngIf="cirtificate" >
       <div class="row marg0">
-        <div class="col-3 pad0">
+        <div class="col-3 logzoom">
           <img src="./assets/img/trees_img.png" alt="" class="log60">
         </div>
         <div class="col-9 margtop5p padr0">
@@ -191,7 +191,7 @@
 </div>
 
 <footer class="footer-distributed col-12">
-  <div class="col-12  "> 
+  <div class="col-12"> 
        <button type="submit" class="submitbut col-7 "  [ngStyle]="headingCss" [disabled]=disableds   (click)="onPayNow()"> 
         <div class="nexttext " [ngStyle]="headingCss">
           {{ 'DONATION-DETAILS.pay' | translate }}

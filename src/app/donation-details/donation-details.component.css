@@ -89,9 +89,7 @@ ngb-datepicker{
 }
 .padr0{
     padding-right: 0;
-}
-
- 
+} 
  .fontsizedatetime{
      font-size: 0.9em;
  }
@@ -104,25 +102,39 @@ ngb-datepicker{
     background: none;
     color:white;
  }
+ footer{
+    padding-top: 10% !important;
+    position: static !important;
+}
+.logzoom{
+    zoom: 0.1;
+}
 
 @media (min-width: 640px)    {
     .padl2p{
         padding: 0;
     }
-    .log60{
+ /*   .log60{
         zoom: 2;
-    }
+    } */
     .submitbut {
         zoom: 2;
     }
 }
-@media (min-width: 280px) and (max-width: 350px)    {
-    
+@media (min-width: 280px) and (max-width: 318px)    {
     .pagefont{
-        font-size: 0.7em;
+        font-size: 0.7em !important;
     }
     .nexttext {
         font-size: 1.5em;
+    }
+ }
+ @media (min-width: 320px) and (max-width: 374px)    {
+    .pagefont{
+        font-size: 0.7em !important;
+    }
+    .nexttext {
+        font-size: 1.5em !important;
     }
  }
  @media (min-width: 375px) and (max-width: 410px)    {
@@ -133,6 +145,7 @@ ngb-datepicker{
     .nexttext {
         font-size: 1.5em !important;
     }
+    
  }
  @media (min-width: 411px) and (max-width: 500px)    {
     
@@ -140,6 +153,14 @@ ngb-datepicker{
         font-size: 1em !important;
     }
      
+ }
+ @media (min-width: 760px) and (max-width: 810px)    {
+    .pagefont{
+        font-size: 2em !important;
+    }
+    .nexttext {
+        font-size: 0.6em !important;
+    }
  }
 @media (min-width: 812px) and (max-width: 900px)    {
    .pagefont{
@@ -167,16 +188,16 @@ ngb-datepicker{
     .pagefont{
         font-size: 1em;
     }
-    .log60 {
+    /*.log60 {
         zoom: 1.5;
-    }
+    }  */
 }
 @media screen and (min-device-width:900px), screen and (max-width:1367px) {
-    .log60{
+    /* .log60{
         zoom: 1.9;
-    }
+    } 
     .pagefont{
         font-size: 1.4em;
-    }
+    }*/
 }
  

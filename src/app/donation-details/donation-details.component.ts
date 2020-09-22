@@ -162,6 +162,7 @@ Submmitbut(){
     this.totalSum = trees + caps + boxes;
   }
 
+  /*
   onDateChange(event: any, datePicker: any) {
     this.localAvailableTime = [];
     this.israelAvailableTime = [];
@@ -227,6 +228,7 @@ Submmitbut(){
  
     this.openModal('date-modal'); 
   }
+*/
 
   onPayNow() {
     console.log("onPayNow pressed");

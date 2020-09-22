@@ -18,10 +18,11 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
   constructor(private api: ApiService, private router: Router, private modalService: ModalService, private spinner: NgxSpinnerService) { }
    
-  chooseGolani: boolean = false;
+   
   errMsg: string = ''; 
+  chooseGolani: boolean = false;
   chooseTzora: boolean = true;
-  plantingCenter: any = 35;
+  plantingCenter: any = 35; 
   amountOfTrees: number;
   totalAmount: number = 18;
   treePrice: number = 18;
@@ -53,11 +54,11 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+   
     $(".kkl-icon1").css("width","45%");
     $(".kkl-icon2").css("width","25%");
 
-    localStorage.setItem("plantingCenter", this.plantingCenter);
+  
     this.amountOfTrees = 1;
     this.localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -93,19 +94,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
       });
   }
 
-  ngAfterViewInit() {
-    this.onChooseTzora();
-  }
-
-  onChooseGolani() {
-    this.errMsg = 'For planting via ZOOM only Tzora forest is available.';
-    this.openModal('error-modal');
-    // console.log("onChooseGolani pressed ");
-    // this.chooseGolani = true;
-    // this.chooseTzora = false;
-    // this.plantingCenter = 11;
-  }
-
+   
+ 
   onPlusBtn() {
     console.log("onPlusBtn: ");
     this.amountOfTrees = this.amountOfTrees + 1;
@@ -159,7 +149,9 @@ export class ChooseOrderPlantsComponent implements OnInit {
    this.israelAvailableTime = [];
 
     this.invalidDate = false;
-      
+    //localStorage.setItem("plantingCenter", '35');
+
+    localStorage.setItem("plantingCenter", JSON.stringify(35));
     datePicker.close(); 
     this.spinner.show(); 
    // console.log("Event "+{event} );
@@ -192,8 +184,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
         console.log("Error GetAvailableTimes " +{ error });
          this.openModal('error-modal');
       });
-    
-
+     
     //yak del 31-5-20 -- seems extra, since we only show him dates that are available
     this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
       if (data) {
@@ -251,10 +242,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
     localStorage.setItem('setTime', JSON.stringify(this.israelTime));
     this.LocalDatediv = true;
-    
-     // this.openModal('date-modal');
-
- 
+     
   }
   
 
@@ -262,9 +250,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     console.log(form);
     let date = form.value.date || '';
     let time =form.value.time || '';
-    let ceremonyDateAndHour = this.israelTime;
-    //let ceremonyDateAndHour = form.value.time || '';
-    // let numberOfAdults = form.value.numberOfAdults || 0;
+    let ceremonyDateAndHour = this.israelTime; 
     let numberOfAdults = 1;
     let numberOfChildren = form.value.numberOfChildren || 0;
 
@@ -323,14 +309,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
 
-  onChooseTzora() {
-    this.errMsg = '';
-    console.log("onChooseTzora pressed ");
-    this.chooseTzora = true;
-    this.chooseGolani = false;
-    this.plantingCenter = 35;
-  }
-
+  
   onChooseNext() {
     if (this.chooseTzora || this.chooseGolani) {
       localStorage.setItem("plantingCenter", this.plantingCenter)

@@ -76,7 +76,8 @@ export class ApiService implements OnInit {
   }
 
   GetAvailableTimes(area: any, CeremonyDate: any) {
-    let plantingCenter = localStorage.getItem("plantingCenter");
+    let plantingCenter = localStorage.getItem("plantingCenter") || '35';
+    console.log("plantingCenter : " +plantingCenter);
     const headers = new HttpHeaders().set('kkl-agent', '1')
       .set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*');
 
