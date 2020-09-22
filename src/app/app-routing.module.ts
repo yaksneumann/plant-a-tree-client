@@ -13,10 +13,11 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CeremonyDetailsComponent } from './ceremony-details/ceremony-details.component';
 import { DestinationComponent } from './destination/destination.component';
 import { CirtificateComponent } from './cirtificate/cirtificate.component';
+import { TestPageComponent } from './test-page/test-page.component';
+
 
 //Added by Moshe
 import { ChooseOrderPlantsComponent } from './choose-orderplants/choose-orderplants.component';
-import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 //import { ZoomComponent } from './zoom/zoom.component';
 
@@ -38,8 +39,7 @@ const routes: Routes = [
     { path: 'cirtificate', component:  CirtificateComponent },
    // { path: 'zoom', component:  ZoomComponent},
 
-    // { path: 'dude', component:  TestPageComponent },
-    { path: 'treasure-hunt', component:  TreasureHuntComponent},
+   { path: 'dude', component:  TestPageComponent },
     { path: 'contact-us', component:  ContactUsComponent},
     
     { path: '**', redirectTo: '' }

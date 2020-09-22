@@ -28,7 +28,6 @@ import { CeremonyDetailsComponent } from './ceremony-details/ceremony-details.co
 import { TestPageComponent } from './test-page/test-page.component';
 import { DestinationComponent } from './destination/destination.component';
 import { CirtificateComponent } from './cirtificate/cirtificate.component';
-import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 import { ZoomComponent } from './zoom/zoom.component';
 //import { routing } from './app-routing.module';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -63,7 +62,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TestPageComponent,
     DestinationComponent,
     CirtificateComponent,
-    TreasureHuntComponent,
     ZoomComponent,
     ContactUsComponent
   ],
