@@ -97,7 +97,7 @@
               "src/styles.css"
             ],
             "scripts": [
-            "./node_modules/jquery/dist/jquery.min.js"
+              "./node_modules/jquery/dist/jquery.min.js"
             ]
           }
         },
@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "plant-a-tree"
+    }
+  },
+  "defaultProject": "plant-a-tree",
+  "cli": {
+    "analytics": false
+  }
 }

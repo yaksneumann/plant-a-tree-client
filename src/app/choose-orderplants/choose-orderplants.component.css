@@ -47,7 +47,8 @@
   }
 
   .treecount{
-      font-size: 1em;
+    font-size: 1.4em;
+   /*   font-size: 1em; */
       margin-top: -2%;
   }
   .countprice{
