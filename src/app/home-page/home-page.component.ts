@@ -10,7 +10,7 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
 
   constructor(private modalService: ModalService) {}
 
-  public edited = false;
+  public edited = true;
   public Footerfull = false;
   ngOnInit() { 
     

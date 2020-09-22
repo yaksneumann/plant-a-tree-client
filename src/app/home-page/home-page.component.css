@@ -1,5 +1,6 @@
  .planting-img{
-     background-image: url(/PlantaTreeInIsrael/Biriya_Forest.png) ;
+     background-image: url(../../assets/img/Biriya_Forest.png) ;
+
      background-size: 100%;
      background-repeat: no-repeat;
      background-position: center; 
