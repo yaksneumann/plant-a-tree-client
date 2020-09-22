@@ -112,17 +112,11 @@ export class CirtificateComponent implements OnInit {
     if (this.certificateText == '') {
       this.errMsg = 'are you sure that you want to recieve a general certificate?';
       this.openModal('error-modal');
-    }
-
-    //this.router.navigate(['donation-details']);
+    } 
   }
 
 
-  onNextBtn() {
-    // if (this.certificateText == '') {
-    //   this.errMsg = 'are you sure?';
-    //   this.openModal('error-modal');
-    // } 
+  onNextBtn() { 
       localStorage.setItem("certificateText", this.certificateText); 
       this.router.navigate(['donation-details']);
   }
