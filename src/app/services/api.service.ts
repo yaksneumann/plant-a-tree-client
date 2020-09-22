@@ -136,7 +136,10 @@ export class ApiService implements OnInit {
       "israeliPhone": donersDetailsObj.israeliPhone,
       "DonorTitle": donersDetailsObj.donorsTitle,
       "blueBoxes": blueBoxes,
-      "CertificateText": text
+      "CertificateText": text,
+      "acceptEmail": acceptEmail
+
+      
 
       //,"zoomEvent": 1 for zoom, 1 = zoom 0=no zoom, 2=maybe
     }

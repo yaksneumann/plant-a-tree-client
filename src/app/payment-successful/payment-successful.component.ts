@@ -139,21 +139,31 @@ export class PaymentSuccessfulComponent implements OnInit {
   // }
 
   shareViaWhatsapp() {
-    window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A https://apis.kkl.org.il/PlantaTreeInIsrael/index.html");
+    window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A https://apis.kkl.org.il/PlantaTreeInIsrael/");
     // window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Findex.html");
+  }
+
+  shareViaTwit() {
+    window.open("https://twitter.com/intent/tweet");
   }
 
   shareViaEmail() {
     //window.open("mailto:whywhyn@gmail.com?subject=Yay, I just donated money. Its fun");
-    window.open("mailto:?subject=plant a tree in Israel&body=Hi, %0A I just donated money to plant a tree. You should check this out %0A https://apis.kkl.org.il/PlantaTreeInIsrael/index.html");
+    window.open("mailto:?subject=plant a tree in Israel&body=Hi, %0A I just donated money to plant a tree. You should check this out %0A https://apis.kkl.org.il/PlantaTreeInIsrael/");
   }
+ 
+   shareViaInstagram() {
+    window.open("https://www.instagram.com/?url=https://apis.kkl.org.il/PlantaTreeInIsrael/");
+     //window.open("https://www.instagram.com/kkl_jnf/");
+   }
 
-  // shareViaFacebook() {
-  //   window.open("https://www.facebook.com/sharer.php?u=https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Fhome-page");
-  //   //https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Fhome-page
-  //   //window.open('whywhyn@gmail.com');
 
-  // }
+  shareViaFacebook() {
+    window.open("https://www.facebook.com/sharer.php?u=https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael/");
+    //https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Fhome-page
+    //window.open('whywhyn@gmail.com');
+
+  }
 
   openModal(id: string) {
     this.modalService.open(id);

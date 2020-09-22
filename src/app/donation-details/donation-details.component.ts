@@ -1,13 +1,13 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ModalService } from '../services/modal.service';
 
-import { NgForm } from '@angular/forms'; 
+import { NgForm } from '@angular/forms';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AvailableDate } from '../models/availableDates.model';
-import { NgxSpinnerService } from "ngx-spinner"; 
-  
+import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-donation-details',
   templateUrl: './donation-details.component.html',
@@ -15,7 +15,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class DonationDetailsComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router, private modalService: ModalService,private spinner: NgxSpinnerService) { }
+  constructor(private api: ApiService, private router: Router, private modalService: ModalService, private spinner: NgxSpinnerService) { }
 
   choseCaps = false;
   amountOfTrees: number;
@@ -35,7 +35,7 @@ export class DonationDetailsComponent implements OnInit {
 
   availableDates: Array<AvailableDate>;
   minDate: NgbDate;
-  maxDate: NgbDate; 
+  maxDate: NgbDate;
   dateId: any = '';
   israelAvailableTime: Array<any> = [];
   localAvailableTime: Array<any> = [];
@@ -44,118 +44,119 @@ export class DonationDetailsComponent implements OnInit {
   invalidDate: boolean = false;
   invalidTime: boolean = false;
   itemAvailTime: any;
-  DateVal:any;
+  DateVal: any;
   nocirtificate: string;
   public cirtificate = false;
-   id: string;
+  id: string;
   radioId: string;
   headingCss = {
-    opacity: '0.5' 
+    opacity: '0.5'
   };
   disableds: string = "true";
-  quest1:number=0;
-  quest2:number=1;
+  quest1: number = 0;
+  quest2: number = 1;
   LocalDate: string;
   LocalTime: string;
-  Radionbut:string = "./assets/img/EmtyRadion.svg";
-  RadionbutYes:string = "./assets/img/EmtyRadion.svg";
-  RadionbutNo:string = "./assets/img/FullRadion.svg"; 
+  Radionbut: string = "./assets/img/EmtyRadion.svg";
+  RadionbutYes: string = "./assets/img/EmtyRadion.svg";
+  RadionbutNo: string = "./assets/img/FullRadion.svg";
   acceptEmail: boolean = false;
-  certificateText:string;
+  certificateText: string;
 
   ngOnInit() {
- 
+
     this.amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees")) || 0;
     this.countryName = JSON.parse(localStorage.getItem("countryName")) || '';
-  
-    this.itemAvailTime =  new Date(JSON.parse(localStorage.getItem("DateVal"))).getTime(); 
-    
-     this.certificateText = (localStorage.getItem("certificateText")) || '';
-     
-   //console.log("itemAvailTime :" + this.itemAvailTime );
-     
-    this.nocirtificate = JSON.parse(localStorage.getItem("nocirtificate")) || 'false';
-   // console.log("nocirtificate :" + this.nocirtificate );
-   if (this.nocirtificate == "false"){
-     this.cirtificate = true;
-   }
 
-   this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
-   this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
-   
+    this.itemAvailTime = new Date(JSON.parse(localStorage.getItem("DateVal"))).getTime();
+
+    this.certificateText = (localStorage.getItem("certificateText")) || '';
+
+    //console.log("itemAvailTime :" + this.itemAvailTime );
+
+    this.nocirtificate = JSON.parse(localStorage.getItem("nocirtificate")) || 'false';
+    // console.log("nocirtificate :" + this.nocirtificate );
+    if (this.nocirtificate == "false") {
+      this.cirtificate = true;
+    }
+
+    this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
+    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
+
 
     //this.reactiveForm.get("Date").setValue("1");
-    
+
     this.amountOfCaps = JSON.parse(localStorage.getItem("amountOfCaps")) || 0;
     this.treePrice = JSON.parse(localStorage.getItem("treePrice")) || 18;
     this.capPrice = JSON.parse(localStorage.getItem("capPrice")) || 6;
     this.amountOfBoxes = JSON.parse(localStorage.getItem("amountOfBoxes")) || 0;
     let donersDetailsObj = JSON.parse(localStorage.getItem("donersDetailsObj")) || {};
     console.log(donersDetailsObj);
-    if (Object.keys(donersDetailsObj).length > 0) { 
-       console.log(this.countryName);
+    if (Object.keys(donersDetailsObj).length > 0) {
+      console.log(this.countryName);
     }
 
     if (this.amountOfCaps > 0) {
-      this.choseCaps = true;  
+      this.choseCaps = true;
     }
     if (this.amountOfBoxes > 0) {
-      this.choseBox = true;  
+      this.choseBox = true;
     }
 
     this.treeSum = this.amountOfTrees * this.treePrice;
     this.capSum = this.amountOfCaps * this.capPrice;
     this.boxSum = this.amountOfBoxes * 10;
 
-    this.calculateSum(this.treeSum, this.capSum,  this.boxSum);
+    this.calculateSum(this.treeSum, this.capSum, this.boxSum);
 
     localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
 
-    this.spinner.show();
-    this.api.getAllDates().subscribe((availableDates: Array<AvailableDate>) => {
-      this.spinner.hide();
-      if (availableDates) {
-        this.availableDates = availableDates;  
-        this.minDate = this.availableDates[0].date;
-        this.maxDate = this.availableDates[this.availableDates.length - 1].date;
-      }
-    },
-      error => {
-        this.spinner.hide();
-        console.log({ error });
-        this.errMsg = error.message;
-        if (error.statusText == "Unknown Error") {
-          this.errMsg = 'Sorry, there is some connection problem, please try again';
-        }
-        this.openModal('error-modal');
-      }); 
-     
+    // this.spinner.show();
+    // this.api.getAllDates().subscribe((availableDates: Array<AvailableDate>) => {
+    //   this.spinner.hide();
+    //   if (availableDates) {
+    //     this.availableDates = availableDates;
+    //     this.minDate = this.availableDates[0].date;
+    //     this.maxDate = this.availableDates[this.availableDates.length - 1].date;
+    //   }
+    // },
+    //   error => {
+    //     this.spinner.hide();
+    //     console.log({ error });
+    //     this.errMsg = error.message;
+    //     if (error.statusText == "Unknown Error") {
+    //       this.errMsg = 'Sorry, there is some connection problem, please try again';
+    //     }
+    //     this.openModal('error-modal');
+    //   });
+
   }
 
   // Yes No Func
-  onAcceptEmail(acceptEmail: boolean){
-    if (acceptEmail){
+  onAcceptEmail(acceptEmail: boolean) {
+    this.acceptEmail = acceptEmail;
+    if (acceptEmail) {
       this.RadionbutYes = "./assets/img/FullRadion.svg";
-      this.RadionbutNo = "./assets/img/EmtyRadion.svg"; 
+      this.RadionbutNo = "./assets/img/EmtyRadion.svg";
     }
-    else{
-      this.RadionbutYes = "./assets/img/EmtyRadion.svg"; 
+    else {
+      this.RadionbutYes = "./assets/img/EmtyRadion.svg";
       this.RadionbutNo = "./assets/img/FullRadion.svg";
     }
   }
- 
- 
-// Submit func
-Submmitbut(){
-  this.Radionbut ="./assets/img/FullRadion.svg";
-  this.quest1 = 1; 
-   
+
+
+  // Submit func
+  Submmitbut() {
+    this.Radionbut = "./assets/img/FullRadion.svg";
+    this.quest1 = 1;
+
     this.headingCss = {
-      opacity: '1' 
+      opacity: '1'
     };
     this.disableds = "";
-  
-}
+
+  }
 
   calculateSum(trees: number, caps: number, boxes: number) {
     console.log("calculate totalSum");
@@ -237,9 +238,9 @@ Submmitbut(){
     localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
 
     this.api.OpenPlantEvent(this.acceptEmail).subscribe((data: any) => {
-      if (data) {       
+      if (data) {
         console.log({ data });
-        this.ceremonyID = data[0].CeremonyID;       
+        this.ceremonyID = data[0].CeremonyID;
 
         if (data[0].CeremonyID < 1) {
           this.errMsg = data.RetErr;
@@ -247,8 +248,8 @@ Submmitbut(){
           return false;
         }
         localStorage.setItem("ceremonyID", JSON.stringify(this.ceremonyID));
-         //new 5-3-2020
-         this.updateItems(this.ceremonyID);
+        //new 5-3-2020
+        this.updateItems(this.ceremonyID);
         //this.getUrlFunc();
       }
     },
@@ -261,7 +262,7 @@ Submmitbut(){
         this.openModal('error-modal');
       });
   }
-  viewCertificatePdf() {  
+  viewCertificatePdf() {
     this.openModal('certificate-modal2');
   }
 
@@ -269,7 +270,7 @@ Submmitbut(){
     this.api.insertItems(ceremonyID).subscribe((data: any) => {
       this.getUrlFunc();
       console.log({ data });
-      if (data == "") {       
+      if (data == "") {
         console.log('data successful ');
       }
     },
@@ -303,7 +304,7 @@ Submmitbut(){
         this.openModal('error-modal');
       });
   }
- 
+
   openModal(id: string) {
     this.modalService.open(id);
   }
