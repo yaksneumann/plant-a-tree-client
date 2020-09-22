@@ -16,9 +16,6 @@ import { ChoosePlantsComponent } from './choose-plants/choose-plants.component';
 import { ChooseOrderPlantsComponent } from './choose-orderplants/choose-orderplants.component';
 // End Added
 import { ChooseTimeComponent } from './choose-time/choose-time.component';
-import { CalanderComponent } from './calander/calander.component';
-
-
 import { DonationDetailsComponent } from './donation-details/donation-details.component';
 import { DonorsDetailsComponent } from './donors-details/donors-details.component';
 import { MoreItemsComponent } from './more-items/more-items.component';
@@ -33,9 +30,7 @@ import { DestinationComponent } from './destination/destination.component';
 import { CirtificateComponent } from './cirtificate/cirtificate.component';
 import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 import { ZoomComponent } from './zoom/zoom.component';
-
 //import { routing } from './app-routing.module';
-
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ContactUsComponent } from './contact-us/contact-us.component';
  
@@ -70,8 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CirtificateComponent,
     TreasureHuntComponent,
     ZoomComponent,
-    ContactUsComponent,
-    CalanderComponent
+    ContactUsComponent
   ],
   imports: [
     //routing,

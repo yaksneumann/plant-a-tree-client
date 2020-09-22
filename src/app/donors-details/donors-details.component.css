@@ -2,22 +2,19 @@
     text-align: center;
     color: #5E5E5E;
     font-weight: 900; 
-      padding-top: 8%;
-      padding-bottom: 4%; 
+    padding-top: 8%;
+    padding-bottom: 4%; 
  }
  .padd15p{
     padding-top: 15%;
  }
- .fontsxxlarge{
-    font-size: 4vw;
- }
+   
  select {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
-   background: url('../../assets/img/ATT68993.svg') white no-repeat calc(100% - 20px) !important; 
-
-   /* background: url('/PlantaTreeInIsrael/ATT68993.svg') white no-repeat calc(100% - 20px) !important;  */
+   
+   background: url('/PlantaTreeInIsrael/Arrow.svg') white no-repeat calc(100% - 20px) !important; 
  /*  background: url("../../assets/img/NewV2/ATT68993.svg")white no-repeat calc(100% - 30px) !important;
    background: url("./assets/img/NewV2/New folder/down-chevron.svg") ; white no-repeat calc(100% - 10px) !important;   */
    background:#5DAA97;
@@ -38,15 +35,11 @@
 }
 @media (min-width: 730px) and (max-width:1023px)   {
    
-   .nexttext{
-      font-size: 2vw;
-   }
+    
 }
 @media (min-width: 1024px) and (max-width:1366px)   {
    
-   .nexttext{
-      font-size: 3vw;
-   }
+    
 }
 
 @media (min-width: 1024px) and (min-height: 768px)   {

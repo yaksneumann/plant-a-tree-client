@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<div class="row padt3p ">
+<div class="row padt3p marg0">
   <div class="col-2 pad0"> </div>
  <div class="col-8 pad0">
    <hr class="marg0"/>
@@ -36,29 +36,22 @@
   <div class="col-2 pad0"></div>
 </div>
 
-
+<div class="pagefont">
 <h6 class="rgl-title fslarge fontbolder">
   {{ 'CIRTIFICATE.title' | translate }}
    <br>
    {{ 'CIRTIFICATE.title2' | translate }}
-</h6>
- 
-<div class="row col-12 pad0">
-  <div class="col-1 pad0"></div>
-  <div class="col-10 pad0">
-   <div class="small-text fontLite">
+</h6> 
+   <div class="small-text fontLite centertext">
          {{ 'CIRTIFICATE.certificate' | translate }}
-       </div>
-  </div>
-  <div class="col-1 pad0"></div>
-</div>
-
+   </div>
+  
 <div class="row col-12 pad0 marg0 certificateText1">
   <div class="col-1 pad0"></div>
   <div class="col-10 pad0 certificateText0"> 
       <textarea class="certificateText col-10 pad0" id="certificateText" name="certificateText"
       rows="5" cols="40" maxlength="260"  cols="6" rows="5"
-      [(ngModel)]="certificateText" (change)="onTextChange()" ></textarea> 
+      [(ngModel)]="certificateText" (change)="onTextChange()"  ></textarea> 
       <div class="counttext">{{counttext}}/260</div>
   </div>
   <div class="col-1 pad0"></div>
@@ -85,7 +78,7 @@
   <div class="col-3 pad0">
   </div>
    <div class="col-6 pad0">
-    <button type="submit" class="submitbut col-12 "  (click)="onNextBtn()"> 
+    <button type="submit" class="submitbut col-12 "     (click)="onNextBtn()"> 
       <div class="nexttext fontsxxlarge">
          {{ 'NEXT-BUTTON' | translate }}
        </div>
@@ -96,12 +89,11 @@
      </div> 
   </div> 
 </footer>
-
+</div>
 <ngx-spinner bdColor="rgba(255,255,255,0.8)" size="medium" color="#926427" type="ball-scale-multiple">
 </ngx-spinner>
 
-
-  
+ 
 <jw-modal id="error-modal" style="display:none">
   <!-- <h4>kkl alert</h4>
 <hr> -->
@@ -112,8 +104,7 @@
   <button (click)="closeModal('error-modal', 'yes');"style="margin:0px 0 0 0;float: right;"
    class="btn popup-ok-btn">{{ 'yes-sure' | translate }}</button> 
 </jw-modal>
-
-
+ 
 <jw-modal id="certificate-modal" class="Certificatepopup" style="display:none;">
 <div class="certificate-img">
   <div width="280" height="90" class="canvas">
@@ -124,7 +115,7 @@
           <div class="ModalTitle certiftext ">  {{"certificate" | translate}}</div>  
           <hr class="certifhr"/>
           <div class="cirtifimg">
-            <img src="./assets/img/NewV2/trees_img.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+            <img src="./assets/img/trees_img.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
           </div>
 
           </div> 
@@ -157,14 +148,16 @@
 </div>
   
 </jw-modal>
-
-
-<jw-modal id="certificate-modal2" style="display:none;">
+ 
+<jw-modal id="certificate-modal2" class="Certificatepopup2" style="display:none;">
   <div class="certificate-img2">
     <div width="280" height="90" class="canvas2">
       {{certificateText}}
      </div> 
   </div>
-    <button (click)="closeModal('certificate-modal2', 'no');"
-    class="btn btn-primary popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button> 
+ <div>
+  <button (click)="closeModal('certificate-modal2', 'no');"  style="margin:0px 0 0 0;"
+  class="btn divbtnYes certiftext col-12 pad0 centertext popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+ </div>
+     
   </jw-modal>

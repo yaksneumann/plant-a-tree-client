@@ -48,7 +48,7 @@ body {
 
 .computer-screen {
     /* background: url(../src/assets/img/BG-mobile.png) no-repeat center/100%; */
-    background: url(../src/assets/img/BG-mobile.png) no-repeat center/100%;
+    background: url(/PlantaTreeInIsrael/BG-mobile.png) no-repeat center/100%;
     height: -webkit-fill-available;
     height: inherit;
    width: 100%;

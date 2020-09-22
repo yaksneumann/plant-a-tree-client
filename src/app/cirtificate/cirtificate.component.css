@@ -17,7 +17,7 @@
  }
 
  .counttext,.certificateText,.small-text, .cerficbut,.divbtnYes,.divbtnWant{
-   font-size: 4vw;
+   font-size: 1em;
  }
 
  .certificateText{
@@ -28,12 +28,11 @@
  .certificateText1{
      padding-top: 7% !important;
  }
-
  
 .ModalTitle{
    font-weight: bold;
     color: #1F701F;
-    font-size: 5vw;
+    font-size: 1.5em;
 }
 .certiftext{
    color:#1F701F;
@@ -73,7 +72,7 @@
    color:white;
 }
 .fslarge{
-   font-size: 4vw;
+   font-size: 1em;
 }
 textarea::selection, textarea:hover , textarea:focus{
    border: 0 !important;
@@ -93,10 +92,8 @@ textarea::selection, textarea:hover , textarea:focus{
 
 .certificate-img2{
    margin: 0px auto;
-   background: url('../../assets/img/certificate-sm.jpg') no-repeat center/100%;  
-   height: 516px;  
-   /* margin: -10px 0 0 0; */
-   /* position: absolute; */
+   background: url('/PlantaTreeInIsrael/certificate-sm.jpg') no-repeat center/100%;  
+   height: 550px; 
    width: 100%;
 }
 .canvas2{
@@ -107,36 +104,10 @@ textarea::selection, textarea:hover , textarea:focus{
     font-size: 11px;
     padding: 5px 10px;
 }
+
  
 @media (min-width: 640px) and (max-width: 700px) {
-   .divbtnWant{
-      font-size: 3vw;
-   }
-}
 
-@media (min-width: 700px) and (max-width: 1023px) {
-   .ModalTitle{
-      font-size: 4vw;
-   }
-   .fslarge,.divbtnYes,.divbtnWant{
-      font-size: 3vw;
-   }
-}
-@media (min-width: 1024px) and (max-width: 1365px) {
-   .ModalTitle{
-      font-size: 3vw;
-   }
-   .fslarge,.divbtnYes,.divbtnWant{
-      font-size: 2vw;
-   }
-}
-@media (min-width: 1366px)   {
-   .ModalTitle{
-      font-size: 2vw;
-   }
-   .fslarge,.divbtnYes,.divbtnWant{
-      font-size: 1.5vw;
-   }
 }
 @media (min-width: 768px) and (max-width: 1366px) {
    .submitbut{

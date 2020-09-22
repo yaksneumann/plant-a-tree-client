@@ -1,5 +1,5 @@
 ::ng-deep .computer-screen{
-    background:  url('../../assets/img/BG-mobile-rvs.png') no-repeat center/100%;
+    background:  url('/PlantaTreeInIsrael/BG-mobile-rvs.png') no-repeat center/100%;
     /* height: -webkit-fill-available;
     height: inherit; */
   }
@@ -31,7 +31,7 @@ position: relative;
 
 .map-pic {
     /* background:  url('../../assets/img/map-il.png') no-repeat; */
-    background:  url('../../assets/img/map.png') no-repeat;
+    background:  url('/PlantaTreeInIsrael//map.png') no-repeat;
     height: 536px;
     width: 228px;
    
@@ -135,12 +135,12 @@ position: relative;
   
   .forester.tzora {
     margin-left: 20%;
-    background-image: url('../../assets/img/eran.jpeg');
+    background-image: url('/PlantaTreeInIsrael/eran.jpeg');
   }
 
   .forester.lavi {
     margin-left: 20%;
-    background-image: url('../../assets/img/david.jpeg');
+    background-image: url('/PlantaTreeInIsrael/david.jpeg');
   }
 
 .michal-container {
@@ -163,7 +163,7 @@ position: relative;
   background-size: cover;
   position: relative;
   float: left;
-  background-image: url('../../assets/img/michal.jpg');
+  background-image: url('/PlantaTreeInIsrael/michal.jpg');
   margin: 0px 7px 0px 0px;
 }
 

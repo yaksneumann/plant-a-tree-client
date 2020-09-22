@@ -14,6 +14,8 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
   public Footerfull = false;
   ngOnInit() { 
     
+    $(".kkl-icon1").css("width","50%");
+    $(".kkl-icon2").css("width","30%");
   }
 
   goToLinkPricacy(){
