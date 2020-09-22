@@ -90,46 +90,32 @@ body {
     text-align: center;
     margin: auto;
 }
-.Certificatepopup > div > div{
-    border-radius: 0 70px 70px 70px; 
-   
+.Certificatepopup > div > div, .Certificatepopup2 > div > div{
+    border-radius: 0 70px 70px 70px;  
    background-image: url(./assets/img/popupBackground.svg) !important;
    background-size: cover !important;
    background-repeat: no-repeat !important;
    background-position: center !important;
  }
- .Certificatepopup > div  {
-   /*  top:10% !important; */
+ .Certificatepopup > div,.Certificatepopup2 > div   { 
      margin-top: -25%;
  }
- .Certificatepopup2 > div > div{
-    border-radius: 0 70px 70px 70px; 
-   
-   background-image: url(./assets/img/popupBackground.svg) !important;
-   background-size: cover !important;
-   background-repeat: no-repeat !important;
-   background-position: center !important;
- }
- .Certificatepopup2 > div  {
-   /*  top:10% !important; */
-     margin-top: -25%;
- }
+  
  .jw-modal-background{
     background-color: rgb(255,255,255,0.9) !important;
  }
 
  .certificate-img2{
-    margin: 0px auto;
- /*   background-image: url(./assets/img/certifcate-sm.jpg) no-repeat center/100%; */  
- background-image: url(./assets/img/certifcate-sm.jpg) ; 
- background-size: 100%;
- background-repeat: no-repeat;
- background-position: center; 
+    margin: 0px auto; 
+    background-image: url(./assets/img/certifcate-sm.jpg) ; 
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
     height: 550px; 
     width: 100%;
  }
  .canvas2{
-    position: relative;
+     position: relative;
      text-align: center;
      top: 350px;
      margin: 0 25px;
@@ -143,7 +129,7 @@ body {
  
  .backgroundmobileimg{ 
     background: url(./assets/img/background.png);
-    min-height: 100vh;   
+    min-height: 90vh;   
     background-size: cover;
     background-repeat: no-repeat; 
  } 
