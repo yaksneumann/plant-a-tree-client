@@ -1,29 +1,31 @@
  
 <div class="col-12 pad0 backgroundmobileimg"> 
-<div class="row col-12 pages-menu margbut0 padl10p"> 
+  <!-- header buttons -->
+ 
+<div class="row col-12 pages-menu margbut0 padl10p" id='menubuttons'> 
   <div class="col-2 pad0"> </div>
   <div class="col-2 pad0">
     <div class="row">
-      <div class="col-6 pad"><div class="btnmenu " routerLink="/choose-orderplants"><div>&#10003;</div></div></div>
-      <div class="col6 hrdiv"><hr class="menuline"/></div>
+      <div class="col-6 pad"><div class="imgafterBut minheigthmenbut" routerLink="/choose-orderplants"></div></div>
+      <div class="col6 hrdiv2"><hr class="menuline2"/></div>
     </div>  
   </div>
   <div class="col-2 pad0">
     <div class="row">
-      <div class="col-6 pad"><div class="btnmenu  " routerLink="/donors-details"><div>&#10003;</div></div></div>
-      <div class="col6 hrdiv"><hr class="menuline"/></div>
+      <div class="col-6 pad"><div class="imgafterBut minheigthmenbut" routerLink="/donors-details"></div></div>
+      <div class="col6 hrdiv2"><hr class="menuline2"/></div>
     </div>  
   </div>
   <div class="col-2 pad0">
     <div class="row">
-      <div class="col-6 pad"><div class="btnmenu  selectedmenu"></div></div>
-      <div class="col6 hrdiv"><hr class="menuline"/></div>
+      <div class="col-6 pad"><div class="imgSelectBut minheigthmenbut"></div></div>
+      <div class="col6 hrdiv2"><hr class="menuline2"/></div>
     </div>  
   </div>
   <div class="col-2 pad0">
     <div class="row">
-      <div class="col-6 pad"><div class="btnmenu  "></div></div>
-      <div class="col6  "> </div>
+      <div class="col-6 pad"><div class="imgDefBut minheigthmenbut"></div></div>
+      <div class="col6"> </div>
     </div>  
   </div>
 </div>
@@ -35,6 +37,7 @@
 </div>
   <div class="col-2 pad0"></div>
 </div>
+<!-- End header buttons -->
 
 <div class="pagefont">
 <h6 class="rgl-title fslarge fontbolder">
@@ -42,9 +45,10 @@
    <br>
    {{ 'CIRTIFICATE.title2' | translate }}
 </h6> 
-   <div class="small-text fontLite centertext">
+   
+<div class="small-text fontLite centertext">
          {{ 'CIRTIFICATE.certificate' | translate }}
-   </div>
+  </div>
   
 <div class="row col-12 pad0 marg0 certificateText1">
   <div class="col-1 pad0"></div>

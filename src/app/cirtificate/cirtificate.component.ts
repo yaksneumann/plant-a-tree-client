@@ -24,8 +24,10 @@ export class CirtificateComponent implements OnInit {
   pdfSrc: any = '';
   pdfOpen: boolean = false;
   nocirtificate: string ;
-
+  public CertivicDiv = false;
+ 
   ngOnInit() { 
+   
     let donersDetailsObj = JSON.parse(localStorage.getItem("donersDetailsObj")) || {};
     if (Object.keys(donersDetailsObj).length > 0) {
       this.donersDetails.firstName = donersDetailsObj.firstName;
@@ -62,8 +64,9 @@ export class CirtificateComponent implements OnInit {
 
     localStorage.setItem('certificateText', JSON.stringify(this.certificateText)); 
 
-    document.getElementById("certificateText").focus();
- 
+    //document.getElementById("certificateText").focus();
+      document.getElementById("menubuttons").focus();
+
      this.counttext = (this.certificateText).length; 
   }
   ngAfterViewInit() {
@@ -90,6 +93,7 @@ export class CirtificateComponent implements OnInit {
   CertifYes(id: string, sure: string) {
     console.log("CertifYes");
     this.nocirtificate = "false";
+     this.CertivicDiv=true;
     localStorage.setItem("nocirtificate",  this.nocirtificate);  
     this.modalService.close(id);
   }
