@@ -66,6 +66,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
     //};
 
     //ysks show time if went back
+    localStorage.setItem("plantingCenter", '35');
+
     this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
     this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
 
@@ -161,9 +163,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.israelAvailableTime = [];
 
     this.invalidDate = false;
-    //localStorage.setItem("plantingCenter", '35');
 
-    localStorage.setItem("plantingCenter", JSON.stringify(35));
     datePicker.close();
     this.spinner.show();
     // console.log("Event "+{event} );
