@@ -1,5 +1,5 @@
  
-<div class="backgroundmobileimg">
+<div class="backgroundmobileimg" [ngStyle]="screenHeight">
 
 <!--  header buttons -->
  
@@ -46,14 +46,13 @@
 <div class="row marg0">
   <div class="col-2"></div>
   <div class="col-8">
-    <div class="main-title2 fontsttyle padt3p  ">
+    <div class="main-title2 fontsttyle padt3p">
       {{ 'CHOOSE-ORDERPLANTS.ORDERPLANTS' | translate }} 
       <br>
       {{ 'CHOOSE-ORDERPLANTS.ORDERPLANTS2' | translate }} 
      </div> 
   </div>
-  <div class="col-2"></div>
-
+  <div class="col-2"></div> 
 </div>
 
   <div class="row marg0">
@@ -133,8 +132,7 @@
   </div> 
 
   <footer class="footer-distributed col-12">
-  <div class="col-12">
-    
+  <div class="col-12"> 
       <button type="submit" class="submitbut col-7"> 
         <div class="nexttext">
            {{ 'NEXT-BUTTON' | translate }}
@@ -143,8 +141,7 @@
   </div>
 
   </footer>
- 
-
+  
 </div> 
     
 </form>
