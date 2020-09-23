@@ -47,7 +47,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   LocalDate: string;
   LocalTime: string; 
   public LocalDatediv = false;
-
+  screenHeight: any;
   calculateAmount(num: any) {
     console.log("calculateAmount btn; num: " + num);
     this.totalAmount = this.treePrice * num;
@@ -57,8 +57,15 @@ export class ChooseOrderPlantsComponent implements OnInit {
    
     $(".kkl-icon1").css("width","45%");
     $(".kkl-icon2").css("width","25%");
+    
+    //let heightScreen =window.innerHeight - document.getElementById("navlogos").offsetHeight- 10;
+    //console.log(window.innerHeight);
+    //console.log( document.getElementById("navlogos").offsetHeight);
+    //this.screenHeight = {
+    //  height:  heightScreen +"px" 
+    //};
+     
 
-  
     this.amountOfTrees = 1;
     this.localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 

@@ -109,14 +109,14 @@ ngb-datepicker{
 .logzoom{
     zoom: 0.1;
 }
+.backgroundmobileimg{
+    height: calc(130vh - 120px) !important;
+}
 
 @media (min-width: 640px)    {
     .padl2p{
         padding: 0;
     }
- /*   .log60{
-        zoom: 2;
-    } */
     .submitbut {
         zoom: 2;
     }
@@ -187,17 +187,7 @@ ngb-datepicker{
 @media screen and (min-device-width:650px), screen and (max-width:890px) {
     .pagefont{
         font-size: 1em;
-    }
-    /*.log60 {
-        zoom: 1.5;
-    }  */
-}
-@media screen and (min-device-width:900px), screen and (max-width:1367px) {
-    /* .log60{
-        zoom: 1.9;
     } 
-    .pagefont{
-        font-size: 1.4em;
-    }*/
 }
+ 
  
