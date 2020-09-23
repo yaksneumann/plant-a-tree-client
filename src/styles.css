@@ -132,7 +132,7 @@ body {
    /* min-height: 90vh;   */ 
     background-size: cover;
     background-repeat: no-repeat; 
-    height: calc(100vh - 120px);
+    height: calc(100vh - 60px);
  } 
  .shadows{
     box-shadow: 0 10px 10px -5px #0000000A;
