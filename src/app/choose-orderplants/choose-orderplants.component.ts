@@ -23,15 +23,15 @@ export class ChooseOrderPlantsComponent implements OnInit {
   chooseGolani: boolean = false;
   chooseTzora: boolean = true;
   plantingCenter: any = 35;
-  amountOfTrees: number;
+  amountOfTrees: number = 1;
   totalAmount: number = 18;
   treePrice: number = 18;
   anotherNumber: boolean = false;
   adultNum: number = 1;
   childrenNum: number;
-  timeId: number;
-  dateId: any = '';
-  date: string;
+  time: any = null;
+  dateId: any;
+  date: string = '';
   invalidDate: boolean = false;
   invalidTime: boolean = false;
   invalidPpl: boolean = false;
@@ -44,8 +44,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
   israelTime: any;
   localZone: string;
   TreeCounter: number = 1;
-  LocalDate: string;
-  LocalTime: string;
+  LocalDate: string = '';
+  LocalTime: string = '';
   public LocalDatediv = false;
   screenHeight: any;
   calculateAmount(num: any) {
@@ -73,7 +73,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
 //   this.dateId = localStorage.getItem("DateVal");
 // }
 
-    this.amountOfTrees = 1;
     this.localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     this.spinner.show();
@@ -83,7 +82,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
         this.availableDates = availableDates;
         this.minDate = this.availableDates[0].date;
         this.maxDate = this.availableDates[this.availableDates.length - 1].date;
-        this.dateId = '5'
+        //this.dateId = '5'
       }
     },
       error => {
@@ -112,14 +111,12 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
 
   onPlusBtn() {
-    console.log("onPlusBtn: ");
     this.amountOfTrees = this.amountOfTrees + 1;
     this.anotherNumber = true;
     this.calculateAmount(this.amountOfTrees);
   }
 
   onMinusBtn() {
-    console.log("onMinusBtn: ");
     this.anotherNumber = true;
     if (this.amountOfTrees > 1) {
       this.amountOfTrees = this.amountOfTrees - 1;
@@ -314,6 +311,9 @@ export class ChooseOrderPlantsComponent implements OnInit {
       localStorage.setItem('ceremonyDateAndHour', ceremonyDateAndHour);
       localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople));
       localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees));
+     // localStorage.setItem("localAvailableTime", JSON.stringify(this.localAvailableTime));
+
+      
 
       console.log(numberOfPeople);
       this.router.navigate(['donors-details']);

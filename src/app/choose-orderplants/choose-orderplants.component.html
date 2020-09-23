@@ -107,8 +107,9 @@
 
             <input ngbDatepicker type="text" readonly #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
               [markDisabled]="isDisabled" class="font09em form-control date treeprices shadows FONTWID700 textleft"
-              id="date" name="date" required ngModel [(ngModel)]="date" (ngModelChange)="onDateChange($event, d)"
-              style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();">
+              id="date" name="date" required ngModel [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)"
+              style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();"
+              placeholder="{{LocalDate}}">
             <span class="invalid-input" *ngIf="invalidDate">Invalid Date</span>
           </div>
 
@@ -121,7 +122,9 @@
             </label>
             <select name="time"
               class="form-control  font09em shadows time   treeprices centertext centertext col-7 FONTWID700" id="time"
-              [(ngModel)]="timeId" (change)="onTimeChange($event.target.value)" required style="color: #000700">
+              [(ngModel)]="time" (change)="onTimeChange($event.target.value)" required style="color: #000700">
+              <!-- <option>{{LocalTime}}</option> -->
+              <option value="null">{{ LocalTime }}</option>
               <option *ngFor="let time of localAvailableTime" [ngValue]="time.AvailTime">
                 <!-- {{ time.AvailTime | date:'shortTime' }} -->
                 {{ time.AvailTime | date:'shortTime' }}
@@ -137,7 +140,7 @@
             {{LocalDate}}
           </div>
           <div class="fontsize4vw">
-            {{LocalTime}}
+            {{ LocalTime }}
           </div>
 
 
