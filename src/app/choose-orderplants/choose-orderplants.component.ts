@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ModalService } from '../services/modal.service';
- 
-import { NgForm } from '@angular/forms'; 
+
+import { NgForm } from '@angular/forms';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AvailableDate } from '../models/availableDates.model';
-import { NgxSpinnerService } from "ngx-spinner"; 
+import { NgxSpinnerService } from "ngx-spinner";
 import * as $ from 'jquery';
- 
+
 @Component({
   selector: 'app-choose-orderplants',
   templateUrl: './choose-orderplants.component.html',
@@ -17,35 +17,35 @@ import * as $ from 'jquery';
 export class ChooseOrderPlantsComponent implements OnInit {
 
   constructor(private api: ApiService, private router: Router, private modalService: ModalService, private spinner: NgxSpinnerService) { }
-   
-   
-  errMsg: string = ''; 
+
+
+  errMsg: string = '';
   chooseGolani: boolean = false;
   chooseTzora: boolean = true;
-  plantingCenter: any = 35; 
+  plantingCenter: any = 35;
   amountOfTrees: number;
   totalAmount: number = 18;
   treePrice: number = 18;
-  anotherNumber: boolean = false; 
+  anotherNumber: boolean = false;
   adultNum: number = 1;
   childrenNum: number;
   timeId: number;
   dateId: any = '';
-  DateText: string;
+  date: string;
   invalidDate: boolean = false;
   invalidTime: boolean = false;
-  invalidPpl: boolean = false; 
+  invalidPpl: boolean = false;
   availableDates: Array<AvailableDate>;
   minDate: NgbDate;
-  maxDate: NgbDate; 
+  maxDate: NgbDate;
   israelAvailableTime: Array<any> = [];
   localAvailableTime: Array<any> = [];
   localTime: any;
   israelTime: any;
   localZone: string;
-  TreeCounter: number =1;
+  TreeCounter: number = 1;
   LocalDate: string;
-  LocalTime: string; 
+  LocalTime: string;
   public LocalDatediv = false;
   screenHeight: any;
   calculateAmount(num: any) {
@@ -54,17 +54,24 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
   ngOnInit() {
-   
-    $(".kkl-icon1").css("width","45%");
-    $(".kkl-icon2").css("width","25%");
-    
+
+    $(".kkl-icon1").css("width", "45%");
+    $(".kkl-icon2").css("width", "30%");
+
     //let heightScreen =window.innerHeight - document.getElementById("navlogos").offsetHeight- 10;
     //console.log(window.innerHeight);
     //console.log( document.getElementById("navlogos").offsetHeight);
     //this.screenHeight = {
     //  height:  heightScreen +"px" 
     //};
-     
+
+    //ysks show time if went back
+    this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
+    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
+
+// if (localStorage.getItem("DateVal") != '') {
+//   this.dateId = localStorage.getItem("DateVal");
+// }
 
     this.amountOfTrees = 1;
     this.localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -73,9 +80,10 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.api.getAllDates().subscribe((availableDates: Array<AvailableDate>) => {
       this.spinner.hide();
       if (availableDates) {
-        this.availableDates = availableDates;  
+        this.availableDates = availableDates;
         this.minDate = this.availableDates[0].date;
         this.maxDate = this.availableDates[this.availableDates.length - 1].date;
+        this.dateId = '5'
       }
     },
       error => {
@@ -101,8 +109,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
       });
   }
 
-   
- 
+
+
   onPlusBtn() {
     console.log("onPlusBtn: ");
     this.amountOfTrees = this.amountOfTrees + 1;
@@ -132,8 +140,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
     }
     else {
       this.calculateAmount(amount);
-      this.amountOfTrees = amount; 
-    } 
+      this.amountOfTrees = amount;
+    }
   }
 
   isDisabled = (date: NgbDate, current: { month: number }) => {
@@ -152,28 +160,28 @@ export class ChooseOrderPlantsComponent implements OnInit {
   // *************************************     END OF NGB CALANDER    *************************************
 
   onDateChange(event: any, datePicker: any) {
-   this.localAvailableTime = [];
-   this.israelAvailableTime = [];
+    this.localAvailableTime = [];
+    this.israelAvailableTime = [];
 
     this.invalidDate = false;
     //localStorage.setItem("plantingCenter", '35');
 
     localStorage.setItem("plantingCenter", JSON.stringify(35));
-    datePicker.close(); 
-    this.spinner.show(); 
-   // console.log("Event "+{event} );
+    datePicker.close();
+    this.spinner.show();
+    // console.log("Event "+{event} );
     this.checkDate();
-    console.log(datePicker._inputValue );
+    console.log(datePicker._inputValue);
 
     this.api.GetAvailableTimes('', datePicker._inputValue).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
-    if (availableTime) { 
-      var count =0;
-        this.israelAvailableTime = availableTime; 
-            availableTime.forEach((item: any) => { 
-             let itemAvailTime =  new Date(item.AvailTime).getTime(); 
+      if (availableTime) {
+        var count = 0;
+        this.israelAvailableTime = availableTime;
+        availableTime.forEach((item: any) => {
+          let itemAvailTime = new Date(item.AvailTime).getTime();
           try {
-            this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });  
+            this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
           } catch (error) {
             console.log(error);
           }
@@ -183,88 +191,88 @@ export class ChooseOrderPlantsComponent implements OnInit {
     },
       error => {
         this.spinner.hide();
-       
+
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
           this.errMsg = 'Sorry, there is some connection problem, please try again';
         }
-        console.log("Error GetAvailableTimes " +{ error });
-         this.openModal('error-modal');
+        console.log("Error GetAvailableTimes " + { error });
+        this.openModal('error-modal');
       });
-     
+
     //yak del 31-5-20 -- seems extra, since we only show him dates that are available
     this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
       if (data) {
-        console.log( "Data GetAvailableDate: "+{ data }); 
-        localStorage.setItem("DateVal", JSON.stringify(datePicker._inputValue));
+        console.log("Data GetAvailableDate: " + { data });
+        localStorage.setItem("DateVal", datePicker._inputValue);
 
         if (data[0].rc < 0) {
-           this.errMsg = 'sorry this date is not available';
-          console.log( "Error GetAvailableDate: " +  this.errMsg   );
-           this.openModal('error-modal');
+          this.errMsg = 'sorry this date is not available';
+          console.log("Error GetAvailableDate: " + this.errMsg);
+          this.openModal('error-modal');
           return false;
         }
       }
     },
       error => {
-        console.log("Error GetAvailableDate2 " +{ error })
-      }); 
+        console.log("Error GetAvailableDate2 " + { error })
+      });
   }
- 
-  checkDate() { 
-    let chanjetDate = new Date(this.dateId.year,this.dateId.month-1,this.dateId.day) ;
-    var options = {day: 'numeric',  month: 'long', year: 'numeric' ,hour:'numeric', minute:'numeric'};
-    let Datearray = chanjetDate.toLocaleDateString("en-US", options).replace(',','').split(" ");
-    console.log( "kyky: " +  Datearray[1]+" "+Datearray[0]+" "+Datearray[2] ); 
-    $("#date").val(Datearray[1]+" "+Datearray[0]+" "+Datearray[2].replace(',','') );
-  }  
+
+  checkDate() {
+    let chanjetDate = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day);
+    var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+    let Datearray = chanjetDate.toLocaleDateString("en-US", options).replace(',', '').split(" ");
+    console.log("kyky: " + Datearray[1] + " " + Datearray[0] + " " + Datearray[2]);
+    $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
+  }
 
   // onTimeChange(time: any) {
   onTimeChange(index: any) {
     this.invalidTime = false;
-  
-     index = index.split(':')[0];
-    
+
+    index = index.split(':')[0];
+
     this.localTime = this.localAvailableTime[index].AvailTime;
     this.israelTime = this.israelAvailableTime[index].AvailTime;
 
     console.log('israel Time: ' + this.israelTime);
     console.log('localTime: ' + this.localTime);
-    
-    var options = {day: 'numeric',  month: 'long', year: 'numeric' ,hour:'numeric', minute:'numeric'};
-    let Datearray = this.localTime.toLocaleDateString("en-US", options).replace(',','').split(" ");
+
+    var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+    let Datearray = this.localTime.toLocaleDateString("en-US", options).replace(',', '').split(" ");
     console.log(Datearray.length);
-    
-    if (Datearray.length == 5){
-      this.LocalDate= Datearray[1]+" "+Datearray[0]+" "+Datearray[2].replace(',','')  ;
-      this.LocalTime = Datearray[3] +" "+Datearray[4];
+
+    if (Datearray.length == 5) {
+      this.LocalDate = Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', '');
+      this.LocalTime = Datearray[3] + " " + Datearray[4];
     }
-    else{
-      this.LocalDate= Datearray[1]+" "+Datearray[0]+" "+Datearray[2].replace(',','')   ;
-      this.LocalTime = Datearray[3] ;
+    else {
+      this.LocalDate = Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', '');
+      this.LocalTime = Datearray[3];
     }
-let backgroundmobileHeigt =$(".backgroundmobileimg").height() +60;
-    $(".backgroundmobileimg").css("height",backgroundmobileHeigt+"px");
+    let backgroundmobileHeigt = $(".backgroundmobileimg").height() + 60;
+    $(".backgroundmobileimg").css("height", backgroundmobileHeigt + "px");
     localStorage.setItem('LocalDate', JSON.stringify(this.LocalDate));
     localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
 
     localStorage.setItem('setTime', JSON.stringify(this.israelTime));
     this.LocalDatediv = true;
-     
+
   }
-  
+
 
   onSubmit(form: NgForm) {
     console.log(form);
     let date = form.value.date || '';
-    let time =form.value.time || '';
-    let ceremonyDateAndHour = this.israelTime; 
+    let time = form.value.time || '';
+    let ceremonyDateAndHour = this.israelTime;
     let numberOfAdults = 1;
     let numberOfChildren = form.value.numberOfChildren || 0;
 
     if (date == '') {
       this.invalidDate = true;
-      $("#date").css("border","1px solid red");
+      $("#date").css("border", "1px solid red");
       this.errMsg = 'Please choose a valid date';
       this.openModal('error-modal');
       return false;
@@ -272,7 +280,7 @@ let backgroundmobileHeigt =$(".backgroundmobileimg").height() +60;
 
     if (time == '') {
       this.invalidTime = true;
-      $("#time").css("border","1px solid red");
+      $("#time").css("border", "1px solid red");
       this.errMsg = 'Please choose a time';
       this.openModal('error-modal');
       return false;
@@ -304,8 +312,8 @@ let backgroundmobileHeigt =$(".backgroundmobileimg").height() +60;
         "numberOfChildren": numberOfChildren
       }
       localStorage.setItem('ceremonyDateAndHour', ceremonyDateAndHour);
-      localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople)); 
-      localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees)); 
+      localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople));
+      localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees));
 
       console.log(numberOfPeople);
       this.router.navigate(['donors-details']);
@@ -317,7 +325,7 @@ let backgroundmobileHeigt =$(".backgroundmobileimg").height() +60;
   }
 
 
-  
+
   onChooseNext() {
     if (this.chooseTzora || this.chooseGolani) {
       localStorage.setItem("plantingCenter", this.plantingCenter)
@@ -328,7 +336,7 @@ let backgroundmobileHeigt =$(".backgroundmobileimg").height() +60;
       this.openModal('error-modal');
     }
   }
- 
+
   openModal(id: string) {
     this.modalService.open(id);
   }

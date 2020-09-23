@@ -68,7 +68,7 @@ export class DonationDetailsComponent implements OnInit {
     this.amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees")) || 0;
     this.countryName = JSON.parse(localStorage.getItem("countryName")) || '';
 
-    this.itemAvailTime = new Date(JSON.parse(localStorage.getItem("DateVal"))).getTime();
+    this.itemAvailTime = new Date(localStorage.getItem("DateVal")).getTime();
 
     this.certificateText = (localStorage.getItem("certificateText")) || '';
 
