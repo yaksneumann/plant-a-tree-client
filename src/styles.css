@@ -259,19 +259,19 @@ footer{
 }
 
 .imgSelectBut{
-    background-image: url(/PlantaTreeInIsrael/selectBut.svg) ; 
+    background-image: url(./assets/img/selectBut.svg) ; 
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center; 
 }
 .imgDefBut{
-    background-image: url(/PlantaTreeInIsrael/defBut.svg) ; 
+    background-image: url(./assets/img/defBut.svg) ; 
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center; 
 }
 .imgafterBut{
-    background-image: url(/PlantaTreeInIsrael/afterbut.svg) ; 
+    background-image: url(./assets/img/afterbut.svg) ; 
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center; 

@@ -243,7 +243,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.LocalDate= Datearray[1]+" "+Datearray[0]+" "+Datearray[2].replace(',','')   ;
       this.LocalTime = Datearray[3] ;
     }
-
+let backgroundmobileHeigt =$(".backgroundmobileimg").height() +60;
+    $(".backgroundmobileimg").css("height",backgroundmobileHeigt+"px");
     localStorage.setItem('LocalDate', JSON.stringify(this.LocalDate));
     localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
 
