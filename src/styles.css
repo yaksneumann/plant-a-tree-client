@@ -292,7 +292,7 @@ input:-internal-autofill-selected {
 } 
 
 .footer-distributed{
-    position: absolute;
+    position: fixed;
     bottom: 5%;
 }
 @media (min-width: 280px) and (max-width: 319px) {
