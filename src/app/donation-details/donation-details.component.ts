@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AvailableDate } from '../models/availableDates.model';
 import { NgxSpinnerService } from "ngx-spinner";
-
+ 
 @Component({
   selector: 'app-donation-details',
   templateUrl: './donation-details.component.html',
@@ -52,6 +52,9 @@ export class DonationDetailsComponent implements OnInit {
   headingCss = {
     opacity: '0.5'
   };
+  bodycss = {
+    height: '120vh' 
+  };
   disableds: string = "true";
   quest1: number = 0;
   quest2: number = 1;
@@ -64,6 +67,7 @@ export class DonationDetailsComponent implements OnInit {
   certificateText: string;
 
   ngOnInit() {
+     
     window.scroll(0,0);
     this.amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees")) || 0;
     this.countryName = JSON.parse(localStorage.getItem("countryName")) || '';
@@ -105,6 +109,7 @@ export class DonationDetailsComponent implements OnInit {
     this.calculateSum(this.treeSum, this.capSum, this.boxSum);
 
     localStorage.setItem("totalSum", JSON.stringify(this.totalSum)); 
+    document.body.classList.add('bodycss'); 
   }
 
   // Yes No Func
