@@ -87,10 +87,13 @@
   }
 
   #anotherNumber{
-    text-align: right;
+    text-align: center;
     border: 0;
     background: none;
-  }
+    font-size: 1em;
+    padding-top: 0;
+}
+ 
  
 #anotherNumber:-internal-autofill-selected { 
     background-color:none !important; 
