@@ -82,7 +82,7 @@
               <div class="col-12">
                 <div class="treecount">
                   <u class="fontLite fsizecount">
-                    <input type="search" min="1" max="1000" class="form-control change-no" id="anotherNumber" name="anotherNumber"
+                    <input type="tel" min="1" max="1000" class="form-control change-no" id="anotherNumber" name="anotherNumber"
                     [(ngModel)]="amountOfTrees" maxlength="5" required (change)="onChangeNumber(amountOfTrees)">
                   </u>
                <!--  <u class="fontLite fsizecount">
@@ -138,14 +138,16 @@
           </div>
 
           <div class="padT15p" *ngIf="LocalDatediv">
-            <label class="fontLite fontsize4vw">{{ 'CHOOSE-ORDERPLANTS.localDate' | translate }}</label>
-          </div>
-          <div class="padt5p fontsize4vw">
-            {{LocalDate}}
+            <label class="fontLite fontsize4vw" style="margin-bottom: 2px;">{{ 'CHOOSE-ORDERPLANTS.localDate' | translate }}</label>
+          <!-- <div class="padt5p fontsize4vw"> 
+            yaks del-->
+            <div class="fontsize4vw" style="margin-top: -5px;">
+            {{ LocalDate }}
           </div>
           <div class="fontsize4vw">
             {{ LocalTime }}
           </div>
+        </div>
 
 
         </div>

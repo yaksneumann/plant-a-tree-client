@@ -12,9 +12,7 @@ import { TranslateHttpLoader  } from '@ngx-translate/http-loader';
 
 import { ChooseAreaComponent } from './choose-area/choose-area.component';
 import { ChoosePlantsComponent } from './choose-plants/choose-plants.component';
-// Added by Moshe
 import { ChooseOrderPlantsComponent } from './choose-orderplants/choose-orderplants.component';
-// End Added
 import { ChooseTimeComponent } from './choose-time/choose-time.component';
 import { DonationDetailsComponent } from './donation-details/donation-details.component';
 import { DonorsDetailsComponent } from './donors-details/donors-details.component';
@@ -33,15 +31,10 @@ import { ZoomComponent } from './zoom/zoom.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ContactUsComponent } from './contact-us/contact-us.component';
  
-
 //for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
    return new TranslateHttpLoader(http, './assets/i18n/');
-  //return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-// export function createTranslateLoader(http: HttpClient) {
-//   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-// }
 
 @NgModule({
   declarations: [
@@ -66,7 +59,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactUsComponent
   ],
   imports: [
-    //routing,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

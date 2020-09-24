@@ -207,10 +207,10 @@ body {
 } 
  
 .paddt10p{
-    padding-top: 10%;
+    padding-top: 10px;
 }
 .padT15p{
-    padding-top: 15%;
+    /* padding-top: 15%; */
 }
 .paddT30p{
     padding-top: 30%;

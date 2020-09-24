@@ -23,24 +23,26 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Routes = [
-     {path: '', pathMatch: 'full', component: HomePageComponent},
-    // { path: 'home-page', component: HomePageComponent },
-    { path: 'choose-area', component: ChooseAreaComponent },
-    { path: 'choose-time', component: ChooseTimeComponent },
-    { path: 'choose-plants', component: ChoosePlantsComponent },
+     {path: '', pathMatch: 'full', component: HomePageComponent},   
     { path: 'choose-orderplants', component: ChooseOrderPlantsComponent },
     { path: 'donors-details', component: DonorsDetailsComponent },
     { path: 'donation-details', component: DonationDetailsComponent },
-    { path: 'more-items', component: MoreItemsComponent },
     { path: 'payment-page', component: PaymentComponent },
     { path: 'payment-successful', component: PaymentSuccessfulComponent },
     { path: 'ceremony-details', component:  CeremonyDetailsComponent },
-    { path: 'destination', component: DestinationComponent },
     { path: 'cirtificate', component:  CirtificateComponent },
+    //{ path: 'destination', component: DestinationComponent },
+    
    // { path: 'zoom', component:  ZoomComponent},
+    // { path: 'home-page', component: HomePageComponent },
+   // { path: 'choose-area', component: ChooseAreaComponent },
+   // { path: 'choose-time', component: ChooseTimeComponent },
+    //{ path: 'choose-plants', component: ChoosePlantsComponent },
+      //  { path: 'more-items', component: MoreItemsComponent },
+
 
    { path: 'dude', component:  TestPageComponent },
-    { path: 'contact-us', component:  ContactUsComponent},
+   { path: 'contact-us', component:  ContactUsComponent},
     
     { path: '**', redirectTo: '' }
    // { path: '**', redirectTo: 'home-page' }
