@@ -1,6 +1,6 @@
  .planting-img{
-     background-image: url(../../assets/img/Biriya_Forest.png) ;
-
+    /* background-image: url(../../assets/img/Biriya_Forest.png) ;  big image*/ 
+     background-image: url(../../assets/img/Biriya_Forest2.png) ;
      background-size: 100%;
      background-repeat: no-repeat;
      background-position: center; 
