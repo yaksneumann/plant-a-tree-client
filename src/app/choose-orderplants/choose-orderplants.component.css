@@ -1,35 +1,36 @@
- .treeprices{
+  .treeprices{
     min-height: 40px;
     background-color: white;
     border-radius: 20px  ;
-} 
+  }    
 
-.minus-img2{
+  .minus-img2{
     max-height: 33px;
     color: #5E5E5E;
     transform: scale(2);
-}
+  }
  
-.plus-img2{
+  .plus-img2{
     max-height: 33px;
     transform: scale(2);
-}
+  }
   
-.main-title2{
+  .main-title2{
     font-weight: bolder;
     text-align: center; 
     padding-bottom: 10%;
     color: #5E5E5E; 
     padding-top: 8%;
-}
+  }
    
-.backnnone{
+  .backnnone{
     background: none;
-}
+  }
   
-.select-selected {
+  .select-selected {
     background-color: DodgerBlue;
   }
+
   .select-selected:after {
     position: absolute;
     content: "";
@@ -47,10 +48,10 @@
   }
 
   .treecount{
-    font-size: 1.4em;
-   /*   font-size: 1em; */
+      font-size: 1.4em; 
       margin-top: -2%;
   }
+
   .countprice{
       font-size: 1em; 
   }
@@ -78,13 +79,23 @@
   /*For IE*/
   select::-ms-expand { display: none; }
 
-  input{
-    background: url("../../assets/img/Arrow.svg") white no-repeat calc(100% - 10px) !important; 
-  
+  #date{
+    background: url("../../assets/img/Arrow.svg") white no-repeat calc(100% - 10px) !important;  
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; 
   }
+
+  #anotherNumber{
+    text-align: right;
+    border: 0;
+    background: none;
+  }
+ 
+#anotherNumber:-internal-autofill-selected { 
+    background-color:none !important; 
+}
+
   
   @media (min-width: 280px) and (max-width: 319px) {
     .main-title2{
@@ -123,7 +134,7 @@
         zoom: 2;
     }
     .pagefont{
-        font-size: 2em;
+      font-size: 1.5em;
     }
     .nexttext{
         font-size: 0.5em !important;

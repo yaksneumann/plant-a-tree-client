@@ -47,6 +47,7 @@ export class ContactUsComponent implements OnInit {
   
   ngOnInit() {
     $(".navbar").hide();
+    window.scroll(0,0);
   } 
   sendWhatsapp() {
     //forester_mobile: "0545499468"

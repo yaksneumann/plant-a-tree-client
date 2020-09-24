@@ -64,7 +64,7 @@ export class DonationDetailsComponent implements OnInit {
   certificateText: string;
 
   ngOnInit() {
-
+    window.scroll(0,0);
     this.amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees")) || 0;
     this.countryName = JSON.parse(localStorage.getItem("countryName")) || '';
 
@@ -72,20 +72,15 @@ export class DonationDetailsComponent implements OnInit {
 
     this.certificateText = (localStorage.getItem("certificateText")) || '';
 
-    //console.log("itemAvailTime :" + this.itemAvailTime );
-
+ 
     this.nocirtificate = JSON.parse(localStorage.getItem("nocirtificate")) || 'false';
-    // console.log("nocirtificate :" + this.nocirtificate );
-    if (this.nocirtificate == "false") {
+     if (this.nocirtificate == "false") {
       this.cirtificate = true;
     }
 
     this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
     this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
-
-
-    //this.reactiveForm.get("Date").setValue("1");
-
+ 
     this.amountOfCaps = JSON.parse(localStorage.getItem("amountOfCaps")) || 0;
     this.treePrice = JSON.parse(localStorage.getItem("treePrice")) || 18;
     this.capPrice = JSON.parse(localStorage.getItem("capPrice")) || 6;
@@ -109,27 +104,7 @@ export class DonationDetailsComponent implements OnInit {
 
     this.calculateSum(this.treeSum, this.capSum, this.boxSum);
 
-    localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
-
-    // this.spinner.show();
-    // this.api.getAllDates().subscribe((availableDates: Array<AvailableDate>) => {
-    //   this.spinner.hide();
-    //   if (availableDates) {
-    //     this.availableDates = availableDates;
-    //     this.minDate = this.availableDates[0].date;
-    //     this.maxDate = this.availableDates[this.availableDates.length - 1].date;
-    //   }
-    // },
-    //   error => {
-    //     this.spinner.hide();
-    //     console.log({ error });
-    //     this.errMsg = error.message;
-    //     if (error.statusText == "Unknown Error") {
-    //       this.errMsg = 'Sorry, there is some connection problem, please try again';
-    //     }
-    //     this.openModal('error-modal');
-    //   });
-
+    localStorage.setItem("totalSum", JSON.stringify(this.totalSum)); 
   }
 
   // Yes No Func
@@ -144,8 +119,7 @@ export class DonationDetailsComponent implements OnInit {
       this.RadionbutNo = "./assets/img/FullRadion.svg";
     }
   }
-
-
+ 
   // Submit func
   Submmitbut() {
     this.Radionbut = "./assets/img/FullRadion.svg";
@@ -154,83 +128,14 @@ export class DonationDetailsComponent implements OnInit {
     this.headingCss = {
       opacity: '1'
     };
-    this.disableds = "";
-
+    this.disableds = ""; 
   }
 
   calculateSum(trees: number, caps: number, boxes: number) {
     console.log("calculate totalSum");
     this.totalSum = trees + caps + boxes;
   }
-
-  /*
-  onDateChange(event: any, datePicker: any) {
-    this.localAvailableTime = [];
-    this.israelAvailableTime = [];
  
-     this.invalidDate = false;
-     console.log("Event "+{ event });
-    
-     datePicker.close(); 
-     this.spinner.show();  
-     this.api.GetAvailableTimes('', datePicker._inputValue).subscribe((availableTime: Array<Date>) => {
-     this.spinner.hide();
-     if (availableTime) { 
-       var count =0;
-         this.israelAvailableTime = availableTime; 
-             availableTime.forEach((item: any) => { 
-            //  let itemAvailTime =  new Date(item.AvailTime).getTime(); 
-           try {
-             this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });  
-           } catch (error) {
-             console.log(error)
-           }
-         }); 
-       }
-     },
-       error => {
-         this.spinner.hide();
-        
-         this.errMsg = error.message;
-         if (error.statusText == "Unknown Error") {
-           this.errMsg = 'Sorry, there is some connection problem, please try again';
-         }
-         console.log("Error GetAvailableTimes " +{ error });
-          this.openModal('error-modal');
-       }); 
-
-      this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
-       if (data) {
-         console.log( "Data GetAvailableDate: "+{ data }); 
-         localStorage.setItem("DateVal", JSON.stringify(datePicker._inputValue));
- 
-         if (data[0].rc < 0) {
-            this.errMsg = 'sorry this date is not available';
-           console.log( "Error GetAvailableDate: " +  this.errMsg   );
-            this.openModal('error-modal');
-           return false;
-         }
-       }
-     },
-       error => {
-         console.log("Error GetAvailableDate2 " +{ error })
-       }); 
-  }
-
-  onTimeChange(index: any) {
-    this.invalidTime = false;
-    console.log('onTimeChange time: ' + index);
-
-    //for zoom
-    index = index.split(':')[0];
-    // let israelTime = this.israelavailableTime[index].AvailTime;
-    this.localTime = this.localAvailableTime[index].AvailTime;
-    this.israelTime = this.israelAvailableTime[index].AvailTime; 
- 
-    this.openModal('date-modal'); 
-  }
-*/
-
   onPayNow() {
     console.log("onPayNow pressed");
     //window.open('https://cgmpiuat.creditguard.co.il/CGMPI_Server/PerformTransaction?txId=aa39250b-0c7f-4a92-bfb8-9bdf24942df4', '_self');
@@ -250,8 +155,7 @@ export class DonationDetailsComponent implements OnInit {
         localStorage.setItem("ceremonyID", JSON.stringify(this.ceremonyID));
         //new 5-3-2020
         this.updateItems(this.ceremonyID);
-        //this.getUrlFunc();
-      }
+       }
     },
       error => {
         console.log({ error })

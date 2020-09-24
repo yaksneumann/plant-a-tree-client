@@ -27,7 +27,7 @@ export class CirtificateComponent implements OnInit {
   public CertivicDiv = false;
  
   ngOnInit() { 
-   
+    window.scroll(0,0);
     let donersDetailsObj = JSON.parse(localStorage.getItem("donersDetailsObj")) || {};
     if (Object.keys(donersDetailsObj).length > 0) {
       this.donersDetails.firstName = donersDetailsObj.firstName;

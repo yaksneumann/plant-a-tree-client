@@ -13,7 +13,7 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
   public edited = true;
   public Footerfull = false;
   ngOnInit() { 
-    
+    window.scroll(0,0);
     $(".kkl-icon1").css("width","50%");
     $(".kkl-icon2").css("width","30%");
   }

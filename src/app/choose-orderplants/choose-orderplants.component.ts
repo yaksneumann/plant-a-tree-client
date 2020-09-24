@@ -54,7 +54,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    window.scroll(0,0);
     $(".kkl-icon1").css("width", "45%");
     $(".kkl-icon2").css("width", "30%");
 
@@ -101,17 +101,14 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.api.getItemPrice(1065).subscribe((price: number) => {
       if (price) {
         console.log({ price });
-        //this.treePrice = price;
-        localStorage.setItem("treePrice", JSON.stringify(price));
+         localStorage.setItem("treePrice", JSON.stringify(price));
       }
     },
       error => {
         console.log({ error });
       });
   }
-
-
-
+ 
   onPlusBtn() {
     this.amountOfTrees = this.amountOfTrees + 1;
     this.anotherNumber = true;
@@ -323,9 +320,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.openModal('error-modal');
     }
   }
-
-
-
+ 
   onChooseNext() {
     if (this.chooseTzora || this.chooseGolani) {
       localStorage.setItem("plantingCenter", this.plantingCenter)

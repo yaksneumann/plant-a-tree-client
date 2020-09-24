@@ -82,8 +82,12 @@
               <div class="col-12">
                 <div class="treecount">
                   <u class="fontLite fsizecount">
-                    {{amountOfTrees}}
+                    <input type="search" min="1" max="1000" class="form-control change-no" id="anotherNumber" name="anotherNumber"
+                    [(ngModel)]="amountOfTrees" maxlength="5" required (change)="onChangeNumber(amountOfTrees)">
                   </u>
+               <!--  <u class="fontLite fsizecount">
+                    {{amountOfTrees}}
+                  </u>--> 
                 </div>
 
               </div>

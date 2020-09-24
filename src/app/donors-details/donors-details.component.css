@@ -12,37 +12,23 @@
  select {
    -webkit-appearance: none;
    -moz-appearance: none;
-   appearance: none;
-   
-   background: url('/PlantaTreeInIsrael/Arrow.svg') white no-repeat calc(100% - 20px) !important; 
- /*  background: url("../../assets/img/NewV2/ATT68993.svg")white no-repeat calc(100% - 30px) !important;
-   background: url("./assets/img/NewV2/New folder/down-chevron.svg") ; white no-repeat calc(100% - 10px) !important;   */
+   appearance: none; 
+   background: url('/PlantaTreeInIsrael/Arrow.svg') white no-repeat calc(100% - 20px) !important;  
    background:#5DAA97;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
-   box-sizing: border-box; 
-
- }
- /*For IE*/
- select::-ms-expand { display: none; }
-
-  
- @media (min-width: 730px)   {
-   .submitbut {
-      zoom: 2;
+   box-sizing: border-box;  
    }
-   
-}
-@media (min-width: 730px) and (max-width:1023px)   {
-   
-    
-}
-@media (min-width: 1024px) and (max-width:1366px)   {
-   
-    
-}
+ /*For IE*/
+   select::-ms-expand { display: none; }
 
-@media (min-width: 1024px) and (min-height: 768px)   {
+   input:-internal-autofill-selected { 
+      background-color:none !important; 
+   }
   
+   @media (min-width: 730px)   {
+     .submitbut {
+        zoom: 2;
+      }     
+   }
  
-}
