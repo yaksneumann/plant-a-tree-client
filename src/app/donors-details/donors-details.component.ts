@@ -118,12 +118,12 @@ export class DonorsDetailsComponent implements OnInit {
 
     if (firstName == '') {
       this.invalidFirstName = true;
-      $("#firstName").css("border","1px solid red");
+      //$("#firstName").css("border","1px solid red");
        this.errMsg = 'Please fill in your first name';
     }
     if (lastName == '') {
       this.invalidLastName = true;
-      $("#lastName").css("border","1px solid red");
+     // $("#lastName").css("border","1px solid red");
       if (this.errMsg != '') {
         this.errMsg = this.errMsg + ', and your last name'  ;          
       }
@@ -134,7 +134,7 @@ export class DonorsDetailsComponent implements OnInit {
 
     if (!emailRegex.test(email)) { //regex 
       this.invalidEmail = true;
-      $("#email").css("border","1px solid red");
+     // $("#email").css("border","1px solid red");
       if (this.errMsg != '') {
         this.errMsg = this.errMsg + ', and type a valid Email' ;           
       }
@@ -145,7 +145,7 @@ export class DonorsDetailsComponent implements OnInit {
 
     if (!phoneRegex.test(phone)) {
       this.invalidPhone = true;
-       $("#phone").css("border","1px solid red");
+     //  $("#phone").css("border","1px solid red");
       if (this.errMsg != '') {
         this.errMsg = this.errMsg + ', and type a phone number at least 9 digits and not more then 15 digits'   ;         
       }

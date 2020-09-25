@@ -125,10 +125,11 @@
               </span>
             </label>
             <select name="time"
-              class="form-control  font09em shadows time   treeprices centertext centertext col-7 FONTWID700" id="time"
-              [(ngModel)]="time" (change)="onTimeChange($event.target.value)" required style="color: #000700">
+              class="form-control font09em shadows time treeprices centertext centertext col-7 FONTWID700" id="time"
+              [(ngModel)]="time" (change)="onTimeChange($event.target.value, time)"
+              required style="color: #000700">
               <!-- <option>{{LocalTime}}</option> -->
-              <option value="null">{{ LocalTime }}</option>
+              <option value="null" disabled>{{ LocalTime }}</option>
               <option *ngFor="let time of localAvailableTime" [ngValue]="time.AvailTime">
                 <!-- {{ time.AvailTime | date:'shortTime' }} -->
                 {{ time.AvailTime | date:'shortTime' }}

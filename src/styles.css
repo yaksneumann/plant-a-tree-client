@@ -265,7 +265,11 @@ footer{
 }
 
 .invalid-input{
-    color:red;
+    color:red;    
+}
+
+.error-input {
+    border: 1px solid red;
 }
 
 .imgSelectBut{

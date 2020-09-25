@@ -52,7 +52,7 @@
         <div class="form-group">
           <input type="text" class="form-control col borderstyle fontsxxlarge" id="firstName" name="firstName"
             placeholder="{{ 'DONORS-DETAILS.fName' | translate }}" [(ngModel)]="firstName" required maxlength="30"
-            [ngClass]="{'error-input': invalidFirstName && checkValid(f.controls.firstName)}" /> 
+            [ngClass]="{'error-input': (f.submitted) && checkValid(f.controls.firstName)}" /> 
           <span class="invalid-input" *ngIf="(f.controls['firstName']?.touched) && (f.controls['firstName']?.value=='')">
             <!-- Please fill in your first name -->
             {{ 'DONORS-DETAILS.fNameError' | translate }}
@@ -65,7 +65,7 @@
         <div class="form-group">
           <input type="text" class="form-control col borderstyle fontsxxlarge" id="lastName" name="lastName"
             placeholder="{{ 'DONORS-DETAILS.lName' | translate }}" [(ngModel)]="lastName" required maxlength="20"
-            [ngClass]="{'error-input': invalidLastName && checkValid(f.controls.lastName)}" />
+            [ngClass]="{'error-input': (f.submitted) && checkValid(f.controls.lastName)}" />
           <span class="invalid-input" *ngIf="(f.controls['lastName']?.touched) && (f.controls['lastName']?.value=='')">
             <!-- Please fill in your last name -->
             {{ 'DONORS-DETAILS.lNameError' | translate }}
@@ -80,6 +80,9 @@
             <!-- Please fill in your email address -->
             {{ 'DONORS-DETAILS.emailError' | translate }}
           </span>
+          <span class="invalid-input" *ngIf="(invalidEmail)">
+            invalid email            <!-- {{ 'DONORS-DETAILS.emailError' | translate }} -->
+          </span>
         </div>
 
         <div class="form-group">
@@ -89,6 +92,9 @@
           <span class="invalid-input" *ngIf="(f.controls['phone']?.touched) && (f.controls['phone']?.value=='')">
             <!-- Please fill in your phone number -->
             {{ 'DONORS-DETAILS.phoneError' | translate }}
+          </span>
+          <span class="invalid-input" *ngIf="(invalidPhone)">
+            invalid phone            <!-- {{ 'DONORS-DETAILS.emailError' | translate }} -->
           </span>
         </div>
 

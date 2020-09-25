@@ -130,8 +130,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
     amount = Number(amount);
     console.log("onChangeNumber: " + amount);
     if (amount == null || amount == 0) {
-      this.errMsg = 'You must choose at least one tree';
-      this.openModal('error-modal');
+      // this.errMsg = 'You must choose at least one tree';
+      // this.openModal('error-modal');
       this.amountOfTrees = 1;
     }
     else {
@@ -222,11 +222,13 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
   // onTimeChange(time: any) {
-  onTimeChange(index: any) {
+  onTimeChange(index: any, time) {
     this.invalidTime = false;
-
+    console.log('time: ' + time);
     index = index.split(':')[0];
-
+    index--;
+    // this.israelTime = time;
+    // this.localTime = time;
     this.localTime = this.localAvailableTime[index].AvailTime;
     this.israelTime = this.israelAvailableTime[index].AvailTime;
 
@@ -270,16 +272,16 @@ export class ChooseOrderPlantsComponent implements OnInit {
     if (date == '') {
       this.invalidDate = true;
       $("#date").css("border", "1px solid red");
-      this.errMsg = 'Please choose a valid date';
-      this.openModal('error-modal');
+      // this.errMsg = 'Please choose a valid date';
+      // this.openModal('error-modal');
       return false;
     }
 
     if (time == '') {
       this.invalidTime = true;
       $("#time").css("border", "1px solid red");
-      this.errMsg = 'Please choose a time';
-      this.openModal('error-modal');
+      // this.errMsg = 'Please choose a time';
+      // this.openModal('error-modal');
       return false;
     }
 
