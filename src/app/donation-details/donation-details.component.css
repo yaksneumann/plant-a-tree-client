@@ -1,3 +1,4 @@
+
 .main-title{
     text-align: center;
     color: #5E5E5E; 
@@ -109,9 +110,7 @@ ngb-datepicker{
 .logzoom{
     zoom: 0.1;
 }
-.backgroundmobileimg{
-    height: calc(130vh - 120px) !important;
-}
+
 
 @media (min-width: 640px)    {
     .padl2p{

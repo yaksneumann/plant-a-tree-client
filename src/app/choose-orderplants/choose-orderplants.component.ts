@@ -223,7 +223,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
   // onTimeChange(time: any) {
   onTimeChange(index: any) {
-    this.LocalDatediv = true;
     this.invalidTime = false;
 
     index = index.split(':')[0];
@@ -246,12 +245,16 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.LocalDate = Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', '');
       this.LocalTime = Datearray[3];
     }
-    // let backgroundmobileHeigt = $(".backgroundmobileimg").height() + 60;
-    // $(".backgroundmobileimg").css("height", backgroundmobileHeigt + "px");
+
+    // let backgroundmobileHeigt = $(".backgroundmobileimg").height() + 60;  
+   // let backgroundmobileHeigt = 120vh
+   // console.log();
+    $(".backgroundmobileimg").css("height", "75vh");
     localStorage.setItem('LocalDate', JSON.stringify(this.LocalDate));
     localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
 
     localStorage.setItem('setTime', JSON.stringify(this.israelTime));
+    this.LocalDatediv = true;
 
   }
 

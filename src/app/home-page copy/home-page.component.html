@@ -1,0 +1,192 @@
+<div class="bckwithe col-12 pad0 fontsttyle">
+
+    <div class="planting-img col-12   " > 
+        <div class="row pad0">
+          <div class="col-2 pad0"></div>
+          <div class="col-8 pad0">
+                <div class="contertext"> 
+                    <div class="about-kkl-jnf1 shadowtext ">{{ 'HOME-PAGE.about-kkl-jnf1_0' | translate }}</div>
+                    <div class="about-kkl-jnf2 shadowtext ">{{ 'HOME-PAGE.about-kkl-jnf1_01' | translate }}</div>
+                    <div class="about-kkl-jnf1 shadowtext ">{{ 'HOME-PAGE.about-kkl-jnf1_02' | translate }}</div>
+                </div>
+                <div class="btn-to-donate fontbolder">
+                    <button type="button" class="btn btn-block buttonFonts donatebut fontbold" routerLink="/choose-orderplants" routerLinkActive="active">      
+                        {{ 'HOME-PAGE.button' | translate }}
+                    </button>
+               </div> 
+          </div>
+          <div class="col-2 pad0"></div>
+      </div>
+         
+    </div>
+
+    <div class="col-12 LifeText padt3p fontbolder">
+         <div class="row">
+             <div class="col-1 pad0"></div>
+             <div class="col-10 pad0 fontbolder">
+                 <div>{{ 'HOME-PAGE.LifeText1' | translate }}</div>
+                 <div>{{ 'HOME-PAGE.LifeText2' | translate }}</div>
+                 <!-- <div (click)="OpenScroll()" class="padt3p"> <img src="../../assets/img/scroll.svg" class="scroller"/> </div>  -->
+            </div> 
+             <div class="col-1 pad0"></div>
+         </div> 
+    </div> 
+
+    <div *ngIf="edited" class="openscroll">
+       <div class="HappyFamally col-12 pad0">
+   <!-- <img src="./assets/img/GerlsFoto.png" class="col-12 pad0" />  big Image -->
+   <img src="./assets/img/GerlsFoto2.png" class="col-12 pad0" />
+       </div>
+    
+       <div class="peoplecounter greencolortext">
+   
+     <!--   <div class="row">
+       <div class="col-2 pad0"></div>
+       <div class="col-8 pad0"> 
+           <div class="Peoplepaymentcounter fontbolder fontbold fontscount"> 240,000,000 </div> 
+        </div> 
+        <div class="col-2 pad0"></div> 
+        </div> 
+
+        <div class="row margtm2p">
+                <div class="col-2 pad0"></div>
+                <div class="col-8 pad0 TreesText fontLite fontBoldLite">
+                    <div>{{ 'HOME-PAGE.Treetext1' | translate }}</div>
+                 <div>{{ 'HOME-PAGE.Treetext2' | translate }}</div>
+                </div> 
+                <div class="col-2 pad0">
+                    <div class="treeimg" >
+                        <img src="./assets/img//litltreewithhand.png" class="TreeImg"  /> 
+                    </div> 
+                </div> 
+        </div>  -->
+ 
+        <div class="row marg0">
+            <div class="col-4 pad0"></div>
+            <div class="col-4 pad0">
+                <div class="nbsp fontbold fontscount"> &nbsp;“&nbsp; </div>
+            </div>
+            <div class="col-4 pad0"></div>
+        </div> 
+
+       </div> 
+  
+       <div class="col-12 people pad0 greencolortext">
+        <div class="row padbot3p marg0">
+             <div class="col-1 pad0"></div>
+             <div class="col-2 pad0 pepoleimgDiv"> 
+                 <!-- <img src="./assets/img/NewV1/P1.png"  class="pepoleimg"/> -->
+                </div>
+             <div class="col-7 pad0 peopletxt  ">
+                <span class="fontbold peoplecolortxt">{{ 'HOME-PAGE.People1' | translate }}</span>
+                <span class="fontLite peoplecolortxt"> {{ 'HOME-PAGE.People1_2' | translate }}</span>
+            </div>
+            <div class="col-2 pad0"> </div>
+        </div>
+        <div class="row padbot3p marg0">
+            <div class="col-1 pad0"></div>
+            <div class="col-2 pad0 pepoleimgDiv">
+               <!--   <img src="./assets/img/NewV1/P2.png"  class="pepoleimg"/> -->
+                </div>
+            <div class="col-7 pad0 peopletxt  ">
+                   <span class="fontbold peoplecolortxt">{{ 'HOME-PAGE.People2' | translate }}</span>
+                   <span class="fontLite peoplecolortxt"> {{ 'HOME-PAGE.People2_2' | translate }}</span>
+           </div>
+           <div class="col-2 pad0"> </div>
+       </div>
+       <div class="row padbot3p marg0">
+        <div class="col-1 pad0"></div>
+        <div class="col-2 pad0  "> 
+             <!-- <img src="./assets/img/NewV1/P3.png"  class="pepoleimg"/> -->
+            </div>
+        <div class="col-7 pad0 peopletxt  ">
+               <span class="fontbold peoplecolortxt">{{ 'HOME-PAGE.People3' | translate }}</span>
+               <span class="fontLite peoplecolortxt"> {{ 'HOME-PAGE.People3_2' | translate }}</span>
+       </div>
+       <div class="col-2 pad0"> </div>
+   </div>
+       </div>
+      
+       <div class="botdonatebtn">
+        <div class="row marg0">
+            <div class="col-2 pad0"></div>
+            <div class="col-8 pad0 fontbolder">
+                <button type="button" class="btn btn-block buttonFonts donatebut fontbold" routerLink="/choose-orderplants" routerLinkActive="active">      
+                    {{ 'HOME-PAGE.button' | translate }}
+                </button>
+            </div> 
+            <div class="col-2 pad0"></div>
+        </div>  
+       </div>
+
+       <div *ngIf="Footerfull" class="footerbutons greencoolr" >
+        <div class="row marg0">
+            <div class="col-2 pad0"></div>
+        
+            <div class="col-8 pad0 withetext fontLite">
+
+                <div class="row footertext padt5p marg0">
+                    <div class="row pad0 margauto marg0">
+                          <div class="footerbutton">{{ 'WhoweAre' | translate }}</div>
+                          <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+                          <div class="footerbutton">{{ 'HowitWorks' | translate }}</div>
+                          <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+                          <div class="footerbutton">{{ 'Contact' | translate }}</div> 
+                    </div>
+                </div>
+
+                <div class="row footertext padt5p marg0"> 
+                    <div class="row pad0 margauto">
+                        <div class="footerbutton">{{ 'Donation' | translate }}</div>
+                        <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+                        <div class="footerbutton">{{ 'Rateour' | translate }}</div>
+                     </div>
+                </div>
+                 
+                <div class="row padt5p marg0">
+                    <div class="row pad0 margauto">
+                          <div class="footerbutton"><u>{{ 'Accessib' | translate }}</u></div>
+                          <div>&nbsp;|&nbsp;</div>
+                          <div class="footerbutton"><u>{{ 'Privacy' | translate }}</u></div>
+                    </div>
+                </div>  
+                
+            </div>
+
+            <div class="col-2 pad0"></div>
+        </div>
+    </div>
+
+    <div class="footerbutons greencoolr" >
+        <div class="row marg0">
+            <div class="col-2 pad0"></div> 
+            <div class="col-8 pad0 withetext"> 
+                <div class="row padt5p marg0">
+                    <div class="row pad0 margauto">
+                          
+                          <div (click)="goToLinkPricacy()"><u>{{ 'Privacy' | translate }}</u></div>
+                    </div>
+                </div>   
+            </div> 
+            <div class="col-2 pad0"></div>
+        </div>
+    </div>
+
+    </div> 
+
+</div> 
+  
+<jw-modal id="error-modal" style="display:none">
+    <!-- <h4>kkl alert</h4>
+    <hr> -->
+    <!-- <div class="errorMsg">At this time our staff would plant your tree for you, and you will be there with them via ZOOM!
+    </div> -->
+    <div class="errorMsg">
+        {{ 'HOME-PAGE.zoom-popup' | translate }}
+        <!-- At this time, our forester will plant the trees for you and you will be present via zoom for
+        the whole planting ceremony. -->        
+    </div>
+    <hr>
+    <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">OK</button>
+</jw-modal>
+ 
