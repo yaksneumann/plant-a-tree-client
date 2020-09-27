@@ -15,7 +15,7 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
   ngOnInit() { 
     window.scroll(0,0);
     $(".kkl-icon1").css("width","50%");
-    $(".kkl-icon2").css("width","30%");
+    $(".kkl-icon2").css("width","35%");
   }
 
   goToLinkPricacy(){
