@@ -18,7 +18,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
   constructor(private api: ApiService, private router: Router, private modalService: ModalService, private spinner: NgxSpinnerService) { }
 
-
   errMsg: string = '';
   chooseGolani: boolean = false;
   chooseTzora: boolean = true;
@@ -48,10 +47,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
   LocalTime: string = '';
   public LocalDatediv = false;
   screenHeight: any;
-  calculateAmount(num: any) {
-    console.log("calculateAmount btn; num: " + num);
-    this.totalAmount = this.treePrice * num;
-  }
 
   ngOnInit() {
     window.scroll(0,0);
@@ -121,9 +116,14 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.amountOfTrees = this.amountOfTrees - 1;
       this.calculateAmount(this.amountOfTrees);
     }
-    else {
-      console.log("one plant must be chosen");
-    }
+    // else {
+    //   console.log("one plant must be chosen");
+    // }
+  }
+
+  calculateAmount(num: any) {
+    console.log("calculateAmount btn; num: " + num);
+    this.totalAmount = this.treePrice * num;
   }
 
   onChangeNumber(amount: number) {
@@ -134,10 +134,10 @@ export class ChooseOrderPlantsComponent implements OnInit {
       // this.openModal('error-modal');
       this.amountOfTrees = 1;
     }
-    else {
-      this.calculateAmount(amount);
+    else {   
       this.amountOfTrees = amount;
     }
+    this.calculateAmount(this.amountOfTrees);
   }
 
   isDisabled = (date: NgbDate, current: { month: number }) => {

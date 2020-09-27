@@ -14,6 +14,7 @@ import { ChooseAreaComponent } from './choose-area/choose-area.component';
 import { ChoosePlantsComponent } from './choose-plants/choose-plants.component';
 import { ChooseOrderPlantsComponent } from './choose-orderplants/choose-orderplants.component';
 import { ChooseTimeComponent } from './choose-time/choose-time.component';
+import { CalanderComponent } from './calander/calander.component';
 import { DonationDetailsComponent } from './donation-details/donation-details.component';
 import { DonorsDetailsComponent } from './donors-details/donors-details.component';
 import { MoreItemsComponent } from './more-items/more-items.component';
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChoosePlantsComponent,
     ChooseOrderPlantsComponent,
     ChooseTimeComponent,
+    CalanderComponent,
     DonationDetailsComponent,
     DonorsDetailsComponent,
     MoreItemsComponent,
