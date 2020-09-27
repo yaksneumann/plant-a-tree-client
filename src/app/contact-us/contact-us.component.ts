@@ -90,6 +90,33 @@ export class ContactUsComponent implements OnInit {
       this.openModal('error-modal');
     }
   }
+
+  confirmCertificate() {
+    // localStorage.setItem("certificateText", this.ceremonyDetails.CertificateText);
+    // this.spinner.show();
+    // this.api.updateCertificate(this.ceremonyID, this.ceremonyDetails.CertificateText).subscribe((data: any) => {
+    //   this.spinner.hide();
+    //   if (data > 0) {
+    //     console.log({ data });
+    //   }
+    //   else {
+    //     this.errMsg = 'Sorry, there has beem some error';
+    //     this.openModal('error-modal');
+    //   }
+    // },
+    //   error => {
+    //     this.spinner.hide();
+    //     this.errMsg = 'Sorry, there has been a conection problem. Please try later';
+    //     this.openModal('error-modal');
+    //   });    
+      
+    // this.closeModal('certificate-modal');
+  }
+
+  editCertificate() {
+    
+  }
+
   openModal(id: string) {
     this.modalService.open(id);
   }
