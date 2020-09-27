@@ -196,6 +196,7 @@ export class DonationDetailsComponent implements OnInit {
   getUrlFunc() {
     this.api.GetUrlForSlika(this.ceremonyID).subscribe((data: any) => {
       if (data[0].RetCode == 'ok') {
+        document.body.classList.remove('bodycss');
         console.log({ data });
         window.open(data[0].UrlPage, '_self');
         //this.router.navigate(['payment-page']);

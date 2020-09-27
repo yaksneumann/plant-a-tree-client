@@ -113,13 +113,7 @@
  .footerbutton:focus, .footerbutton:hover{
     font-weight: bold; 
     opacity: 1;
-} 
-.kkl-icon1{
-    width: 50% !important;
-}
-.kkl-icon2{
-    width: 35% !important;
-}
+}  
  /* Mobile CSS */
  @media (min-width:280px) and (max-width: 300px)  {
    

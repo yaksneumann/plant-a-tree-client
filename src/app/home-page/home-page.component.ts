@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ModalService } from '../services/modal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -8,7 +9,7 @@ import { ModalService } from '../services/modal.service';
 })
 export class HomePageComponent  implements AfterViewInit, OnInit {
 
-  constructor(private modalService: ModalService) {}
+  constructor(private modalService: ModalService, private router: Router) {}
 
   public edited = true;
   public Footerfull = false;
@@ -16,10 +17,16 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
     window.scroll(0,0);
     $(".kkl-icon1").css("width","50%");
     $(".kkl-icon2").css("width","35%");
+    document.body.classList.add('nobackround'); 
   }
 
   goToLinkPricacy(){
     window.open("https://www.kkl-jnf.org/privacy-policy/", "_blank");
+  }
+
+  orderplants(){
+    document.body.classList.remove('nobackround');
+    this.router.navigate(['choose-orderplants']);
   }
 
   OpenScroll(){

@@ -10,7 +10,7 @@
                     <div class="about-kkl-jnf1 shadowtext ">{{ 'HOME-PAGE.about-kkl-jnf1_02' | translate }}</div>
                 </div>
                 <div class="btn-to-donate fontbolder">
-                    <button type="button" class="btn btn-block buttonFonts donatebut fontbold" routerLink="/choose-orderplants" routerLinkActive="active">      
+                    <button type="button" class="btn btn-block buttonFonts donatebut fontbold" (click)="orderplants()" routerLinkActive="active">      
                         {{ 'HOME-PAGE.button' | translate }}
                     </button>
                </div> 
@@ -27,6 +27,7 @@
                  <div>{{ 'HOME-PAGE.LifeText1' | translate }}</div>
                  <div>{{ 'HOME-PAGE.LifeText2' | translate }}</div>
                  <!-- <div (click)="OpenScroll()" class="padt3p"> <img src="../../assets/img/scroll.svg" class="scroller"/> </div>  -->
+                 <div class="padt3p"> <img src="./assets/img/scroll.svg" class="scroller"/> </div>
             </div> 
              <div class="col-1 pad0"></div>
          </div> 
@@ -111,7 +112,7 @@
         <div class="row marg0">
             <div class="col-2 pad0"></div>
             <div class="col-8 pad0 fontbolder">
-                <button type="button" class="btn btn-block buttonFonts donatebut fontbold" routerLink="/choose-orderplants" routerLinkActive="active">      
+                <button type="button" class="btn btn-block buttonFonts donatebut fontbold"   (click)="orderplants()" routerLinkActive="active">      
                     {{ 'HOME-PAGE.button' | translate }}
                 </button>
             </div> 
