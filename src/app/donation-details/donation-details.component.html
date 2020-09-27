@@ -104,35 +104,16 @@
         </div>
         <hr />
         <div class="row marg0 fontsxxlarge minheitgh">
-          <div class="col-2 pad0 amountTrees textleft">{{ 'DONATION-DETAILS.Date' | translate }}</div>
-          <!--<div class="col-8 pad0 datediv"> 
-         <input ngbDatepicker type="text" readonly #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
-        [markDisabled]="isDisabled" class="form-control date treeprices pad0" id="date" name="date" required ngModel
-        [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)" style="color: #000700" firstDayOfWeek="7"
-        (click)="d.toggle(); $event.stopPropagation();"  >
-      <span class="invalid-input" *ngIf="invalidDate">Invalid Date</span>   
-     
-    </div> -->
-          <div class="col-10 pad0 datediv fontBoldLite fontsizedatetime">
+          <div class="col-2 pad0 amountTrees textleft">{{ 'DONATION-DETAILS.Date' | translate }}</div> 
+          <div class="col-10 pad0 datediv fontBoldLite fontsizedatetime lineheight1p7">
             {{LocalDate}}
           </div>
         </div>
         <hr />
 
         <div class="row marg0 fontsxxlarge minheitgh">
-          <div class="amountTrees col-4 pad0 textleft">{{ 'DONATION-DETAILS.Time' | translate }}</div>
-          <!--    <div class="col-6 pad0">
-        <select name="time" class="form-control time treeprices pad0" id="time" [(ngModel)]="timeId"
-        (change)="onTimeChange($event.target.value)" required style="color: #000700">
-          <option *ngFor="let time of localAvailableTime" [ngValue]="time.AvailTime">
-            
-            {{ time.AvailTime | date:'shortTime' }}
-
-          </option>
-        </select>
-      
-      </div> -->
-          <div class="col-6 pad0 fontBoldLite fontsizedatetime">
+          <div class="amountTrees col-4 pad0 textleft">{{ 'DONATION-DETAILS.Time' | translate }}</div> 
+          <div class="col-6 pad0 fontBoldLite fontsizedatetime lineheight1p7">
             {{LocalTime}}
           </div>
           <div class="col-2 pad0"></div>
@@ -141,9 +122,8 @@
 
         <div class="row marg0 fontsxxlarge minheitgh">
           <div class="amountTrees col-4 pad0 textleft">{{ 'DONATION-DETAILS.Location' | translate }}</div>
-          <div class="col-8 pad0 fontBoldLite fontsizedatetime">{{ 'DONATION-DETAILS.Locationtext' | translate }}
-            <!--{{countryName}}-->
-          </div>
+          <div class="col-8 pad0 fontBoldLite fontsizedatetime lineheight1p7">{{ 'DONATION-DETAILS.Locationtext' | translate }}
+           </div>
         </div>
         <hr />
 
@@ -168,8 +148,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-2 pad0"></div> -->
-    </div>
+     </div>
 
     <div class="row pad0 marg0 margtop5p fontLite witebackg">
       <div class="col-3 pad0"> </div>

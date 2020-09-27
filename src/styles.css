@@ -301,6 +301,13 @@ input:-internal-autofill-selected {
     position: absolute;
     bottom: 5%;
 }
+.lineheight1p7{
+    line-height: 1.7em;
+}
+.lineheight1p9{
+    line-height: 1.9em;
+}
+
 @media (min-width: 280px) and (max-width: 319px) {
   
 } 
