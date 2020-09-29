@@ -136,16 +136,7 @@ body {
 .textleft{
     text-align: left;
 } 
- 
- .backgroundmobileimg{ 
-   /* background: url(./assets/img/background.png); 
-    background-size: cover;
-    background-repeat: no-repeat;
-     height: calc(100vh - 246px);  
-    height: calc(100vh - 30px); 
-     min-height: 80vh;*/  
- } 
-
+  
  .shadows{
     box-shadow: 0 10px 10px -5px #0000000A;
     border:0;

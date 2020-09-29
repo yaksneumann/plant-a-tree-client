@@ -45,7 +45,9 @@
     "LifeText1": "Life may seem to be on hold right ",
     "LifeText2": "now, but Israel`s forests can`t wait.",
     "Treetext1": "Trees have been planted by our",
-    "Treetext2": "Plant a Tree community."
+    "Treetext2": "Plant a Tree community.",
+
+    "goToLinkPricacy":"https://www.kkl-jnf.org/privacy-policy/"
   },
   "CHOOSE-ORDERPLANTS": {
     "ORDERPLANTS": "HOW MANY TREES",

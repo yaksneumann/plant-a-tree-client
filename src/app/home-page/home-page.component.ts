@@ -22,8 +22,12 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
 
   goToLinkPricacy(){
     window.open("https://www.kkl-jnf.org/privacy-policy/", "_blank");
+   
   }
-
+  goToLinkAccessib(){
+     window.open("https://www.kkl.org.il/accessibility-statement/", "_blank");
+    
+  }
   orderplants(){
     document.body.classList.remove('nobackround');
     this.router.navigate(['choose-orderplants']);
