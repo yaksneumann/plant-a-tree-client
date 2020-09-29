@@ -142,12 +142,10 @@ export class DonationDetailsComponent implements OnInit {
   }
  
   onPayNow() {
-    console.log("onPayNow pressed");
-    //window.open('https://cgmpiuat.creditguard.co.il/CGMPI_Server/PerformTransaction?txId=aa39250b-0c7f-4a92-bfb8-9bdf24942df4', '_self');
-
     localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
-
+    this.spinner.show();
     this.api.OpenPlantEvent(this.acceptEmail).subscribe((data: any) => {
+      this.spinner.hide();
       if (data) {
         console.log({ data });
         this.ceremonyID = data[0].CeremonyID;
@@ -158,11 +156,15 @@ export class DonationDetailsComponent implements OnInit {
           return false;
         }
         localStorage.setItem("ceremonyID", JSON.stringify(this.ceremonyID));
-        //new 5-3-2020
+        
+        // yaks testing to fix because of delay to api 29-9-20
+        //this.getUrlFunc();
+        ////new 5-3-2020
         this.updateItems(this.ceremonyID);
        }
     },
       error => {
+        this.spinner.hide();
         console.log({ error })
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
@@ -176,7 +178,9 @@ export class DonationDetailsComponent implements OnInit {
   }
 
   updateItems(ceremonyID: number) {
+    this.spinner.show();
     this.api.insertItems(ceremonyID).subscribe((data: any) => {
+      this.spinner.hide();
       this.getUrlFunc();
       console.log({ data });
       if (data == "") {
@@ -184,6 +188,7 @@ export class DonationDetailsComponent implements OnInit {
       }
     },
       error => {
+        this.spinner.hide();
         console.log({ error })
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
@@ -194,7 +199,9 @@ export class DonationDetailsComponent implements OnInit {
   }
 
   getUrlFunc() {
+    this.spinner.show();
     this.api.GetUrlForSlika(this.ceremonyID).subscribe((data: any) => {
+      this.spinner.hide();
       if (data[0].RetCode == 'ok') {
         document.body.classList.remove('bodycss');
         console.log({ data });
@@ -206,6 +213,7 @@ export class DonationDetailsComponent implements OnInit {
       }
     },
       error => {
+        this.spinner.hide();
         console.log({ error })
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
