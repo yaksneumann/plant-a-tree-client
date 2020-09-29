@@ -36,7 +36,7 @@ const routes: Routes = [
    // { path: 'zoom', component:  ZoomComponent},
     // { path: 'home-page', component: HomePageComponent },
    // { path: 'choose-area', component: ChooseAreaComponent },
-   // { path: 'choose-time', component: ChooseTimeComponent },
+   { path: 'choose-time', component: ChooseTimeComponent },
     //{ path: 'choose-plants', component: ChoosePlantsComponent },
       //  { path: 'more-items', component: MoreItemsComponent },
 

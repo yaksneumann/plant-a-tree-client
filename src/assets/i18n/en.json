@@ -93,8 +93,7 @@
     "TreePrice": "18"
   },
   "DONORS-DETAILS": {
-    "title": "PERSONAL DETAILS",
-    "donors-title": "Title",
+    "title": "YOUR INFORMATION",
     "optional": "Title:",
     "fName": "First Name:",
     "fNameError": "Please fill in your first name",

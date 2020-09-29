@@ -25,10 +25,14 @@
    input:-internal-autofill-selected { 
       background-color:none !important; 
    }
-  
+   .fontsiz1p1{
+      font-size: 1.1em;
+   }
+     
    @media (min-width: 730px)   {
      .submitbut {
         zoom: 2;
       }     
    }
  
+   
