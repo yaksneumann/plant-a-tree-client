@@ -143,7 +143,7 @@ body {
     background-repeat: no-repeat;
      height: calc(100vh - 246px);  
     height: calc(100vh - 30px); */ 
-    min-height: 65vh;
+    min-height: 80vh;
   
  } 
  .shadows{
@@ -300,8 +300,9 @@ input:-internal-autofill-selected {
 } 
 
 .footer-distributed{
-    position: absolute;
-    bottom: 5%;
+ /*   position: absolute;
+    bottom: 5%;  */ 
+    padding-top: 5%;
 }
 .lineheight1p7{
     line-height: 1.7em;
