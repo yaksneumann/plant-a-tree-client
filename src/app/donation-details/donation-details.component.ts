@@ -158,9 +158,9 @@ export class DonationDetailsComponent implements OnInit {
         localStorage.setItem("ceremonyID", JSON.stringify(this.ceremonyID));
         
         // yaks testing to fix because of delay to api 29-9-20
-        //this.getUrlFunc();
+        this.getUrlFunc();
         ////new 5-3-2020
-        this.updateItems(this.ceremonyID);
+        //this.updateItems(this.ceremonyID);
        }
     },
       error => {
