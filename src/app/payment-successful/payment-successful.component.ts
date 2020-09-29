@@ -164,7 +164,9 @@ export class PaymentSuccessfulComponent implements OnInit {
     //window.open('whywhyn@gmail.com');
 
   }
-
+  sendEmail() {
+    window.open('mailto:tovad@kkl.org.il?subject=Tree planting ceremony number: ' + this.ceremonyID + '&body=Hi Tova,%0A I would like to make some changes to my planting a tree event%0A');
+  }
   openModal(id: string) {
     this.modalService.open(id);
     console.log("openModal id: " + id)
