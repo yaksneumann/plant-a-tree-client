@@ -141,8 +141,9 @@ body {
    /* background: url(./assets/img/background.png); 
     background-size: cover;
     background-repeat: no-repeat;
-     height: calc(100vh - 246px);  */ 
-    height: calc(100vh - 30px); 
+     height: calc(100vh - 246px);  
+    height: calc(100vh - 30px); */ 
+    min-height: 65vh;
   
  } 
  .shadows{
