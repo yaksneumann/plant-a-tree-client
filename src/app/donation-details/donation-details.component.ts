@@ -63,7 +63,7 @@ export class DonationDetailsComponent implements OnInit {
   Radionbut: string = "./assets/img/EmtyRadion.svg";
   RadionbutYes: string = "./assets/img/EmtyRadion.svg";
   RadionbutNo: string = "./assets/img/FullRadion.svg";
-  acceptEmail: boolean = false;
+  acceptEmail: number = 0;
   certificateText: string;
 
   ngOnInit() {
@@ -113,9 +113,9 @@ export class DonationDetailsComponent implements OnInit {
   }
 
   // Yes No Func
-  onAcceptEmail(acceptEmail: boolean) {
+  onAcceptEmail(acceptEmail: number) {
     this.acceptEmail = acceptEmail;
-    if (acceptEmail) {
+    if (acceptEmail == 1) {
       this.RadionbutYes = "./assets/img/FullRadion.svg";
       this.RadionbutNo = "./assets/img/EmtyRadion.svg";
     }

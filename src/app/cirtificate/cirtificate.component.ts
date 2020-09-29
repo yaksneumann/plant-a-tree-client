@@ -62,7 +62,7 @@ export class CirtificateComponent implements OnInit {
       this.certificateText = this.titleDesc + this.donersDetails.firstName + ' ' + this.donersDetails.lastName + ' has planted a tree in the Tzora forest at the foothills of Jerusalem. ';
     }
 
-    localStorage.setItem('certificateText', JSON.stringify(this.certificateText)); 
+    localStorage.setItem('certificateText', this.certificateText); 
 
     //document.getElementById("certificateText").focus();
       document.getElementById("menubuttons").focus();

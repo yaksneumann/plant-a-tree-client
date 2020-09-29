@@ -105,7 +105,7 @@ export class ApiService implements OnInit {
     return this.http.get(`${environment.apiUrl}GetPlantAreaDetails/` + code, { headers });
   }
 
-  OpenPlantEvent(acceptEmail: any) {
+  OpenPlantEvent(acceptEmail: number) {
     let donersDetailsObj = JSON.parse(localStorage.getItem("donersDetailsObj"));
     let numberOfPeople = JSON.parse(localStorage.getItem("numberOfPeople"));
     let amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees"));
@@ -138,10 +138,6 @@ export class ApiService implements OnInit {
       "blueBoxes": blueBoxes,
       "CertificateText": text,
       "acceptEmail": acceptEmail
-
-      
-
-      //,"zoomEvent": 1 for zoom, 1 = zoom 0=no zoom, 2=maybe
     }
     console.log('OpenPlantEvent data: ');
     console.log({ data });
