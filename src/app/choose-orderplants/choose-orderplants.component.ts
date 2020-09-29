@@ -50,8 +50,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0);
-    $(".kkl-icon1").css("width", "45%");
-    $(".kkl-icon2").css("width", "30%");
+   // $(".kkl-icon1").css("width", "45%");
+   // $(".kkl-icon2").css("width", "30%");
 
     //let heightScreen =window.innerHeight - document.getElementById("navlogos").offsetHeight- 10;
     //console.log(window.innerHeight);
@@ -314,9 +314,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
       localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople));
       localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees));
      // localStorage.setItem("localAvailableTime", JSON.stringify(this.localAvailableTime));
-
-      
-
+ 
       console.log(numberOfPeople);
       this.router.navigate(['donors-details']);
     }
@@ -325,6 +323,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.openModal('error-modal');
     }
   }
+
+  
  
   onChooseNext() {
     if (this.chooseTzora || this.chooseGolani) {
