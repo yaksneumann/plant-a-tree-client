@@ -46,7 +46,9 @@ export class ContactUsComponent implements OnInit {
   plantingPrayer: boolean = false;
   
   ngOnInit() {
-    $(".navbar").hide();
+    document.body.classList.add('nobackround'); 
+    document.getElementById("navlogos").classList.add('hidediv');
+    
     window.scroll(0,0);
   } 
   sendWhatsapp() {
