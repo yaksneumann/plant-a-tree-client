@@ -251,7 +251,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     // let backgroundmobileHeigt = $(".backgroundmobileimg").height() + 60;  
    // let backgroundmobileHeigt = 120vh
    // console.log();
-    $(".backgroundmobileimg").css("height", "75vh");
+   // $(".backgroundmobileimg").css("height", "75vh");
     localStorage.setItem('LocalDate', JSON.stringify(this.LocalDate));
     localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
 
