@@ -21,7 +21,7 @@ export class CeremonyDetailsComponent implements OnInit {
   errMsg: string = '';
   url: any;
   ceremonyID: number = 0;
-  plantingCenter: number = 0;
+  plantingCenter: number = 35;
 
   ceremonyDetails: any = {
     cap: "",
