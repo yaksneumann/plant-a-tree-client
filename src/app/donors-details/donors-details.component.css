@@ -13,7 +13,9 @@
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none; 
-   background: url('/PlantaTreeInIsrael/Arrow.svg') white no-repeat calc(100% - 20px) !important;  
+   background: url('../../assets/img/Arrow.svg') white no-repeat calc(100% - 20px) !important;  
+
+   /* background: url('/PlantaTreeInIsrael/Arrow.svg') white no-repeat calc(100% - 20px) !important;   */
    background:#5DAA97;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
