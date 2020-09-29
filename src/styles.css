@@ -299,9 +299,7 @@ input:-internal-autofill-selected {
     background-color: white !important;
 } 
 
-.footer-distributed{
- /*   position: absolute;
-    bottom: 5%;  */ 
+.footer-distributed{ 
     padding-top: 5%;
 }
 .lineheight1p7{

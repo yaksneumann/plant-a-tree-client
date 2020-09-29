@@ -92,9 +92,9 @@
             <div class="small-text">
                 {{ 'CEREMONY-DETAILS.zoom' | translate }}
                 <!-- please make sure to download and sign in to the -->
-                <br>
+              <!--  <br>
                 {{ 'CEREMONY-DETAILS.zoom' | translate }}
-                <!-- Zoom app before the planting event. -->
+                 Zoom app before the planting event. -->
             </div>
             <div class="row icons">
                 <div class="col">
@@ -198,6 +198,18 @@
     </div>    
 </jw-modal>
 
+<jw-modal id="certificate-modal2" class="Certificatepopup2" style="display:none;">
+    <div class="certificate-img2">
+      <div width="280" height="90" class="canvas2">
+        {{ceremonyDetails.CertificateText}}
+       </div> 
+    </div>
+   <div>
+    <button (click)="closeModal('certificate-modal2', 'no');"  style="margin:0px 0 0 0;"
+    class="btn divbtnYes certiftext col-12 pad0 centertext popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+   </div>
+       
+    </jw-modal>
 
 
 <!-- <div class="">

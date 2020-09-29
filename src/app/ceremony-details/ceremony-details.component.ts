@@ -160,7 +160,10 @@ export class CeremonyDetailsComponent implements OnInit {
   }
 
   viewCertificateImg() {
-    this.openModal('certificate-modal');
+  //  this.openModal('certificate-modal');
+  // Moshe Change 29-9-2020
+   this.openModal('certificate-modal2');
+
   }
 
   editCertificate() {

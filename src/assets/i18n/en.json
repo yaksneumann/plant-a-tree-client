@@ -164,7 +164,8 @@
     "seeYou": "See you soon!",
 
     "contact":"CONTACT INFORMATION",
-    "back":"BACK TO HOME PAGE"
+    "back":"BACK TO HOME PAGE",
+    "ceremony-details": "CONTACT DETAILS"
   },
   "CEREMONY-DETAILS": {
     "welcome": "Welcome ",
