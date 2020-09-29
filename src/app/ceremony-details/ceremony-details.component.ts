@@ -205,7 +205,7 @@ export class CeremonyDetailsComponent implements OnInit {
   onPlantingPrayer() {
     this.openModal('prayer-modal');
 
-this.plantingPrayer = true
+this.plantingPrayer = true;
     //window.open("./assets/img/planting-prayer.pdf");
   }
 
