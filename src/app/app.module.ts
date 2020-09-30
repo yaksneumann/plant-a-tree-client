@@ -31,7 +31,7 @@ import { ZoomComponent } from './zoom/zoom.component';
 //import { routing } from './app-routing.module';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ContactUsComponent } from './contact-us/contact-us.component';
- 
+  
 //for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
    return new TranslateHttpLoader(http, './assets/i18n/');
@@ -75,7 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }) 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,13 +13,16 @@
 
     <div class="row">
         <div class="col">
-            <img class="info-icons" src="./assets/img/location-point.svg" alt="location" width="100%">
+         <!--   <img class="info-icons" src="./assets/img/location-point.svg" alt="location" width="100%"> -->
+            <img class="info-icons" src="{{ 'CEREMONY-DETAILS.LocalPoint' | translate }}" alt="location" width="100%">
         </div>
         <div class="col">
-            <img class="info-icons" src="./assets/img/clock.svg" alt="clock" width="100%">
+           <!--    <img class="info-icons" src="./assets/img/clock.svg" alt="clock" width="100%"> -->
+            <img class="info-icons" src="{{ 'CEREMONY-DETAILS.Clock' | translate }}" alt="clock" width="100%">
         </div>
         <div class="col">
-            <img class="info-icons" src="./assets/img/calendar-green.svg" alt="calendar" width="100%">
+           <!--    <img class="info-icons" src="./assets/img/calendar-green.svg" alt="calendar" width="100%"> -->
+            <img class="info-icons" src="{{ 'CEREMONY-DETAILS.Calendar' | translate }}" alt="calendar" width="100%">
         </div>
     </div>
 
@@ -41,19 +44,24 @@
             {{ 'CEREMONY-DETAILS.contact' | translate }} <b>{{ ceremonyDetails.forester_name }}</b>
             <div class="row icons">
                 <div class="col">
-                    <img class="share-icons" src="./assets/img/whatsapp-logo.svg" alt="tree" width=""
-                        (click)="sendWhatsapp()">
+                 <!--    <img class="share-icons" src="./assets/img/whatsapp-logo.svg" alt="tree" width=""
+                        (click)="sendWhatsapp()"> -->
+                        <img class="share-icons" src="{{ 'CEREMONY-DETAILS.WhatsAppImeges' | translate }}" alt="tree" width=""
+                        (click)="sendWhatsapp()"> 
                 </div>
                 <div class="col">
-                    <img class="share-icons" src="./assets/img/chat.png" alt="tree" (click)="sendSms()"
+                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.ChatImg' | translate }}" alt="tree" (click)="sendSms()"
                         style="height: 47px!important;">
+                      <!--  <img class="share-icons" src="./assets/img/chat.png" alt="tree" (click)="sendSms()"
+                        style="height: 47px!important;"> -->
                     <!-- <img class="share-icons" src="./assets/img/sms.png" alt="tree" (click)="sendSms()"
                             style="height: 47px!important;"> -->
                 </div>
                 <div class="col">
-                    <img class="share-icons" src="./assets/img/phone-icon.png" alt="tree" (click)="callForester()">
+                   <!-- <img class="share-icons" src="./assets/img/phone-icon.png" alt="tree" (click)="callForester()">-->
+                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.PhoneImg' | translate }}" alt="tree" (click)="callForester()">
                 </div>
-            </div>
+            </div> 
         </div>
 
         <div class="contact-info">
@@ -66,11 +74,13 @@
                 <div class="col">
                     <!-- <span class="" *ngIf="usingPc" style="font-size: 30px;font-weight: 800;">
                             02-658-3384
-                          </span>  -->
-                    <img class="office-phone" src="./assets/img/phone2.png" (click)="callOffice()">
+                          </span>  --> 
+                   <!--  <img class="office-phone" src="./assets/img/phone2.png" (click)="callOffice()"> -->
+                    <img class="office-phone" src="{{ 'CEREMONY-DETAILS.PhoneImg2' | translate }}" (click)="callOffice()">
                 </div>
                 <div class="col">
-                    <img class="envelope-icon" src="./assets/img/envelope.svg" alt="tree" (click)="sendEmail()">
+                  <!--  <img class="envelope-icon" src="./assets/img/envelope.svg" alt="tree" (click)="sendEmail()">-->
+                    <img class="envelope-icon" src="{{ 'CEREMONY-DETAILS.EnvelopeImg' | translate }}" alt="tree" (click)="sendEmail()">
                 </div>
             </div>
         </div>
@@ -98,7 +108,8 @@
             </div>
             <div class="row icons">
                 <div class="col">
-                    <img class="" src="./assets/img/zoom.png" alt="zoom" width="70px" (click)=openZoom()>
+                  <!--  <img class="" src="./assets/img/zoom.png" alt="zoom" width="70px" (click)=openZoom()>-->
+                    <img class="" src="{{ 'CEREMONY-DETAILS.ZoomImg' | translate }}" alt="zoom" width="70px" (click)=openZoom()>
                 </div>
             </div>
         </div>

@@ -1,33 +1,6 @@
 <div class="col-12 pad0 backgroundmobileimg " >
   <!-- header buttons -->
-  <!--  <div class="row col-12 pages-menu margbut0 padl10p"> 
-    <div class="col-2 pad0"></div>
-    <div class="col-2 pad0">
-      <div class="row"
-        <div class="col-6 pad"><div class="btnmenu" routerLink="/choose-orderplants"><div>&#10003;</div></div></div>
-        <div class="col6 hrdiv"><hr class="menuline"/></div>
-      </div>  
-    </div>
-    <div class="col-2 pad0">
-      <div class="row">
-        <div class="col-6 pad"><div class="btnmenu  " routerLink="/donors-details"><div>&#10003;</div></div></div>
-        <div class="col6 hrdiv"><hr class="menuline"/></div>
-      </div>  
-    </div>
-    <div class="col-2 pad0">
-      <div class="row">
-        <div class="col-6 pad"><div class="btnmenu " routerLink="/cirtificate"><div>&#10003;</div></div></div>
-        <div class="col6 hrdiv"><hr class="menuline"/></div>
-      </div>  
-    </div>
-    <div class="col-2 pad0">
-      <div class="row">
-        <div class="col-6 pad"><div class="btnmenu  selectedmenu"></div></div>
-        <div class="col6  "> </div>
-      </div>  
-    </div>
-  </div>-->
-
+  
   <div class="row col-12 pages-menu margbut0 padl10p">
     <div class="col-2 pad0"> </div>
     <div class="col-2 pad0">
@@ -137,7 +110,8 @@
         <div *ngIf="cirtificate">
           <div class="row marg0">
             <div class="col-3 logzoom padr2p">
-              <img src="./assets/img/trees_img.png" alt="" class="log60">
+              <!--<img src="./assets/img/trees_img.png" alt="" class="log60"> -->
+              <img src="{{ 'CIRTIFICATE.Certificate_Img' | translate }}" alt="" class="log60">
             </div>
             <div class="col-9 margtop5p padr0" style="padding: 0 0 0 5px; font-size: 14px;">
               <button type="button" class="btn btn-link btn-block personalcertificatebtn margbut0 padt5p"

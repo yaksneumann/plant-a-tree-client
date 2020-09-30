@@ -4,7 +4,7 @@
 
 <div class="backgroundmobileimg">
 
-<div class="row">
+<div class="row marg0">
 <div class="col-2 pad0"></div>
 <div class="col-8 pad0">
   <div class="greenbold padtop"> {{ 'PAYMENT-SUCCESSFUL.thanks' | translate }} </div>
@@ -13,14 +13,17 @@
   <div class="fontlite"> {{ 'PAYMENT-SUCCESSFUL.thanks3' | translate }}</div>
 <hr/>  
 <div class="fontlite">{{ 'PAYMENT-SUCCESSFUL.reservationnew' | translate }}  </div>
-<div>   <img src="./assets/img/Secsess.svg"/> </div>
-<div class="fontlite"> {{ 'PAYMENT-SUCCESSFUL.reference1' | translate }} {{ ceremonyID }}</div>
+<div> 
+   <!-- <img src="./assets/img/Secsess.svg"/> -->
+    <img src="{{ 'PAYMENT-SUCCESSFUL.SecsessImg' | translate }}"/>
+   </div>
+    <div class="fontlite"> {{ 'PAYMENT-SUCCESSFUL.reference1' | translate }} {{ ceremonyID }}</div>
 
 </div>
 <div class="col-2 pad0"></div>
 </div>
  
-<div class="row">
+<div class="row marg0">
   <div class="col-1 pad0"></div>
   <div class="col-10 pad0">
     <div class="fontlite">    {{ 'PAYMENT-SUCCESSFUL.reference2' | translate }}</div>    
@@ -28,7 +31,7 @@
   <div class="col-1 pad0"></div>
 </div>
 
-<div class="row">
+<div class="row marg0">
   <div class="col-2 pad0"></div>
   <div class="col-8 pad0">
      <div><hr/></div> 
@@ -36,7 +39,7 @@
   <div class="col-2 pad0"></div>
 </div>
 
-<div class="row padb7p">
+<div class="row padb7p marg0">
   <div class="col-1 pad0"></div>
   <div class="col-10 pad0"> 
     <button type="button" class="btn btn-default witheback greenbold" routerLink="/contact-us"
@@ -55,7 +58,7 @@
   <div class="col-1 pad0"></div>
 </div>
 
-<div class="row padb4p">
+<div class="row padb4p marg0">
   <div class="col-3 pad0"></div>
   <div class="col-6 pad0">
      <div class="fontlite"> {{ 'PAYMENT-SUCCESSFUL.share' | translate }}</div> 
@@ -64,10 +67,10 @@
 </div>
 
 <div class="row marg0">
- <img src="./assets/img/FasebookImg.svg" class="col-3 pad0" (click)=shareViaFacebook() /> 
- <img src="./assets/img/TviterImg.svg" class="col-3 pad0" (click)=shareViaTwit() /> 
- <img src="./assets/img/WhatsAppSvg.svg" class="col-3 pad0" (click)=shareViaWhatsapp() />  
- <img src="./assets/img/mail.svg" class="col-3 pad0" (click)=shareViaEmail() />  
+ <img src="{{ 'PAYMENT-SUCCESSFUL.FasebookImg' | translate }}" class="col-3 pad0" (click)=shareViaFacebook() /> 
+ <img src="{{ 'PAYMENT-SUCCESSFUL.TviterImg' | translate }}" class="col-3 pad0" (click)=shareViaTwit() /> 
+ <img src="{{ 'PAYMENT-SUCCESSFUL.WhatsAppImg' | translate }}" class="col-3 pad0" (click)=shareViaWhatsapp() />  
+ <img src="{{ 'PAYMENT-SUCCESSFUL.MailImg' | translate }}" class="col-3 pad0" (click)=shareViaEmail() />  
 </div>
 
 </div>
@@ -75,14 +78,9 @@
 <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#87bb40" type="ball-scale-multiple">
 </ngx-spinner>
  
-<jw-modal id="error-modal" style="display:none">
-  <!-- <h4>kkl alert</h4>
-      <hr> -->
+<jw-modal id="error-modal" style="display:none"> 
   <div class="errorMsg">{{errMsg}}</div>
   <hr>
   <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
 </jw-modal>
-
-    <!-- <div class="col">
-    <img class="share-icons" src="./assets/img/facebook-icon.svg" alt="tree" width="100%" (click)=shareViaFacebook()>
-  </div> -->
+ 

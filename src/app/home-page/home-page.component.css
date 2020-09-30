@@ -96,6 +96,14 @@
  .greencoolr{
      background-color: #90C493;
  }
+ .greencoolrBackground{
+    background: transparent linear-gradient(104deg, #90C493 0%, #369D6F 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px -3px 14px #0000000A;
+    opacity: 1;
+ }
+ .fontfooterbuton{
+     font-size: 0.8em;
+ }
 .botdonatebtn{
     padding-top: 5%;
     padding-bottom: 10%;

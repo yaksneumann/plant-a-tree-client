@@ -46,8 +46,12 @@
     "LifeText2": "now, but Israel`s forests can`t wait.",
     "Treetext1": "Trees have been planted by our",
     "Treetext2": "Plant a Tree community.",
-
-    "goToLinkPricacy":"https://www.kkl-jnf.org/privacy-policy/"
+  
+    "scroll":"./assets/img/scroll.svg",
+    "GelsFoto":"./assets/img/GerlsFoto2.png",
+    "PrivacyUrl": "https://www.kkl-jnf.org/privacy-policy/",
+    "AccessibilityUrl": "https://www.kkl.org.il/accessibility-statement/"
+  
   },
   "CHOOSE-ORDERPLANTS": {
     "ORDERPLANTS": "HOW MANY TREES",
@@ -64,7 +68,10 @@
     "adults": "Number of adults",
     "kids": "Number of Children",
     "Timelocation": " Asia / Jerusalem",
-    "localDate": "Your Local Date:"
+    "localDate": "Your Local Date:",
+
+    "PluseButton": "./assets/img/button-plus.svg",
+    "MinuseButton": "./assets/img/button-.svg"
   },
   "CHOOSE-AREA": {    
     "michal-hello": "Shalom, I'm Michal.",
@@ -120,7 +127,9 @@
     "total": "Total donation",
     "pay": "PAY NOW",
     "certificate":"Write your own custom message below",
-    "personalcertificate": "View your customized certificate"
+    "personalcertificate": "View your customized certificate",
+
+    "Certificate_Img": "./assets/img/trees_img.png"
   },
   "DONATION-DETAILS": {
     "title": "DONATION DETAILS",
@@ -165,7 +174,13 @@
     "seeYou": "See you soon!",
     "contact":"CONTACT INFORMATION",
     "back":"BACK TO HOME PAGE",
-    "ceremony-details": "RESERVATION DETAILS"
+    "ceremony-details": "RESERVATION DETAILS",
+
+    "SecsessImg": "./assets/img/Secsess.svg",
+    "FasebookImg": "./assets/img/FasebookImg.svg",
+    "TviterImg": "./assets/img/TviterImg.svg",
+    "WhatsAppImg": "./assets/img/WhatsAppSvg.svg",
+    "MailImg": "./assets/img/mail.svg"
   },
   "CEREMONY-DETAILS": {
     "welcome": "Welcome ",
@@ -178,7 +193,17 @@
     "certificate": "View your personal certificate",
     "prayer": "Open the planting prayer",
     "certificate2": "You could personalize your own certificate up to 250 letters.",
-    "way": "Find your way to our planting center"
+    "way": "Find your way to our planting center",
+
+    "LocalPoint": "./assets/img/location-point.svg",
+    "Clock": "./assets/img/clock.svg",
+    "Calendar": "./assets/img/calendar-green.svg",
+    "WhatsAppImeges": "./assets/img/whatsapp-logo.svg",
+    "ChatImg": "./assets/img/chat.png",
+    "PhoneImg": "./assets/img/phone-icon.png",
+    "PhoneImg2": "./assets/img/phone2.png",
+    "EnvelopeImg": "./assets/img/envelope.svg",
+    "ZoomImg": "./assets/img/zoom.png"
   },
   "CONTACT-US": {
     "contact-us": "CONTACT US",
@@ -192,7 +217,18 @@
     "Work2": "Plant-a-Tree",
     "Work3": "Department",
     "Email": "Email",
-    "TelOffice": "Tel: Office"
+    "TelOffice": "Tel: Office",
+
+    "EranImg": "./assets/img/EranImg.png",
+    "PhoneImg": "./assets/img/PhoneImg.svg",
+    "WhatsAppImg": "./assets/img/WhatsAppImg.svg",
+    "MihalImg": "./assets/img/MihalImg.png",
+    "OffiseImg": "./assets/img/OffiseImg.svg",
+    "EmailImg": "./assets/img/EmailImg.svg"
+  },
+  "HEADER": {
+      "LogoTree": "./assets/img/logo57X57.png",
+      "KaKalLogo": "./assets/img/KakalLogo.png"
   },
   "NEXT-BUTTON": "NEXT",
   "BACK-BUTTON": "BACK",

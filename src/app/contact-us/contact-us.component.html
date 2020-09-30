@@ -8,18 +8,20 @@
     {{ 'CONTACT-US.Weare' | translate }}
 </div>
 
-<div class="row Contactpeople1">
+<div class="row Contactpeople1 marg0">
     <div class="col-1"></div>
     <div class="col-2 pad0">
-        <img src="./assets/img/EranImg.png" alt="">
+       <!-- <img src="./assets/img/EranImg.png" alt=""> -->
+        <img src="{{ 'CONTACT-US.EranImg' | translate }}" alt="">
     </div>
     <div class="col-7 textleft">
         <div class="fontbold">  {{ 'CONTACT-US.Eran' | translate }} </div>
         <div class="fontLite">  {{ 'CONTACT-US.Tsara' | translate }} </div>
-        <div class="row padtop15p">
+        <div class="row padtop15p marg0">
             <div class="col-6 centertext pointer">
                 <div> 
-                    <img src="./assets/img/PhoneImg.svg" alt="" (click)="sendSms()" >
+                 <!--  <img src="./assets/img/PhoneImg.svg" alt="" (click)="sendSms()" > -->
+                    <img src="{{ 'CONTACT-US.PhoneImg' | translate }}" alt="" (click)="sendSms()" >
                 </div>
                 <div class="fontLite">
                     {{ 'CONTACT-US.Mobile' | translate }}
@@ -28,7 +30,8 @@
             
             <div class="col-6 centertext pointer">
                 <div> 
-                    <img src="./assets/img/WhatsAppImg.svg" alt="" (click)="sendWhatsapp()" >
+                <!--  <img src="./assets/img/WhatsAppImg.svg" alt="" (click)="sendWhatsapp()" >-->
+                    <img src="{{ 'CONTACT-US.WhatsAppImg' | translate }}" alt="" (click)="sendWhatsapp()" >
                 </div>
                 <div class="fontLite">
                     {{ 'CONTACT-US.WhatsApp' | translate }}
@@ -41,7 +44,7 @@
     <div class="col-2"></div>
 </div>
 
-<div class="row">
+<div class="row marg0">
     <div class="col-1"></div>
     <div class="col-10">
         <hr/>
@@ -49,28 +52,31 @@
     <div class="col-1"></div>
 </div>
 
-<div class="row">
+<div class="row marg0">
     <div class="col-1"></div>
     <div class="col-2 pad0">
-        <img src="./assets/img/MihalImg.png" alt="">
+     <!--   <img src="./assets/img/MihalImg.png" alt=""> -->
+        <img src="{{ 'CONTACT-US.MihalImg' | translate }}" alt="">
     </div>
     <div class="col-7 textleft">
         <div class="fontbold">  {{ 'CONTACT-US.Michal' | translate }} </div>
         <div class="fontLite">  {{ 'CONTACT-US.Work' | translate }} {{ 'CONTACT-US.Work2' | translate }} </div>
         <div class="fontLite">  {{ 'CONTACT-US.Work3' | translate }}</div>
-        <div class="row padtop15p">
+        <div class="row padtop15p marg0">
             <div class="col-6 centertext pointer">
                 <div> 
-                    <img src="./assets/img/OffiseImg.svg" alt="" (click)="sendEmail()"  >
+                  <!-- <img src="./assets/img/OffiseImg.svg" alt="" (click)="sendEmail()">-->
+                    <img src="{{ 'CONTACT-US.OffiseImg' | translate }}" alt="" (click)="sendEmail()"  >
                 </div>
                 <div class="fontLite">
                     {{ 'CONTACT-US.Email' | translate }}
                 </div>
             </div>
             
-            <div class="col-6 centertext pointer">
+            <div class="col-6 centertext pointer pad0">
                 <div> 
-                    <img src="./assets/img/EmailImg.svg" alt="" (click)="callOffice()" >
+                   <!-- <img src="./assets/img/EmailImg.svg" alt="" (click)="callOffice()" >-->
+                    <img src="{{ 'CONTACT-US.EmailImg' | translate }}" alt="" (click)="callOffice()" >
                 </div>
                 <div class="fontLite">
                     {{ 'CONTACT-US.TelOffice' | translate }}
