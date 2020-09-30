@@ -224,7 +224,7 @@
     "WhatsAppImg": "./assets/img/WhatsAppImg.svg",
     "MihalImg": "./assets/img/MihalImg.png",
     "OffiseImg": "./assets/img/OffiseImg.svg",
-    "": "./assets/img/EmailImg.svg"
+    "EmailImg": "./assets/img/EmailImg.svg"
   },
   "HEADER": {
       "LogoTree": "./assets/img/logo57X57.png",
