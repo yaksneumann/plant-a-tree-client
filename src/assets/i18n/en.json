@@ -49,7 +49,8 @@
   
     "scroll":"./assets/img/scroll.svg",
     "GelsFoto":"./assets/img/GerlsFoto2.png",
-    "PrivacyUrl": "https://www.kkl-jnf.org/privacy-policy/"
+    "PrivacyUrl": "https://www.kkl-jnf.org/privacy-policy/",
+    "AccessibilityUrl": "https://www.kkl.org.il/accessibility-statement/"
   
   },
   "CHOOSE-ORDERPLANTS": {
