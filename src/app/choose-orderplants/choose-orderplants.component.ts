@@ -91,7 +91,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     let IsraelDateSelect;
     this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
     this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || ""; 
-    this.israelTime = JSON.parse(localStorage.getItem("israelTime")) || ""; 
+     
  
 //    this.israelDate = new Date(JSON.parse(localStorage.getItem("israelDate"))).getDate() || "";
 
@@ -104,7 +104,8 @@ export class ChooseOrderPlantsComponent implements OnInit {
       console.log("IsraelDateSelect: " + IsraelDateSelect); 
       //this.dateId = IsraelDateSelect;
  
-     this.GetAvailableTimesFunc(IsraelDateSelect);
+     this.GetAvailableTimesFunc(IsraelDateSelect,false); 
+     
     }
   }
 
@@ -164,7 +165,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
     this.spinner.show();
 
-    this.GetAvailableTimesFunc(datePicker._inputValue);
+    this.GetAvailableTimesFunc(datePicker._inputValue,true);
  
     //yak del 31-5-20 -- seems extra, since we only show him dates that are available
    
@@ -204,20 +205,32 @@ export class ChooseOrderPlantsComponent implements OnInit {
     } 
   }
 
-  GetAvailableTimesFunc(IsraelDateSelect:string){
+  GetAvailableTimesFunc(IsraelDateSelect:string,flag:boolean){
     this.api.GetAvailableTimes('', IsraelDateSelect).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
       if (availableTime) {
         //var count = 0;
         this.israelAvailableTime = availableTime;
+      
         availableTime.forEach((item: any) => {
           let itemAvailTime = new Date(item.AvailTime).getTime();
-          try {
+          if (flag){
+             try {
             this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
-          } catch (error) {
-            console.log(error);
+             } 
+             catch (error) {
+                console.log(error);
+             }
+          }
+          else{
+            let israelTimes = JSON.parse(localStorage.getItem("israelTime")) || "";
+              let israelTimeNum= new Date(israelTimes).getTime();
+              if (itemAvailTime == israelTimeNum){
+                let tester ="eee";
+              }
           }
         });
+      
       }
     },
       error => {
