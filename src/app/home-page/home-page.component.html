@@ -27,7 +27,10 @@
                  <div>{{ 'HOME-PAGE.LifeText1' | translate }}</div>
                  <div>{{ 'HOME-PAGE.LifeText2' | translate }}</div>
                  <!-- <div (click)="OpenScroll()" class="padt3p"> <img src="../../assets/img/scroll.svg" class="scroller"/> </div>  -->
-                 <div class="padt3p"> <img src="./assets/img/scroll.svg" class="scroller"/> </div>
+                 <div class="padt3p"> 
+                  <!--   <img src="./assets/img/scroll.svg" class="scroller"/> -->
+                  <img src="{{ 'HOME-PAGE.scroll' | translate }}" class="scroller"/>
+                    </div>
             </div> 
              <div class="col-1 pad0"></div>
          </div> 
@@ -35,8 +38,9 @@
 
     <div *ngIf="edited" class="openscroll">
        <div class="HappyFamally col-12 pad0">
-   <!-- <img src="./assets/img/GerlsFoto.png" class="col-12 pad0" />  big Image -->
-   <img src="./assets/img/GerlsFoto2.png" class="col-12 pad0" />
+   <!-- <img src="./assets/img/GerlsFoto.png" class="col-12 pad0" />  big Image 
+   <img src="./assets/img/GerlsFoto2.png" class="col-12 pad0" />-->
+   <img src="{{ 'HOME-PAGE.GelsFoto' | translate }}" class="col-12 pad0" />
        </div>
     
        <div class="peoplecounter greencolortext">

@@ -45,8 +45,7 @@
         {{ 'DONORS-DETAILS.title' | translate }}
       </h6>
       <div class="container main" >
-
-
+ 
         <div class="form-group">
           <input type="text" class="form-control col borderstyle fontsxxlarge" id="firstName" name="firstName"
             placeholder="{{ 'DONORS-DETAILS.fName' | translate }}" [(ngModel)]="firstName" required maxlength="30"
@@ -55,9 +54,7 @@
             <!-- Please fill in your first name -->
             {{ 'DONORS-DETAILS.fNameError' | translate }}
           </span>
-          <!--             [ngClass]="{'error-input': f.submitted && (f.controls['firstName']?.value=='')}" />
-                          (!f.controls['fullName']?.value && !f.submitted)"  -->
-
+          
         </div>
 
         <div class="form-group">

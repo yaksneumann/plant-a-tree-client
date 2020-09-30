@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent  implements AfterViewInit, OnInit {
 
-  constructor(private modalService: ModalService, private router: Router) {}
+  constructor(private modalService: ModalService,public translate: TranslateService, private router: Router) {}
 
   public edited = true;
   public Footerfull = false;
@@ -21,11 +22,20 @@ export class HomePageComponent  implements AfterViewInit, OnInit {
   }
 
   goToLinkPricacy(){
-    window.open("https://www.kkl-jnf.org/privacy-policy/", "_blank");
+   // window.open("https://www.kkl-jnf.org/privacy-policy/", "_blank");
+
+    this.translate.get('HOME-PAGE.PrivacyUrl').subscribe((res: string) => {
+      console.log(res); 
+      window.open(res, "_blank");
+  });
    
   }
   goToLinkAccessib(){
-     window.open("https://www.kkl.org.il/accessibility-statement/", "_blank");
+   //  window.open("https://www.kkl.org.il/accessibility-statement/", "_blank");
+     this.translate.get('HOME-PAGE.AccessibilityUrl').subscribe((res: string) => {
+      console.log(res); 
+      window.open(res, "_blank");
+  });
     
   }
   orderplants(){
