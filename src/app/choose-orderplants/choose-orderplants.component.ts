@@ -41,6 +41,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   localAvailableTime: Array<any> = [];
   localTime: any;
   israelTime: any;
+  israelDate: any;
   localZone: string;
   TreeCounter: number = 1;
   LocalDate: string = '';
@@ -89,6 +90,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     let dateVal;
     this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
     this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
+//    this.israelDate = new Date(JSON.parse(localStorage.getItem("israelDate"))).getDate() || "";
 
     if (this.LocalDate != "" && this.LocalTime != "") {
       this.LocalDatediv = true;
@@ -181,6 +183,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     console.log({ event });
     console.log({ datePicker });
     this.checkDate();
+    localStorage.setItem("DateVal", datePicker._inputValue);
     this.spinner.show();
     this.api.GetAvailableTimes('', datePicker._inputValue).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
@@ -212,7 +215,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
       if (data) {
         console.log("Data GetAvailableDate: " + { data });
-        localStorage.setItem("DateVal", datePicker._inputValue);
+        
 
         if (data[0].rc < 0) {
           this.errMsg = 'sorry this date is not available';
@@ -247,7 +250,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
 
     localStorage.setItem('localTime', JSON.stringify(this.localTime)); // User Local Date Time
-    localStorage.setItem('setTime', JSON.stringify(this.israelTime));
+    localStorage.setItem('israelTime', JSON.stringify(this.israelTime));
     this.changeviewLocalDate();
 
   }
