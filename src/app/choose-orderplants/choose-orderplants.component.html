@@ -109,7 +109,8 @@
               [markDisabled]="isDisabled" class="font09em form-control date treeprices shadows FONTWID700 textleft"
               id="date" name="date" required ngModel [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)"
               style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();"
-              placeholder="{{LocalDate}}">  
+               placeholder="{{IsraelDate}}">  
+             <!--   placeholder="{{LocalDate}}"> --> 
             <span class="invalid-input" *ngIf="invalidDate">Invalid Date</span>
           </div>
         </div>
@@ -131,7 +132,7 @@
             <select name="time" class="form-control font09em shadows time treeprices centertext centertext col-7 FONTWID700" id="time"
               [(ngModel)]="time" (change)="onTimeChange($event.target.value, time)"
               required style="color: #000700"> 
-              <option value="null" disabled>{{ LocalTime }}</option>
+              <option value="null" disabled>{{ israelTime | date:'shortTime'}}</option>
               <option *ngFor="let time of israelAvailableTime" [ngValue]="time.AvailTime"> 
                 {{ time.AvailTime | date:'shortTime' }}
               </option>

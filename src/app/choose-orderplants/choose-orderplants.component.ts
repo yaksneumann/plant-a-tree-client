@@ -46,6 +46,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   TreeCounter: number = 1;
   LocalDate: string = '';
   LocalTime: string = '';
+  IsraelDate: string = '';
   LocalDatediv: boolean = false;
   screenHeight: any;
 
@@ -87,44 +88,23 @@ export class ChooseOrderPlantsComponent implements OnInit {
       error => {
         console.log({ error });
       });
-    let dateVal;
+    let IsraelDateSelect;
     this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
-    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
+    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || ""; 
+    this.israelTime = JSON.parse(localStorage.getItem("israelTime")) || ""; 
+ 
 //    this.israelDate = new Date(JSON.parse(localStorage.getItem("israelDate"))).getDate() || "";
 
     if (this.LocalDate != "" && this.LocalTime != "") {
       this.LocalDatediv = true;
-      dateVal = localStorage.getItem("DateVal");
-      console.log("dateVal: " + dateVal);
+      IsraelDateSelect = localStorage.getItem("IsraelDateSelect");
 
-      this.dateId = dateVal;
-      //document.getElementById("date").innerHTML = devals;
-
-      this.api.GetAvailableTimes('', dateVal).subscribe((availableTime: Array<Date>) => {
-        this.spinner.hide();
-        if (availableTime) {
-          //var count = 0;
-          this.israelAvailableTime = availableTime;
-          availableTime.forEach((item: any) => {
-            let itemAvailTime = new Date(item.AvailTime).getTime();
-            try {
-              this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
-            } catch (error) {
-              console.log(error);
-            }
-          });
-        }
-      },
-        error => {
-          this.spinner.hide();
-
-          this.errMsg = error.message;
-          if (error.statusText == "Unknown Error") {
-            this.errMsg = 'Sorry, there is some connection problem, please try again';
-          }
-          console.log("Error GetAvailableTimes " + { error });
-          this.openModal('error-modal');
-        });
+      this.ChangeViewDate(IsraelDateSelect, false);
+      
+      console.log("IsraelDateSelect: " + IsraelDateSelect); 
+      //this.dateId = IsraelDateSelect;
+ 
+     this.GetAvailableTimesFunc(IsraelDateSelect);
     }
   }
 
@@ -134,8 +114,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.calculateAmount(this.amountOfTrees);
   }
 
-  onMinusBtn() {
-    // this.anotherNumber = true;
+  onMinusBtn() { 
     if (this.amountOfTrees > 1) {
       this.amountOfTrees = this.amountOfTrees - 1;
       this.calculateAmount(this.amountOfTrees);
@@ -179,13 +158,54 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.localAvailableTime = [];
     this.israelAvailableTime = [];
     this.invalidDate = false;
-    datePicker.close();
-    console.log({ event });
-    console.log({ datePicker });
-    this.checkDate();
-    localStorage.setItem("DateVal", datePicker._inputValue);
+    datePicker.close(); 
+    this.ChangeViewDate("",true); 
+    localStorage.setItem("IsraelDateSelect", datePicker._inputValue);
+
     this.spinner.show();
-    this.api.GetAvailableTimes('', datePicker._inputValue).subscribe((availableTime: Array<Date>) => {
+
+    this.GetAvailableTimesFunc(datePicker._inputValue);
+ 
+    //yak del 31-5-20 -- seems extra, since we only show him dates that are available
+   
+    //this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
+    //  if (data) {
+     //   console.log("Data GetAvailableDate: " + { data }); 
+     //   if (data[0].rc < 0) {
+     //     this.errMsg = 'sorry this date is not available';
+      //    console.log("Error GetAvailableDate: " + this.errMsg);
+      //    this.openModal('error-modal');
+      //    return false;
+      //  }
+    //  }
+   // },
+    //  error => {
+   //     console.log("Error GetAvailableDate2 " + { error })
+    //  });
+  }
+
+  ChangeViewDate(israelDates:string,flag:boolean ) {
+    let changetDateLayout ;
+    if (flag){
+      changetDateLayout  = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day); 
+    }
+    else{
+      changetDateLayout  = new Date(israelDates); 
+    }
+    var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+    let Datearray = changetDateLayout.toLocaleDateString("en-US", options).replace(',', '').split(" ");
+ 
+    if (flag){
+      $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));  
+    }
+    else{
+      this.IsraelDate =(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
+      this.dateId = israelDates;
+    } 
+  }
+
+  GetAvailableTimesFunc(IsraelDateSelect:string){
+    this.api.GetAvailableTimes('', IsraelDateSelect).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
       if (availableTime) {
         //var count = 0;
@@ -201,8 +221,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
       }
     },
       error => {
-        this.spinner.hide();
-
+        this.spinner.hide(); 
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
           this.errMsg = 'Sorry, there is some connection problem, please try again';
@@ -210,32 +229,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
         console.log("Error GetAvailableTimes " + { error });
         this.openModal('error-modal');
       });
-
-    //yak del 31-5-20 -- seems extra, since we only show him dates that are available
-    this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
-      if (data) {
-        console.log("Data GetAvailableDate: " + { data });
-        
-
-        if (data[0].rc < 0) {
-          this.errMsg = 'sorry this date is not available';
-          console.log("Error GetAvailableDate: " + this.errMsg);
-          this.openModal('error-modal');
-          return false;
-        }
-      }
-    },
-      error => {
-        console.log("Error GetAvailableDate2 " + { error })
-      });
-  }
-
-  checkDate() {
-    let changetDateLayout = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day);
-    var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
-    let Datearray = changetDateLayout.toLocaleDateString("en-US", options).replace(',', '').split(" ");
-    console.log("kyky: " + Datearray[1] + " " + Datearray[0] + " " + Datearray[2]);
-    $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
   }
 
   // onTimeChange(time: any) {
@@ -250,15 +243,10 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
 
     localStorage.setItem('localTime', JSON.stringify(this.localTime)); // User Local Date Time
-    localStorage.setItem('israelTime', JSON.stringify(this.israelTime));
-    this.changeviewLocalDate();
+    localStorage.setItem('israelTime', JSON.stringify(this.israelTime)); // Israel Date Time
 
-  }
-
-  changeviewLocalDate() {  // Show Local Date and Time of donor
-    let localTimes = JSON.parse(localStorage.getItem("localTime")) || "";
     var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
-    let Datearray = (new Date(localTimes)).toLocaleDateString("en-US", options).replace(',', '').split(" ");
+    let Datearray = this.localTime.toLocaleDateString("en-US", options).replace(',', '').split(" ");
 
     if (Datearray.length == 5) {
       this.LocalDate = Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', '');
@@ -271,8 +259,9 @@ export class ChooseOrderPlantsComponent implements OnInit {
     localStorage.setItem('LocalDate', JSON.stringify(this.LocalDate));
     localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
     this.LocalDatediv = true;
+ 
   }
-
+ 
   onSubmit(form: NgForm) {
     console.log(form);
     let date = form.value.date || '';
