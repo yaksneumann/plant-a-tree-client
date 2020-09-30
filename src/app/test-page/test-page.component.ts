@@ -17,14 +17,14 @@ export class TestPageComponent implements OnInit {
     //to specific no.
     //window.location.href = 'whatsapp://send?text=' + 'hey dude' + '&phone=+972' + '528026670';  }
      //window.open('whatsapp://send?text=' + 'hey dude' + '&phone=+972' + '528026670');
-     window.open("https://api.whatsapp.com/send?text=%20*Hey,%0AYou shoud check this out%0AI am all set to plant a tree in Israel! It's going to be lot's of fun%0Ahttps://apis.kkl.org.il/PlantaTreeInIsrael/home-page");
+     window.open("https://api.whatsapp.com/send?text=%20*Hey,%0AYou shoud check this out%0AI am all set to plant a tree in Israel! It's going to be lot's of fun%0Ahttps://plantatree.kkl.org.il/");
    }
  
    shareViaEmail() {
      //whatsapp://send?text=message
      window.open('whatsapp://send?text=hi man');  
    }
- 
+
    shareViaFacebook() {
      window.open("https://www.facebook.com/kkl.org.il");  
    }
