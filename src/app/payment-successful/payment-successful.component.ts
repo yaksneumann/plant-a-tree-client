@@ -139,17 +139,17 @@ export class PaymentSuccessfulComponent implements OnInit {
   // }
 
   shareViaWhatsapp() {
-    window.open("https://api.whatsapp.https://plantatree.kkl.org.il/com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A ");
-    // window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Findex.html");
+   window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0AYou should book your tree planting too %0Ahttps://plantATree.kkl.org.il/");
+   //window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Findex.html");
   }
 
   shareViaTwit() {
-    window.open("https://twitter.com/intent/tweet");
+    window.open("https://twitter.com/intent/tweet?url=https://plantATree.kkl.org.il/&text=Plant A Tree In Israel KKL -- JNF");
   }
 
   shareViaEmail() {
     //window.open("mailto:whywhyn@gmail.com?subject=Yay, I just donated money. Its fun");
-    window.open("mailto:?subject=plant a tree in Israel&body=Hi, %0A I just donated money to plant a tree. You should check this out %0A https://plantatree.kkl.org.il/");
+    window.open("mailto:?subject=plant a tree in Israel&body=Hi, %0A I'm going to plant a tree in Israel!. %0AYou should check this out %0A https://plantATree.kkl.org.il/");
   }
  
    shareViaInstagram() {
@@ -160,7 +160,7 @@ export class PaymentSuccessfulComponent implements OnInit {
 
   shareViaFacebook() {
     
-    window.open("https://www.facebook.com/sharer.php?u=https://plantatree.kkl.org.il/");
+    window.open("https://www.facebook.com/sharer.php?u=https://plantATree.kkl.org.il/");
 
    // window.open("https://www.facebook.com/sharer.php?u=https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael/");
     //https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Fhome-page
@@ -168,7 +168,7 @@ export class PaymentSuccessfulComponent implements OnInit {
 
   }
   sendEmail() {
-    window.open('mailto:tovad@kkl.org.il?subject=Tree planting ceremony number: ' + this.ceremonyID + '&body=Hi Tova,%0A I would like to make some changes to my planting a tree event%0A');
+    window.open('mailto:tovad@kkl.org.il?subject=Tree planting ceremony number: ' + this.ceremonyID + '&body=Hi Tova,%0AI would like to make some changes to my planting a tree event%0A');
   }
   openModal(id: string) {
     this.modalService.open(id);

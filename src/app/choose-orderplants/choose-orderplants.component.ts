@@ -25,9 +25,9 @@ export class ChooseOrderPlantsComponent implements OnInit {
   amountOfTrees: number = 1;
   totalAmount: number = 18;
   treePrice: number = 18;
-  anotherNumber: boolean = false;
-  adultNum: number = 1;
-  childrenNum: number;
+  //anotherNumber: boolean = false;
+  // adultNum: number = 1;
+  // childrenNum: number;
   time: any = null;
   dateId: any;
   date: string = '';
@@ -45,31 +45,20 @@ export class ChooseOrderPlantsComponent implements OnInit {
   TreeCounter: number = 1;
   LocalDate: string = '';
   LocalTime: string = '';
-  public LocalDatediv = false;
-  screenHeight: any; 
-  DefDate: NgbDate;
-
+  LocalDatediv: boolean = false;
+  screenHeight: any;
 
   ngOnInit() {
-    window.scroll(0,0);
-     $(".kkl-icon1").css("width", "45%");
-     $(".kkl-icon2").css("width", "30%");
+    window.scroll(0, 0);
+    $(".kkl-icon1").css("width", "45%");
+    $(".kkl-icon2").css("width", "30%");
     localStorage.setItem("plantingCenter", '35');
-
-    //let heightScreen =window.innerHeight - document.getElementById("navlogos").offsetHeight- 10;
-    //console.log(window.innerHeight);
-    //console.log( document.getElementById("navlogos").offsetHeight);
-    //this.screenHeight = {
-    //  height:  heightScreen +"px" 
-    //};
-
     //ysks show time if went back
-   
     this.localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     this.spinner.show();
     this.api.getAllDates().subscribe((availableDates: Array<AvailableDate>) => {
-    this.spinner.hide();
+      this.spinner.hide();
       if (availableDates) {
         this.availableDates = availableDates;
         this.minDate = this.availableDates[0].date;
@@ -91,61 +80,60 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.api.getItemPrice(1065).subscribe((price: number) => {
       if (price) {
         console.log({ price });
-         localStorage.setItem("treePrice", JSON.stringify(price));
+        localStorage.setItem("treePrice", JSON.stringify(price));
       }
     },
       error => {
         console.log({ error });
       });
-      let dateVal ;
-      this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
-      this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
-     
-      if (this.LocalDate != "" && this.LocalTime != "" ){
-        this.LocalDatediv = true;
-        dateVal = localStorage.getItem("DateVal");
-        console.log("Devals: "+dateVal);
-        //this.DefDate = devals;
-        this.dateId = dateVal;
-          //document.getElementById("date").innerHTML = devals;
-          
-          this.api.GetAvailableTimes('', dateVal).subscribe((availableTime: Array<Date>) => {
-            this.spinner.hide();
-            if (availableTime) {
-              var count = 0; 
-              this.israelAvailableTime = availableTime;
-              availableTime.forEach((item: any) => {
-                let itemAvailTime = new Date(item.AvailTime).getTime();
-                try {
-                  this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
-                } catch (error) {
-                  console.log(error);
-                }
-              }); 
-            }
-          },
-            error => {
-              this.spinner.hide();
-      
-              this.errMsg = error.message;
-              if (error.statusText == "Unknown Error") {
-                this.errMsg = 'Sorry, there is some connection problem, please try again';
-              }
-              console.log("Error GetAvailableTimes " + { error });
-              this.openModal('error-modal');
-            });
+    let dateVal;
+    this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
+    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
 
-      }
+    if (this.LocalDate != "" && this.LocalTime != "") {
+      this.LocalDatediv = true;
+      dateVal = localStorage.getItem("DateVal");
+      console.log("dateVal: " + dateVal);
+
+      this.dateId = dateVal;
+      //document.getElementById("date").innerHTML = devals;
+
+      this.api.GetAvailableTimes('', dateVal).subscribe((availableTime: Array<Date>) => {
+        this.spinner.hide();
+        if (availableTime) {
+          var count = 0;
+          this.israelAvailableTime = availableTime;
+          availableTime.forEach((item: any) => {
+            let itemAvailTime = new Date(item.AvailTime).getTime();
+            try {
+              this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
+            } catch (error) {
+              console.log(error);
+            }
+          });
+        }
+      },
+        error => {
+          this.spinner.hide();
+
+          this.errMsg = error.message;
+          if (error.statusText == "Unknown Error") {
+            this.errMsg = 'Sorry, there is some connection problem, please try again';
+          }
+          console.log("Error GetAvailableTimes " + { error });
+          this.openModal('error-modal');
+        });
+    }
   }
- 
+
   onPlusBtn() {
     this.amountOfTrees = this.amountOfTrees + 1;
-    this.anotherNumber = true;
+    //this.anotherNumber = true;
     this.calculateAmount(this.amountOfTrees);
   }
 
   onMinusBtn() {
-    this.anotherNumber = true;
+    // this.anotherNumber = true;
     if (this.amountOfTrees > 1) {
       this.amountOfTrees = this.amountOfTrees - 1;
       this.calculateAmount(this.amountOfTrees);
@@ -163,16 +151,14 @@ export class ChooseOrderPlantsComponent implements OnInit {
   onChangeNumber(amount: number) {
     amount = Number(amount);
     console.log("onChangeNumber: " + amount);
-    if (amount == null || amount == 0) {
-      // this.errMsg = 'You must choose at least one tree';
-      // this.openModal('error-modal');
+    if (amount == null || amount == 0 || amount == NaN) {
       this.amountOfTrees = 1;
     }
-    else {   
+    else {
       this.amountOfTrees = amount;
     }
     this.calculateAmount(this.amountOfTrees);
-  } 
+  }
 
   isDisabled = (date: NgbDate, current: { month: number }) => {
     let bingo = false;
@@ -190,6 +176,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   // *************************************     END OF NGB CALANDER    *************************************
 
   onDateChange(event: any, datePicker: any) {
+    this.LocalDatediv = false;
     this.localAvailableTime = [];
     this.israelAvailableTime = [];
 
@@ -197,14 +184,14 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
     datePicker.close();
     this.spinner.show();
-    console.log( {event} );
-    console.log( {datePicker} );
-    this.checkDate(); 
- 
+    console.log({ event });
+    console.log({ datePicker });
+    this.checkDate();
+
     this.api.GetAvailableTimes('', datePicker._inputValue).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
       if (availableTime) {
-        var count = 0; 
+        var count = 0;
         this.israelAvailableTime = availableTime;
         availableTime.forEach((item: any) => {
           let itemAvailTime = new Date(item.AvailTime).getTime();
@@ -213,7 +200,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
           } catch (error) {
             console.log(error);
           }
-        }); 
+        });
       }
     },
       error => {
@@ -231,7 +218,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
       if (data) {
         console.log("Data GetAvailableDate: " + { data });
-        localStorage.setItem("DateVal",datePicker._inputValue);
+        localStorage.setItem("DateVal", datePicker._inputValue);
 
         if (data[0].rc < 0) {
           this.errMsg = 'sorry this date is not available';
@@ -255,31 +242,26 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
   // onTimeChange(time: any) {
-  onTimeChange(index: any, time:any) {
-    this.invalidTime = false; 
+  onTimeChange(index: any, time: any) {
+    this.invalidTime = false;
 
     index = index.split(':')[0];
-    index--; 
+    index--;
 
-    this.localTime = this.localAvailableTime[index].AvailTime;  
+    this.localTime = this.localAvailableTime[index].AvailTime;
     this.israelTime = this.israelAvailableTime[index].AvailTime;
 
- 
+
     localStorage.setItem('localTime', JSON.stringify(this.localTime)); // User Local Date Time
     localStorage.setItem('setTime', JSON.stringify(this.israelTime));
-    this.changeviewLocalDate( );
-   
-    // let backgroundmobileHeigt = $(".backgroundmobileimg").height() + 60;  
-   // let backgroundmobileHeigt = 120vh
-   // console.log();
-   // $(".backgroundmobileimg").css("height", "75vh");
-  
+    this.changeviewLocalDate();
+
   }
 
-  changeviewLocalDate( ){  // Show Local Date and Time of donor
-     let localTimes = JSON.parse(localStorage.getItem("localTime")) || "";
+  changeviewLocalDate() {  // Show Local Date and Time of donor
+    let localTimes = JSON.parse(localStorage.getItem("localTime")) || "";
     var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
-    let Datearray =  (new Date(localTimes)).toLocaleDateString("en-US", options).replace(',', '').split(" ");
+    let Datearray = (new Date(localTimes)).toLocaleDateString("en-US", options).replace(',', '').split(" ");
 
     if (Datearray.length == 5) {
       this.LocalDate = Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', '');
@@ -293,7 +275,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
     this.LocalDatediv = true;
   }
- 
+
   onSubmit(form: NgForm) {
     console.log(form);
     let date = form.value.date || '';
@@ -325,19 +307,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
       return false;
     }
 
-    if (numberOfAdults < 1) {
-      this.errMsg = 'At least one adult must be chosen';
-      this.openModal('error-modal');
-      this.invalidPpl = true;
-      return false;
-    }
-
-    if (numberOfChildren < 0) {
-      this.errMsg = 'Please choose a positive number of children';
-      this.openModal('error-modal');
-      return false;
-    }
-
     if (form.valid) {
       let numberOfPeople = {
         "numberOfAdults": numberOfAdults,
@@ -346,24 +315,15 @@ export class ChooseOrderPlantsComponent implements OnInit {
       localStorage.setItem('ceremonyDateAndHour', ceremonyDateAndHour);
       localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople));
       localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees));
-     // localStorage.setItem("localAvailableTime", JSON.stringify(this.localAvailableTime));
- 
+      
+      // localStorage.setItem("localAvailableTime", JSON.stringify(this.localAvailableTime));
+
       console.log(numberOfPeople);
       this.router.navigate(['donors-details']);
     }
     else {
+
       this.errMsg = 'Invalid form, please fill in';
-      this.openModal('error-modal');
-    }
-  }
- 
-  onChooseNext() {
-    if (this.chooseTzora || this.chooseGolani) {
-      localStorage.setItem("plantingCenter", this.plantingCenter)
-      this.router.navigate(['donors-details']);
-    }
-    else {
-      this.errMsg = 'Please click on one of the locations on the map to choose your preferred planting center';
       this.openModal('error-modal');
     }
   }
