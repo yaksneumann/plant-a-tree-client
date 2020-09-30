@@ -79,7 +79,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
     localStorage.setItem("treePrice", JSON.stringify(18));
     this.api.getItemPrice(1065).subscribe((price: number) => {
       if (price) {
-        console.log({ price });
+        //console.log({ price });
         localStorage.setItem("treePrice", JSON.stringify(price));
       }
     },
@@ -101,7 +101,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.api.GetAvailableTimes('', dateVal).subscribe((availableTime: Array<Date>) => {
         this.spinner.hide();
         if (availableTime) {
-          var count = 0;
+          //var count = 0;
           this.israelAvailableTime = availableTime;
           availableTime.forEach((item: any) => {
             let itemAvailTime = new Date(item.AvailTime).getTime();
@@ -138,9 +138,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.amountOfTrees = this.amountOfTrees - 1;
       this.calculateAmount(this.amountOfTrees);
     }
-    // else {
-    //   console.log("one plant must be chosen");
-    // }
   }
 
   calculateAmount(num: any) {
@@ -179,19 +176,16 @@ export class ChooseOrderPlantsComponent implements OnInit {
     this.LocalDatediv = false;
     this.localAvailableTime = [];
     this.israelAvailableTime = [];
-
     this.invalidDate = false;
-
     datePicker.close();
-    this.spinner.show();
     console.log({ event });
     console.log({ datePicker });
     this.checkDate();
-
+    this.spinner.show();
     this.api.GetAvailableTimes('', datePicker._inputValue).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
       if (availableTime) {
-        var count = 0;
+        //var count = 0;
         this.israelAvailableTime = availableTime;
         availableTime.forEach((item: any) => {
           let itemAvailTime = new Date(item.AvailTime).getTime();
@@ -234,9 +228,9 @@ export class ChooseOrderPlantsComponent implements OnInit {
   }
 
   checkDate() {
-    let chanjetDate = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day);
+    let changetDateLayout = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day);
     var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
-    let Datearray = chanjetDate.toLocaleDateString("en-US", options).replace(',', '').split(" ");
+    let Datearray = changetDateLayout.toLocaleDateString("en-US", options).replace(',', '').split(" ");
     console.log("kyky: " + Datearray[1] + " " + Datearray[0] + " " + Datearray[2]);
     $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
   }

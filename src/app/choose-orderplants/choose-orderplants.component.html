@@ -91,7 +91,7 @@
             </div>
             <div class="col-2 pad0">
           <!--      <img src="./assets/img/button-.svg" class="minus-img2" alt="minus button" (click)="onMinusBtn()"> -->
-              <img src="{{ 'CHOOSE-ORDERPLANTS.PluseButton' | translate }}" class="minus-img2" alt="minus button" (click)="onMinusBtn()">
+              <img src="{{ 'CHOOSE-ORDERPLANTS.MinusButton' | translate }}" class="minus-img2" alt="minus button" (click)="onMinusBtn()">
 
             </div>
 
@@ -107,7 +107,7 @@
 
             <input ngbDatepicker type="text" readonly #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
               [markDisabled]="isDisabled" class="font09em form-control date treeprices shadows FONTWID700 textleft"
-              id="date" name="date" required ngModel [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)"
+              id="date" name="date" required ngModel [(ngModel)]="dateId" (change)="onDateChange($event, d)"
               style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();"
            placeholder="{{LocalDate}}">  
             <span class="invalid-input" *ngIf="invalidDate">Invalid Date</span>

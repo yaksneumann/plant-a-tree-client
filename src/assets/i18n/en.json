@@ -71,7 +71,7 @@
     "localDate": "Your Local Date:",
 
     "PluseButton": "./assets/img/button-plus.svg",
-    "MinuseButton": "./assets/img/button-.svg"
+    "MinusButton": "./assets/img/button-.svg"
   },
   "CHOOSE-AREA": {    
     "michal-hello": "Shalom, I'm Michal.",
