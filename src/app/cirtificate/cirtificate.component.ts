@@ -84,20 +84,17 @@ export class CirtificateComponent implements OnInit {
 
   viewCertificateImg() {
     this.openModal('certificate-modal');
-  }
-
+  } 
   openModal(id: string) {
     this.modalService.open(id);
-  }
-
+  } 
   CertifYes(id: string, sure: string) {
     console.log("CertifYes");
     this.nocirtificate = "false";
      this.CertivicDiv=true;
     localStorage.setItem("nocirtificate",  this.nocirtificate);  
     this.modalService.close(id);
-  }
-
+  } 
   CertifWant(id: string, sure: string) {
     console.log("test");
     this.nocirtificate = "true";
@@ -109,20 +106,15 @@ export class CirtificateComponent implements OnInit {
   }
   closeModal(id: string, sure: string){
     this.modalService.close(id);
-  }
-
-  
+  }  
   onSkipBtn() {
     if (this.certificateText == '') {
       this.errMsg = 'are you sure that you want to recieve a general certificate?';
       this.openModal('error-modal');
     } 
-  }
-
-
+  }  
   onNextBtn() { 
       localStorage.setItem("certificateText", this.certificateText); 
       this.router.navigate(['donation-details']);
-  }
-
+  } 
 }
