@@ -244,8 +244,8 @@
   "certificate":"CERTIFICATE",
   "certificateText" :"Do you wish to personalize",
   "certificateText2" :"your certificate?",
-  "yes_I_Want": "YES, PLEASE",
-  "BlabkCertificate":"I WANT A BLANK CERTIFICATE",
+  "personalCertificate": "YES, PLEASE",
+  "blankCertificate":"I WANT A BLANK CERTIFICATE",
 
   "WhoweAre": "Who we are?",
   "HowitWorks": "How it Works?",

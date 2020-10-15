@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ModalService } from '../services/modal.service';
-
 import { ZoomApiService } from 'src/app/services/zoom-api.service';
 
 @Component({
@@ -12,14 +11,14 @@ import { ZoomApiService } from 'src/app/services/zoom-api.service';
 })
 export class PaymentSuccessfulComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router, private modalService: ModalService, 
+  constructor(private api: ApiService, private router: Router, private modalService: ModalService,
     private zoomApi: ZoomApiService) { }
 
   errMsg: string = '';
   ceremonyID: number;
   //plantingCenter: number;
   yaaransName: string = '';
-  yaaransPhone: string = '';
+  //yaaransPhone: string = '';
   donationSum: any = '';
   forestName: string = '';
   donersDetailsObj: any = {
@@ -33,18 +32,23 @@ export class PaymentSuccessfulComponent implements OnInit {
   confirmationNumber: any = '';
   ceremonyTime: string = '';
   ceremonyDate: string = '';
+  joinUrl: string = '';
+  startUrl: string = '';
+  certificateText: string = '';
+
+  
 
   ngOnInit() {
 
     let donersDetailsObj = JSON.parse(localStorage.getItem("donersDetailsObj")) || {};
     if (Object.keys(donersDetailsObj).length > 0) {
       this.donersDetailsObj.firstName = donersDetailsObj.firstName || "";
-      this.donersDetailsObj.lastName = donersDetailsObj.lastName || ""; 
-      this.donersDetailsObj.donorsTitle = donersDetailsObj.donorsTitle || ""; 
+      this.donersDetailsObj.lastName = donersDetailsObj.lastName || "";
+      this.donersDetailsObj.donorsTitle = donersDetailsObj.donorsTitle || "";
     }
 
-    this.ceremonyID = JSON.parse(localStorage.getItem("ceremonyID")) || 0; 
-   // this.plantingCenter = JSON.parse(localStorage.getItem("plantingCenter")) || 0;
+    this.ceremonyID = JSON.parse(localStorage.getItem("ceremonyID")) || 0;
+    // this.plantingCenter = JSON.parse(localStorage.getItem("plantingCenter")) || 0;
 
     this.api.ceremonyDetails(this.ceremonyID).subscribe((data: any) => {
       if (data.length > 0) {
@@ -59,6 +63,13 @@ export class PaymentSuccessfulComponent implements OnInit {
           this.donationSum = data[0].donation_sum_dollar;
           this.forestName = data[0].planting_center_eng_name;
           this.confirmationNumber = data[0].reception_number_fin;
+          this.joinUrl = data[0].JoinUrl;
+          this.certificateText = data[0].CertificateText;
+
+          if (this.joinUrl == '') {
+            this.createZoom();
+          }
+          
         } catch (error) {
           this.errMsg = error;
           this.openModal('error-modal');
@@ -72,56 +83,52 @@ export class PaymentSuccessfulComponent implements OnInit {
           this.errMsg = 'Sorry, there is some connection problem, please try again';
         }
         this.openModal('error-modal');
-      });
-
-      //del 1-7-20 we added it to OpenPlantEvent   
-      //this.certificateText()
-//create zoom meeting 18-6-20
-      console.log(' 22-7-20  --  starting to createZoomMeeting');     
-      //localStorage.setItem('zoomJoinUrl', 'https://zoom.us/j/92892793197');
-      this.zoomApi.createZoomMeeting().subscribe((data: any) => {
-        if (data) {
-          if (data.code == 124) {
-            this.errMsg = data.message;
-            //this.errMsg = 'Sorry, there is some prolbem with Zoom';
-            this.openModal('error-modal');
-          }
-          console.log({ data });
-          let joinUrl ='';
-          let startUrl = '';
-          joinUrl = data.join_url;
-          startUrl = data.start_url;
-          if (!joinUrl) {
-            joinUrl = '';
-          }
-          localStorage.setItem('zoomJoinUrl', joinUrl);
-         // localStorage.setItem('zoomStartUrl', startUrl);
-
-          this.api.zoomMeetingUrl(this.ceremonyID, joinUrl).subscribe((data: any) => {
-           // this.spinner.hide();
-            console.log({ data });
-          },
-            error => {
-              console.log({ error });
-            });
-        }
-        else {
-          console.log('no data in createZoomMeeting');
-        }
-      },
-        error => {
-          console.log({ error });
-          console.log('failed in createZoomMeeting');
-          // this.errMsg = error.message;
-          // if (error.statusText == "Unknown Error") {
-          //   this.errMsg = 'Sorry, there is some connection problem, please try again';
-          // }
-          // this.openModal('error-modal');
-        });
+      });   
       
+      
+
   }
 
-        //del 1-7-20 we added it to OpenPlantEvent   
+  createZoom() {
+  
+    console.log(' 30-9-20  --  starting to createZoomMeeting');
+    this.zoomApi.createZoomMeeting().subscribe((data: any) => {
+      console.log({ data });
+      if (data) {
+        if (data.code == 124) {
+          this.errMsg = data.message;
+          //this.errMsg = 'Sorry, there is some prolbem with Zoom';
+          this.openModal('error-modal');
+        }     
+        this.joinUrl = data.join_url;
+        this.startUrl = data.start_url;
+        localStorage.setItem('zoomJoinUrl', this.joinUrl);
+        localStorage.setItem('zoomStartUrl', this.startUrl);
+
+        this.api.zoomMeetingUrl(this.ceremonyID, this.joinUrl).subscribe((data: any) => {
+          // this.spinner.hide();
+          console.log({ data });
+        },
+          error => {
+            console.log({ error });
+          });
+      }
+      else {
+        console.log('no data in createZoomMeeting');
+      }
+    },
+      error => {
+        console.log({ error });
+        console.log('failed in createZoomMeeting');
+        // this.errMsg = error.message;
+        // if (error.statusText == "Unknown Error") {
+        //   this.errMsg = 'Sorry, there is some connection problem, please try again';
+        // }
+        // this.openModal('error-modal');
+      });
+  }
+
+  //del 1-7-20 we added it to OpenPlantEvent   
   // certificateText() {
   //   this.api.certificateText(this.ceremonyID).subscribe((data: any) => {
   //     if (data == 0) {
@@ -139,8 +146,7 @@ export class PaymentSuccessfulComponent implements OnInit {
   // }
 
   shareViaWhatsapp() {
-   window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0AYou should book your tree planting too %0Ahttps://plantATree.kkl.org.il/");
-   //window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0A I'm so excited! %0A You should book your tree planting too %0A https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Findex.html");
+    window.open("https://api.whatsapp.com/send?text=I'm going to plant a tree in Israel! %0AI'm so excited! %0AYou should book your tree planting too %0Ahttps://plantATree.kkl.org.il/");
   }
 
   shareViaTwit() {
@@ -148,24 +154,11 @@ export class PaymentSuccessfulComponent implements OnInit {
   }
 
   shareViaEmail() {
-    //window.open("mailto:whywhyn@gmail.com?subject=Yay, I just donated money. Its fun");
-    window.open("mailto:?subject=plant a tree in Israel&body=Hi, %0A I'm going to plant a tree in Israel!. %0AYou should check this out %0A https://plantATree.kkl.org.il/");
+    window.open("mailto:?subject=plant a tree in Israel&body=Hi, %0AI'm going to plant a tree in Israel!. %0AYou should check this out %0Ahttps://plantATree.kkl.org.il/");
   }
- 
-   shareViaInstagram() {
-    window.open("https://www.instagram.com/?url=https://plantatree.kkl.org.il/");
-     //window.open("https://www.instagram.com/kkl_jnf/");
-   }
-
 
   shareViaFacebook() {
-    
     window.open("https://www.facebook.com/sharer.php?u=https://plantATree.kkl.org.il/");
-
-   // window.open("https://www.facebook.com/sharer.php?u=https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael/");
-    //https%3A%2F%2Fapis.kkl.org.il%2FPlantaTreeInIsrael%2Fhome-page
-    //window.open('whywhyn@gmail.com');
-
   }
   sendEmail() {
     window.open('mailto:tovad@kkl.org.il?subject=Tree planting ceremony number: ' + this.ceremonyID + '&body=Hi Tova,%0AI would like to make some changes to my planting a tree event%0A');

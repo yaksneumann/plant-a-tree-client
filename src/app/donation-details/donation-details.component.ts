@@ -76,7 +76,6 @@ export class DonationDetailsComponent implements OnInit {
 
     this.certificateText = (localStorage.getItem("certificateText")) || '';
 
- 
     this.nocirtificate = JSON.parse(localStorage.getItem("nocirtificate")) || 'false';
      if (this.nocirtificate == "false") {
       this.cirtificate = true;
