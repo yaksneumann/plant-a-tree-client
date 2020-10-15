@@ -50,7 +50,7 @@
 .divbtnYes{ 
    background-color: white;
    border-radius: 25px; 
-   min-height: 40px;
+   min-height: 35px;
 }
 .divbtnYes:hover, .divbtnYes::selection {
    background: none;
@@ -59,7 +59,7 @@
 .divbtnWant{
    border: 1px solid; 
    border-radius: 25px;
-   min-height: 40px;
+   min-height: 35px;
    color: white;
 }
 .certifhr{

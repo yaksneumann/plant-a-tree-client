@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ModalService } from '../services/modal.service';
@@ -10,6 +10,8 @@ import { ModalService } from '../services/modal.service';
   styleUrls: ['./cirtificate.component.css']
 })
 export class CirtificateComponent implements OnInit {
+
+  @ViewChild('certificationText', {static: false}) pRef: ElementRef;
 
   constructor(private api: ApiService, private router: Router, private modalService: ModalService) { }
   alert: string = "test";
@@ -23,8 +25,7 @@ export class CirtificateComponent implements OnInit {
   titleDesc: string = '';
   pdfSrc: any = '';
   pdfOpen: boolean = false;
-  nocirtificate: string;
-  personalCertificate:boolean;;
+  personalCertificate:boolean;
 
   ngOnInit() {
     window.scroll(0, 0);
@@ -71,7 +72,9 @@ export class CirtificateComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.openModal('certificate-modal');
+    //this.pRef.nativeElement.focus();
+
+    //this.openModal('certificate-modal');
   }
 
   viewCertificatePdf() {
@@ -80,6 +83,7 @@ export class CirtificateComponent implements OnInit {
   }
 
   onTextChange() {
+   // console.log('onTextChange' + text);
     this.counttext = (this.certificateText).length;
   }
 
@@ -100,32 +104,52 @@ export class CirtificateComponent implements OnInit {
   openModal(id: string) {
     this.modalService.open(id);
   }
-
-  onCertificatePersonal(id: string, personalCertificate: boolean) {
+  
+  onPersonalCertificate(id: string, personalCertificate: boolean) {
     this.personalCertificate = personalCertificate;
-  }
-
-  CertifYes(id: string, sure: string) {
-    this.personalCertificate = true;
-    console.log("CertifYes");
-    this.nocirtificate = "false";
-    localStorage.setItem("nocirtificate", this.nocirtificate);
-    this.modalService.close(id);
-  }
-
-  CertifWant(id: string, sure: string) {
-    this.personalCertificate = true;
-
-    console.log("test");
-    this.nocirtificate = "true";
-    localStorage.setItem("nocirtificate", this.nocirtificate);
+    if (!personalCertificate) {
+    //this.personalCertificate = "false";
+   // } else {
+      //this.personalCertificate = "true";
     this.certificateText = "";
     this.counttext = 0;
     this.router.navigate(['donation-details']);
+    }
     this.modalService.close(id);
+    localStorage.setItem("personalCertificate", JSON.stringify(personalCertificate));
+
   }
 
-  closeModal(id: string, sure: string) {
+  // CertifYes(id: string, sure: string) {
+  //   this.personalCertificate = true;
+  //   console.log("CertifYes");
+  //   // this.personalCertificate = "false";
+  //   // localStorage.setItem("personalCertificate", this.personalCertificate);
+  //   this.modalService.close(id);
+  // }
+
+  // CertifWant(id: string, sure: string) {
+  //   this.personalCertificate = true;
+
+  //   console.log("test");
+  //   // this.personalCertificate = "true";
+  //   // localStorage.setItem("personalCertificate", this.personalCertificate);
+  //   this.certificateText = "";
+  //   this.counttext = 0;
+  //   this.router.navigate(['donation-details']);
+  //   this.modalService.close(id);
+  // }
+
+  closeModal(id: string, navigate: string) {
+
+    if (navigate == 'next') {
+      if (!this.personalCertificate) {
+        this.certificateText = '';
+      }
+      this.router.navigate(['donation-details']);
+    } else {    
+      this.pRef.nativeElement.focus();
+    }
     this.modalService.close(id);
   }
 }

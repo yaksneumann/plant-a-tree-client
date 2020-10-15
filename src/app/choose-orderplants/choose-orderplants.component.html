@@ -1,7 +1,6 @@
 <div class="backgroundmobileimg" [ngStyle]="screenHeight">
 
   <!--  header buttons -->
-
   <div class="row col-12 pages-menu margbut0 padl10p">
     <div class="col-2 pad0"> </div>
     <div class="col-2 pad0">
@@ -51,7 +50,6 @@
     </div>
     <div class="col-2 pad0"></div>
   </div>
-
   <!-- End header buttons -->
 
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -69,48 +67,47 @@
       </div>
 
       <div class="row marg0">
-        <div class="col-3 pad0"></div> 
-        <div class="col-6 pad0"> 
+        <div class="col-3 pad0"></div>
+        <div class="col-6 pad0">
           <div class="row centertext padt5p treeprices padd0 backnnone col-11 marg0">
 
             <div class="col-2 pad0">
- <!--  <img src="./assets/img/button-plus.svg" class="plus-img2" alt="plus button" (click)="onPlusBtn()">-->
-              <img src="{{ 'CHOOSE-ORDERPLANTS.PluseButton' | translate }}" class="plus-img2" alt="plus button" (click)="onPlusBtn()">
+              <!--  <img src="./assets/img/button-plus.svg" class="plus-img2" alt="plus button" (click)="onPlusBtn()">-->
+              <img src="{{ 'CHOOSE-ORDERPLANTS.PluseButton' | translate }}" class="plus-img2" alt="plus button"
+                (click)="onPlusBtn()">
             </div>
             <div class="col-8 pad0">
               <div class="col-12">
                 <div class="treecount">
                   <u class="fontLite fsizecount">
-                    <input type="tel" min="1" class="form-control change-no" id="anotherNumber" name="anotherNumber"
-                    [(ngModel)]="amountOfTrees" maxlength="5" required (change)="onChangeNumber(amountOfTrees)">
-                  </u> 
+                    <input type="tel" min="1" class="form-control change-no" id="amountOfTrees" name="amountOfTrees"
+                      [(ngModel)]="amountOfTrees" maxlength="5" required (change)="onChangeNumber(amountOfTrees)">
+                  </u>
                 </div>
-
               </div>
-
             </div>
             <div class="col-2 pad0">
-          <!--      <img src="./assets/img/button-.svg" class="minus-img2" alt="minus button" (click)="onMinusBtn()"> -->
-              <img src="{{ 'CHOOSE-ORDERPLANTS.MinusButton' | translate }}" class="minus-img2" alt="minus button" (click)="onMinusBtn()">
-
+              <!--      <img src="./assets/img/button-.svg" class="minus-img2" alt="minus button" (click)="onMinusBtn()"> -->
+              <img src="{{ 'CHOOSE-ORDERPLANTS.MinusButton' | translate }}" class="minus-img2" alt="minus button"
+                (click)="onMinusBtn()">
             </div>
-
           </div>
           <h6 class="centertext countprice paddt10p ">
             {{ 'CHOOSE-ORDERPLANTS.total' | translate }}: ${{ totalAmount }}
           </h6>
           <div>
             <hr />
-          </div> 
+          </div>
           <div class="form-group centertext">
             <label for="date" class="fontLite margb2p">{{ 'CHOOSE-ORDERPLANTS.date' | translate }}</label>
 
             <input ngbDatepicker type="text" readonly #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
               [markDisabled]="isDisabled" class="font09em form-control date treeprices shadows FONTWID700 textleft"
-              id="date" name="date" required ngModel [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)"
-              style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();"
-               placeholder="{{IsraelDate}}">  
-             <!--   placeholder="{{LocalDate}}"> --> 
+              id="date" name="date" ngModel [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)"
+              style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();" placeholder="{{IsraelDate}}">
+            <!--
+             new - > placeholder="{{IsraelDate}}"
+               old ->  placeholder="{{LocalDate}}"> -->
             <span class="invalid-input" *ngIf="invalidDate">Invalid Date</span>
           </div>
         </div>
@@ -118,38 +115,39 @@
       </div>
 
       <div class="padt5p">
-      <label for="time" class="fontLite margb2p">
-        <span> {{ 'CHOOSE-ORDERPLANTS.time' | translate }} 
-          {{ 'CHOOSE-ORDERPLANTS.Timelocation' | translate }}
-        </span>
-      </label>
+        <label for="time" class="fontLite margb2p">
+          <span> {{ 'CHOOSE-ORDERPLANTS.time' | translate }}
+            ({{ localZone }})
+            <!-- ({{ 'CHOOSE-ORDERPLANTS.Timelocation' | translate }}) -->
+          </span>
+        </label>
       </div>
-         
+
       <div class="row marg0">
-            <div class="col-3 pad0"></div> 
-            <div class="col-6 pad0"> 
-            <div class="form-group centertext"> 
-            <select name="time" class="form-control font09em shadows time treeprices centertext centertext col-7 FONTWID700" id="time"
-              [(ngModel)]="time" (change)="onTimeChange($event.target.value, time)"
-              required style="color: #000700"> 
+        <div class="col-3 pad0"></div>
+        <div class="col-6 pad0">
+          <div class="form-group centertext">
+            <select name="time"
+              class="form-control font09em shadows time treeprices centertext centertext col-7 FONTWID700" id="time"
+              [(ngModel)]="time" (change)="onTimeChange($event.target, time)" required style="color: #000700">
               <option value="null" disabled>{{ israelTime | date:'shortTime'}}</option>
-              <option *ngFor="let time of israelAvailableTime" [ngValue]="time.AvailTime"> 
+              <option *ngFor="let time of israelAvailableTime" [ngValue]="time.AvailTime">
                 {{ time.AvailTime | date:'shortTime' }}
               </option>
             </select>
             <span class="invalid-input" *ngIf="invalidTime">Invalid Time</span>
           </div>
-         
+
         </div>
         <div class="col-3 pad0"></div>
       </div>
 
       <div class="paddt10p" *ngIf="LocalDatediv" id="LocalDatediv">
         <label class="fontLite " style="margin-bottom: 2px;">{{ 'CHOOSE-ORDERPLANTS.localDate' | translate }}</label>
-      
+
         <div class=" " style="margin-top: -5px;">
-        {{ LocalDate }} | {{ LocalTime }}
-      </div>
+          {{ LocalDate }} | {{ LocalTime }}
+        </div>
       </div>
 
       <footer class="footer-distributed col-12">
@@ -160,13 +158,9 @@
             </div>
           </button>
         </div>
-
       </footer>
-
     </div>
-
   </form>
-  
 </div>
 
 
@@ -175,7 +169,8 @@
   <hr> -->
   <div class="errorMsg">{{errMsg}}</div>
   <hr>
-  <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+  <button (click)="closeModal('error-modal');"
+    class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
 </jw-modal>
 <ngx-spinner bdColor="rgba(255,255,255,0.8)" size="medium" color="#926427" type="ball-scale-multiple">
 </ngx-spinner>

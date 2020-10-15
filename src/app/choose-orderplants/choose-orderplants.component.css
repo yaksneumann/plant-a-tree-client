@@ -86,7 +86,7 @@
     box-sizing: border-box; 
   }
 
-  #anotherNumber{
+  #amountOfTrees{
     text-align: center;
     border: 0;
     background: none;
@@ -96,7 +96,7 @@
 }
  
  
-#anotherNumber:-internal-autofill-selected { 
+#amountOfTrees:-internal-autofill-selected { 
     background-color:none !important; 
 }
 

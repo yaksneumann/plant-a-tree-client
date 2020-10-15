@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AvailableDate } from '../models/availableDates.model';
 import { NgxSpinnerService } from "ngx-spinner";
- 
+
 @Component({
   selector: 'app-donation-details',
   templateUrl: './donation-details.component.html',
@@ -45,15 +45,15 @@ export class DonationDetailsComponent implements OnInit {
   invalidTime: boolean = false;
   itemAvailTime: any;
   DateVal: any;
-  nocirtificate: string;
-  public cirtificate = false;
+  personalCertificate: boolean;
+  //cirtificate = false;
   id: string;
   radioId: string;
   headingCss = {
-    opacity: '0.5'
+    opacity: '0.7'
   };
   bodycss = {
-    height: '120vh' 
+    height: '120vh'
   };
   disableds: string = "true";
   quest1: number = 0;
@@ -67,8 +67,8 @@ export class DonationDetailsComponent implements OnInit {
   certificateText: string;
 
   ngOnInit() {
-     
-    window.scroll(0,0);
+
+    window.scroll(0, 0);
     this.amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees")) || 0;
     this.countryName = JSON.parse(localStorage.getItem("countryName")) || '';
 
@@ -76,14 +76,14 @@ export class DonationDetailsComponent implements OnInit {
 
     this.certificateText = (localStorage.getItem("certificateText")) || '';
 
-    this.nocirtificate = JSON.parse(localStorage.getItem("nocirtificate")) || 'false';
-     if (this.nocirtificate == "false") {
-      this.cirtificate = true;
-    }
+    this.personalCertificate = JSON.parse(localStorage.getItem("personalCertificate")) || false;
+    //  if (this.personalCertificate) {
+    //   this.cirtificate = true;
+    // }
 
-    this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
-    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || "";
- 
+    this.LocalDate = localStorage.getItem("LocalDate") || "";
+    this.LocalTime = localStorage.getItem("LocalTime") || "";
+
     this.amountOfCaps = JSON.parse(localStorage.getItem("amountOfCaps")) || 0;
     this.treePrice = JSON.parse(localStorage.getItem("treePrice")) || 18;
     this.capPrice = JSON.parse(localStorage.getItem("capPrice")) || 6;
@@ -107,8 +107,8 @@ export class DonationDetailsComponent implements OnInit {
 
     this.calculateSum(this.treeSum, this.capSum, this.boxSum);
 
-    localStorage.setItem("totalSum", JSON.stringify(this.totalSum)); 
-    document.body.classList.add('bodycss'); 
+    localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
+    document.body.classList.add('bodycss');
   }
 
   // Yes No Func
@@ -123,7 +123,7 @@ export class DonationDetailsComponent implements OnInit {
       this.RadionbutNo = "./assets/img/FullRadion.svg";
     }
   }
- 
+
   // Submit func
   Submmitbut() {
     this.Radionbut = "./assets/img/FullRadion.svg";
@@ -132,15 +132,19 @@ export class DonationDetailsComponent implements OnInit {
     this.headingCss = {
       opacity: '1'
     };
-    this.disableds = ""; 
+    this.disableds = "";
   }
 
   calculateSum(trees: number, caps: number, boxes: number) {
     console.log("calculate totalSum");
     this.totalSum = trees + caps + boxes;
   }
- 
+
   onPayNow() {
+    if ( this.disableds != "") {
+      alert('please confirm')
+      return false;
+    }
     localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
     this.spinner.show();
     this.api.OpenPlantEvent(this.acceptEmail).subscribe((data: any) => {
@@ -155,12 +159,12 @@ export class DonationDetailsComponent implements OnInit {
           return false;
         }
         localStorage.setItem("ceremonyID", JSON.stringify(this.ceremonyID));
-        
+
         // yaks testing to fix because of delay to api 29-9-20
         this.getUrlFunc();
         ////new 5-3-2020
         //this.updateItems(this.ceremonyID);
-       }
+      }
     },
       error => {
         this.spinner.hide();

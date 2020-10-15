@@ -25,7 +25,6 @@ export class ChooseOrderPlantsComponent implements OnInit {
   amountOfTrees: number = 1;
   totalAmount: number = 18;
   treePrice: number = 18;
-  //anotherNumber: boolean = false;
   // adultNum: number = 1;
   // childrenNum: number;
   time: any = null;
@@ -54,18 +53,30 @@ export class ChooseOrderPlantsComponent implements OnInit {
     window.scroll(0, 0);
     $(".kkl-icon1").css("width", "45%");
     $(".kkl-icon2").css("width", "30%");
-    localStorage.setItem("plantingCenter", '35');
-    //ysks show time if went back
     this.localZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    this.spinner.show();
+    localStorage.setItem("plantingCenter", '35');
+    this.availableDates = JSON.parse(localStorage.getItem("availableDates")) || [];
+   // if (Object.keys(donersDetailsObj).length > 0) {
+
+    this.amountOfTrees = JSON.parse(localStorage.getItem("amountOfTrees")) || 1;
+    this.calculateAmount(this.amountOfTrees);
+    this.dateId = localStorage.getItem("IsraelDateSelect") || '';
+    this.israelTime = localStorage.getItem("israelTime") || "";
+    this.time = localStorage.getItem("israelTime") || "";
+
+    //if (this.dateId == '') {
+      if (this.availableDates.length == 0) {
+      
+      this.spinner.show();
     this.api.getAllDates().subscribe((availableDates: Array<AvailableDate>) => {
       this.spinner.hide();
       if (availableDates) {
         this.availableDates = availableDates;
         this.minDate = this.availableDates[0].date;
         this.maxDate = this.availableDates[this.availableDates.length - 1].date;
-        //this.dateId = '5'
+        localStorage.setItem("availableDates", JSON.stringify(this.availableDates));
+
       }
     },
       error => {
@@ -77,6 +88,12 @@ export class ChooseOrderPlantsComponent implements OnInit {
         }
         this.openModal('error-modal');
       });
+    }     
+    else {
+      this.minDate = this.availableDates[0].date;
+      this.maxDate = this.availableDates[this.availableDates.length - 1].date;
+    }
+    
 
     localStorage.setItem("treePrice", JSON.stringify(18));
     this.api.getItemPrice(1065).subscribe((price: number) => {
@@ -88,34 +105,33 @@ export class ChooseOrderPlantsComponent implements OnInit {
       error => {
         console.log({ error });
       });
+
     let IsraelDateSelect;
-    this.LocalDate = JSON.parse(localStorage.getItem("LocalDate")) || "";
-    this.LocalTime = JSON.parse(localStorage.getItem("LocalTime")) || ""; 
-     
- 
-//    this.israelDate = new Date(JSON.parse(localStorage.getItem("israelDate"))).getDate() || "";
+    this.LocalDate = localStorage.getItem("LocalDate") || "";
+    this.LocalTime = localStorage.getItem("LocalTime") || "";
+    //    this.israelDate = new Date(JSON.parse(localStorage.getItem("israelDate"))).getDate() || "";
 
     if (this.LocalDate != "" && this.LocalTime != "") {
       this.LocalDatediv = true;
       IsraelDateSelect = localStorage.getItem("IsraelDateSelect");
 
+      //if false its from back or reload
       this.ChangeViewDate(IsraelDateSelect, false);
-      
-      console.log("IsraelDateSelect: " + IsraelDateSelect); 
+
+      console.log("IsraelDateSelect: " + IsraelDateSelect);
       //this.dateId = IsraelDateSelect;
- 
-     this.GetAvailableTimesFunc(IsraelDateSelect,false); 
-     
+
+      this.GetAvailableTimesFunc(IsraelDateSelect, false);
+
     }
   }
 
   onPlusBtn() {
     this.amountOfTrees = this.amountOfTrees + 1;
-    //this.anotherNumber = true;
     this.calculateAmount(this.amountOfTrees);
   }
 
-  onMinusBtn() { 
+  onMinusBtn() {
     if (this.amountOfTrees > 1) {
       this.amountOfTrees = this.amountOfTrees - 1;
       this.calculateAmount(this.amountOfTrees);
@@ -156,85 +172,93 @@ export class ChooseOrderPlantsComponent implements OnInit {
 
   onDateChange(event: any, datePicker: any) {
     this.LocalDatediv = false;
+    //yaks 13-10-20
+    this.time = '';
+    this.israelTime = '';
+
     this.localAvailableTime = [];
     this.israelAvailableTime = [];
     this.invalidDate = false;
-    datePicker.close(); 
-    this.ChangeViewDate("",true); 
+    datePicker.close();
+    this.ChangeViewDate("", true);
     localStorage.setItem("IsraelDateSelect", datePicker._inputValue);
 
     this.spinner.show();
 
-    this.GetAvailableTimesFunc(datePicker._inputValue,true);
- 
+    this.GetAvailableTimesFunc(datePicker._inputValue, true);
+
     //yak del 31-5-20 -- seems extra, since we only show him dates that are available
-   
     //this.api.GetIsAvailableDate(datePicker._inputValue).subscribe((data: any) => {
     //  if (data) {
-     //   console.log("Data GetAvailableDate: " + { data }); 
-     //   if (data[0].rc < 0) {
-     //     this.errMsg = 'sorry this date is not available';
-      //    console.log("Error GetAvailableDate: " + this.errMsg);
-      //    this.openModal('error-modal');
-      //    return false;
-      //  }
+    //   console.log("Data GetAvailableDate: " + { data }); 
+    //   if (data[0].rc < 0) {
+    //     this.errMsg = 'sorry this date is not available';
+    //    console.log("Error GetAvailableDate: " + this.errMsg);
+    //    this.openModal('error-modal');
+    //    return false;
     //  }
-   // },
+    //  }
+    // },
     //  error => {
-   //     console.log("Error GetAvailableDate2 " + { error })
+    //     console.log("Error GetAvailableDate2 " + { error })
     //  });
   }
 
-  ChangeViewDate(israelDates:string,flag:boolean ) {
-    let changetDateLayout ;
-    if (flag){
-      changetDateLayout  = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day); 
+  ChangeViewDate(israelDates: string, flag: boolean) {
+    let changetDateLayout;
+    if (flag) {
+      changetDateLayout = new Date(this.dateId.year, this.dateId.month - 1, this.dateId.day);
     }
-    else{
-      changetDateLayout  = new Date(israelDates); 
+    else {
+      changetDateLayout = new Date(israelDates);
+      //changetDateLayout = Date.prototype.getUTCDate()
     }
     var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
     let Datearray = changetDateLayout.toLocaleDateString("en-US", options).replace(',', '').split(" ");
- 
-    if (flag){
-      $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));  
+
+    if (flag) {
+      $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
     }
-    else{
-      this.IsraelDate =(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
+    else {
+      this.IsraelDate = (Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
       this.dateId = israelDates;
-    } 
+    }
   }
 
-  GetAvailableTimesFunc(IsraelDateSelect:string,flag:boolean){
+  GetAvailableTimesFunc(IsraelDateSelect: string, flag: boolean) {
     this.api.GetAvailableTimes('', IsraelDateSelect).subscribe((availableTime: Array<Date>) => {
       this.spinner.hide();
       if (availableTime) {
         //var count = 0;
         this.israelAvailableTime = availableTime;
-      
+
         availableTime.forEach((item: any) => {
+
           let itemAvailTime = new Date(item.AvailTime).getTime();
-          if (flag){
-             try {
-            this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
-             } 
-             catch (error) {
-                console.log(error);
-             }
+          if (flag) {
+            try {
+              this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
+            }
+            catch (error) {
+              console.log(error);
+            }
           }
-          else{
-            let israelTimes = JSON.parse(localStorage.getItem("israelTime")) || "";
-              let israelTimeNum= new Date(israelTimes).getTime();
-              if (itemAvailTime == israelTimeNum){
-                let tester ="eee";
-              }
+          else {
+            //yaks fix 13-10-20
+           // this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
+            let israelTime = localStorage.getItem("israelTime") || "";
+            let israelTimeNum = new Date(israelTime).getTime();
+            if (itemAvailTime == israelTimeNum) {
+              // let tester ="eee";
+              //fix
+            }
           }
         });
-      
+
       }
     },
       error => {
-        this.spinner.hide(); 
+        this.spinner.hide();
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
           this.errMsg = 'Sorry, there is some connection problem, please try again';
@@ -247,16 +271,16 @@ export class ChooseOrderPlantsComponent implements OnInit {
   // onTimeChange(time: any) {
   onTimeChange(index: any, time: any) {
     this.invalidTime = false;
-
-    index = index.split(':')[0];
-    index--;
+    console.log(index.value)
+    //index = index.split(':')[0];
+    index = index.options.selectedIndex - 1;
 
     this.localTime = this.localAvailableTime[index].AvailTime;
     this.israelTime = this.israelAvailableTime[index].AvailTime;
 
 
-    localStorage.setItem('localTime', JSON.stringify(this.localTime)); // User Local Date Time
-    localStorage.setItem('israelTime', JSON.stringify(this.israelTime)); // Israel Date Time
+    localStorage.setItem('localTime', this.localTime); // User Local Date Time
+    localStorage.setItem('israelTime', this.israelTime); // Israel Date Time
 
     var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
     let Datearray = this.localTime.toLocaleDateString("en-US", options).replace(',', '').split(" ");
@@ -269,12 +293,12 @@ export class ChooseOrderPlantsComponent implements OnInit {
       this.LocalDate = Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', '');
       this.LocalTime = Datearray[3];
     }
-    localStorage.setItem('LocalDate', JSON.stringify(this.LocalDate));
-    localStorage.setItem('LocalTime', JSON.stringify(this.LocalTime));
+    localStorage.setItem('LocalDate', this.LocalDate);
+    localStorage.setItem('LocalTime', this.LocalTime);
     this.LocalDatediv = true;
- 
+
   }
- 
+
   onSubmit(form: NgForm) {
     console.log(form);
     let date = form.value.date || '';
@@ -306,25 +330,42 @@ export class ChooseOrderPlantsComponent implements OnInit {
       return false;
     }
 
-    if (form.valid) {
       let numberOfPeople = {
         "numberOfAdults": numberOfAdults,
         "numberOfChildren": numberOfChildren
       }
-      localStorage.setItem('ceremonyDateAndHour', ceremonyDateAndHour);
+    // _________  yaks 13-10-20  _____________
+    localStorage.setItem('ceremonyDateAndHour', time);
+      // localStorage.setItem('ceremonyDateAndHour', ceremonyDateAndHour);
       localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople));
       localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees));
-      
-      // localStorage.setItem("localAvailableTime", JSON.stringify(this.localAvailableTime));
+
+       localStorage.setItem("availableDates", JSON.stringify(this.availableDates));
 
       console.log(numberOfPeople);
       this.router.navigate(['donors-details']);
-    }
-    else {
+    
 
-      this.errMsg = 'Invalid form, please fill in';
-      this.openModal('error-modal');
-    }
+    // _________  yaks 13-10-20  _____________
+    // if (form.valid) {
+    //   let numberOfPeople = {
+    //     "numberOfAdults": numberOfAdults,
+    //     "numberOfChildren": numberOfChildren
+    //   }
+    //   localStorage.setItem('ceremonyDateAndHour', ceremonyDateAndHour);
+    //   localStorage.setItem('numberOfPeople', JSON.stringify(numberOfPeople));
+    //   localStorage.setItem("amountOfTrees", JSON.stringify(this.amountOfTrees));
+
+    //   // localStorage.setItem("localAvailableTime", JSON.stringify(this.localAvailableTime));
+
+    //   console.log(numberOfPeople);
+    //   this.router.navigate(['donors-details']);
+    // }
+    // else {
+
+    //   this.errMsg = 'Invalid form, please fill in';
+    //   this.openModal('error-modal');
+    // }
   }
 
   openModal(id: string) {
@@ -334,5 +375,4 @@ export class ChooseOrderPlantsComponent implements OnInit {
   closeModal(id: string) {
     this.modalService.close(id);
   }
-
 }

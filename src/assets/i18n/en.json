@@ -67,7 +67,7 @@
     "be-aware2": "In Israel the time would be:",
     "adults": "Number of adults",
     "kids": "Number of Children",
-    "Timelocation": " Asia / Jerusalem",
+    "Timelocation": "Asia / Jerusalem",
     "localDate": "Your Local Date:",
 
     "PluseButton": "./assets/img/button-plus.svg",
@@ -139,8 +139,8 @@
     "Date": "Date:",
     "Time": "Time:",
     "Location":"Location:",
-    "Locationtext":"Tzorha Forest",
-    "Donation": "Total Danation:",
+    "Locationtext":"Tzora Forest",
+    "Donation": "Total Donation:",
 
     "Iconfirm1":"I confirm that I have read and agree to the terms & conditions.",
     "Iconfirm2":"agree to the terms & conditions.",
@@ -240,7 +240,8 @@
   "cancel": "Cancel",
   "edit": "Edit",
   "AboutUS":"About us",
-   
+  "CONFIRM":"I CONFIRM",
+  "EDIT-TEXT":"EDIT TEXT",  
   "certificate":"CERTIFICATE",
   "certificateText" :"Do you wish to personalize",
   "certificateText2" :"your certificate?",
