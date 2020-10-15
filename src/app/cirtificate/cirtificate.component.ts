@@ -116,6 +116,7 @@ export class CirtificateComponent implements OnInit {
     this.router.navigate(['donation-details']);
     }
     this.modalService.close(id);
+<<<<<<< HEAD
     localStorage.setItem("personalCertificate", JSON.stringify(personalCertificate));
 
   }
@@ -152,4 +153,20 @@ export class CirtificateComponent implements OnInit {
     }
     this.modalService.close(id);
   }
+=======
+  }
+  closeModal(id: string, sure: string){
+    this.modalService.close(id);
+  }  
+  onSkipBtn() {
+    if (this.certificateText == '') {
+      this.errMsg = 'are you sure that you want to recieve a general certificate?';
+      this.openModal('error-modal');
+    } 
+  }  
+  onNextBtn() { 
+      localStorage.setItem("certificateText", this.certificateText); 
+      this.router.navigate(['donation-details']);
+  } 
+>>>>>>> 6d0d5b7e6c88f6ba79bc1955375f9a9fb7ed8dd3
 }
