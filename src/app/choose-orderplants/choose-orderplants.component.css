@@ -91,7 +91,6 @@
     border: 0;
     background: none;
     font-size: 1em;
-    /* padding-top: 0; */
     padding: 0px 0 10px 0;
 }
  
@@ -127,8 +126,10 @@
         font-size: 0.9em;
     }
   }
-   
-  @media (min-width: 768px) and (max-width: 1366px) {
+
+
+  /* yaks del 15-10-20  */
+  /* @media (min-width: 768px) and (max-width: 1366px) {
     .plus-img2{
         transform: scale(4);
     }
@@ -144,4 +145,4 @@
     .nexttext{
         font-size: 0.5em !important;
     }
-  } 
+  }  */

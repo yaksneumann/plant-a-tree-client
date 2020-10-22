@@ -126,26 +126,26 @@ ngb-datepicker{
     .pagefont{
         font-size: 0.7em !important;
     }
-    .nexttext {
+    /* .nexttext {
         font-size: 1.5em;
-    }
+    } */
  }
  @media (min-width: 320px) and (max-width: 374px)    {
     .pagefont{
         font-size: 0.7em !important;
     }
-    .nexttext {
+    /* .nexttext {
         font-size: 1.5em !important;
-    }
+    } */
  }
  @media (min-width: 375px) and (max-width: 410px)    {
     
     .pagefont{
         font-size: 1em !important;
     }
-    .nexttext {
+    /* .nexttext {
         font-size: 1.3em !important;
-    }
+    } */
     
  }
  @media (min-width: 411px) and (max-width: 500px)    {
@@ -159,17 +159,17 @@ ngb-datepicker{
     .pagefont{
         font-size: 2em !important;
     }
-    .nexttext {
+    /* .nexttext {
         font-size: 0.6em !important;
-    }
+    } */
  }
 @media (min-width: 812px) and (max-width: 900px)    {
    .pagefont{
        font-size: 2em;
    }
-   .nexttext {
+   /* .nexttext {
        font-size: 0.6em;
-   }
+   } */
 }
 @media (min-width: 1024px){
     

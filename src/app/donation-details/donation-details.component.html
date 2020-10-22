@@ -1,6 +1,6 @@
-<div class="col-12 pad0 backgroundmobileimg " >
+<div class="col-12 pad0 backgroundmobileimg ">
+
   <!-- header buttons -->
-  
   <div class="row col-12 pages-menu margbut0 padl10p">
     <div class="col-2 pad0"> </div>
     <div class="col-2 pad0">
@@ -73,11 +73,11 @@
         <div class="row marg0 fontsxxlarge minheitgh">
           <div class="amountTrees textleft  col-8 pad0 fontsizedatetime">
             {{ 'DONATION-DETAILS.amountOfTrees' | translate }}</div>
-          <div class="col-4 pad0 textleft fontBoldLite"> {{ amountOfTrees }} </div>
+          <div class="col-4 pad0 textleft fontBoldLite" style="text-align: left;margin-top: -2px;"> {{ amountOfTrees }} </div>
         </div>
         <hr />
         <div class="row marg0 fontsxxlarge minheitgh">
-          <div class="col-2 pad0 amountTrees textleft">{{ 'DONATION-DETAILS.Date' | translate }}</div> 
+          <div class="col-2 pad0 amountTrees textleft">{{ 'DONATION-DETAILS.Date' | translate }}</div>
           <div class="col-10 pad0 datediv fontBoldLite fontsizedatetime lineheight1p7">
             {{LocalDate}}
           </div>
@@ -85,19 +85,22 @@
         <hr />
 
         <div class="row marg0 fontsxxlarge minheitgh">
-          <div class="amountTrees col-4 pad0 textleft">{{ 'DONATION-DETAILS.Time' | translate }}</div> 
-          <div class="col-6 pad0 fontBoldLite fontsizedatetime lineheight1p7">
+          <div class="amountTrees col-4 pad0 textleft">{{ 'DONATION-DETAILS.Time' | translate }}</div>
+          <div class="col-6 pad0 fontBoldLite fontsizedatetime lineheight1p7" style="text-align: left;">
             {{LocalTime}}
           </div>
           <div class="col-2 pad0"></div>
         </div>
+
         <hr />
 
         <div class="row marg0 fontsxxlarge minheitgh">
           <div class="amountTrees col-4 pad0 textleft">{{ 'DONATION-DETAILS.Location' | translate }}</div>
-          <div class="col-8 pad0 fontBoldLite fontsizedatetime lineheight1p7">{{ 'DONATION-DETAILS.Locationtext' | translate }}
-           </div>
+          <div class="col-8 pad0 fontBoldLite fontsizedatetime lineheight1p7">
+            {{ 'DONATION-DETAILS.Locationtext' | translate }}
+          </div>
         </div>
+        
         <hr />
 
       </div>
@@ -122,7 +125,7 @@
           </div>
         </div>
       </div>
-     </div>
+    </div>
 
     <div class="row pad0 marg0 margtop5p fontLite witebackg">
       <div class="col-3 pad0"> </div>
@@ -139,13 +142,16 @@
         <img src="{{Radionbut}}" alt="" (click)="Submmitbut()" class="butonradion">
       </div>
       <div class="col-8 padl2p">
-        <div class="fontLite fontBoldLite"> {{ 'DONATION-DETAILS.Iconfirm1' | translate }} </div>
+        <div class="fontLite fontBoldLite"
+        [ngClass]="{'invalid-input': submited && !confirmed}"> 
+        {{ 'DONATION-DETAILS.Iconfirm1' | translate }} 
+      </div>
         <!-- <div class="fontLite fontBoldLite"> {{ 'DONATION-DETAILS.Iconfirm2' | translate }} </div> -->
         <hr />
       </div>
       <div class="col-1 pad0"></div>
     </div>
- 
+
     <div class="row marg0 textleft">
       <div class="col-2 pad0"></div>
       <div class="col-1 pad0 ">
@@ -191,10 +197,8 @@
 
     <footer class="footer-distributed col-12">
       <div class="col-12">
-        <!-- <button type="submit" class="submitbut col-7 " [ngStyle]="headingCss" [disabled]=disableds (click)="onPayNow()"> -->
-
-        <button type="submit" class="submitbut col-7 " [ngStyle]="headingCss" (click)="onPayNow()">
-          <div class="nexttext " [ngStyle]="headingCss">
+        <button type="submit" class="submitbut col-7 " (click)="onPayNow()">
+          <div class="nexttext ">
             {{ 'DONATION-DETAILS.pay' | translate }}
           </div>
         </button>

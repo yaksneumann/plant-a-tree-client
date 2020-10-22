@@ -74,7 +74,7 @@ export class CirtificateComponent implements OnInit {
   ngAfterViewInit() {
     //this.pRef.nativeElement.focus();
 
-    //this.openModal('certificate-modal');
+    this.openModal('certificate-modal');
   }
 
   viewCertificatePdf() {

@@ -50,6 +50,7 @@ export class ChooseOrderPlantsComponent implements OnInit {
   screenHeight: any;
 
   ngOnInit() {
+
     window.scroll(0, 0);
     $(".kkl-icon1").css("width", "45%");
     $(".kkl-icon2").css("width", "30%");
@@ -216,13 +217,13 @@ export class ChooseOrderPlantsComponent implements OnInit {
     var options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
     let Datearray = changetDateLayout.toLocaleDateString("en-US", options).replace(',', '').split(" ");
 
-    if (flag) {
+    //if (flag) {
       $("#date").val(Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
-    }
-    else {
+//    }
+//    else {
       this.IsraelDate = (Datearray[1] + " " + Datearray[0] + " " + Datearray[2].replace(',', ''));
       this.dateId = israelDates;
-    }
+ //   }
   }
 
   GetAvailableTimesFunc(IsraelDateSelect: string, flag: boolean) {
@@ -235,23 +236,24 @@ export class ChooseOrderPlantsComponent implements OnInit {
         availableTime.forEach((item: any) => {
 
           let itemAvailTime = new Date(item.AvailTime).getTime();
-          if (flag) {
+        //  if (flag) {
             try {
               this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
             }
             catch (error) {
               console.log(error);
             }
-          }
-          else {
-            //yaks fix 13-10-20
-           // this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
+          // }
+          // else {
+    
+            //this.localAvailableTime.push({ "AvailTime": new Date(item.AvailTime + '+03:00') });
             let israelTime = localStorage.getItem("israelTime") || "";
             let israelTimeNum = new Date(israelTime).getTime();
             if (itemAvailTime == israelTimeNum) {
+              //alert('itemAvailTime === israelTimeNum')
               // let tester ="eee";
               //fix
-            }
+           // }
           }
         });
 

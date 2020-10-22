@@ -100,16 +100,38 @@ body {
     text-align: center;
     margin: auto;
 }
-.Certificatepopup > div > div, .Certificatepopup2 > div > div{
+
+.Certificatepopup > div > div {
     border-radius: 0 70px 70px 70px;  
    background-image: url(./assets/img/popupBackground.svg) !important;
    background-size: cover !important;
    background-repeat: no-repeat !important;
    background-position: center !important;
  }
- .Certificatepopup > div,.Certificatepopup2 > div   { 
+
+ .Certificatepopup > div  { 
      margin-top: -25%;
  }
+
+ .Certificatepopup2 > div > div{
+   /* border-radius: 0 70px 70px 70px;   */
+   /* background-image: url(./assets/img/popupBackground.svg) !important;
+   background-image: url(./assets/img/background.png) !important; */
+   background: linear-gradient(#FDFDFD, #DCF1F1)!important;
+   background-size: cover !important;
+   background-repeat: no-repeat !important;
+   background-position: center !important;
+
+   height: -webkit-fill-available !important;
+    padding: 30px !important;
+    margin: 0px !important;
+    width: 100% !important;
+ }
+
+ .Certificatepopup2 > div   { 
+    margin-top: -25%;
+}
+
   
  .jw-modal-background{
     background-color: rgb(255,255,255,0.9) !important;
@@ -119,6 +141,8 @@ body {
     margin: 0px auto; 
     background-image: url(./assets/img/certifcate-sm.jpg) ; 
     background-size: 100%;
+    background-size: 90%;
+
     background-repeat: no-repeat;
     background-position: center; 
     height: 410px; 

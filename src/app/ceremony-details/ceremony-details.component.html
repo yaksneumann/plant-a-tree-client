@@ -5,7 +5,8 @@
         {{ ceremonyDetails.donorsTitle }} {{ ceremonyDetails.firstName }} {{ ceremonyDetails.lastName }}
     </h4> -->
 
-    <h4>{{ 'CEREMONY-DETAILS.welcome' | translate }} {{ ceremonyDetails.donorsTitle }} {{ ceremonyDetails.firstName }} {{ ceremonyDetails.lastName }}</h4>
+    <h4>{{ 'CEREMONY-DETAILS.welcome' | translate }} {{ ceremonyDetails.donorsTitle }} {{ ceremonyDetails.firstName }}
+        {{ ceremonyDetails.lastName }}</h4>
 
     <!-- <h5>we look foward seeing you at</h5> -->
     <h5>{{ 'CEREMONY-DETAILS.h5' | translate }} </h5>
@@ -13,15 +14,15 @@
 
     <div class="row">
         <div class="col">
-         <!--   <img class="info-icons" src="./assets/img/location-point.svg" alt="location" width="100%"> -->
+            <!--   <img class="info-icons" src="./assets/img/location-point.svg" alt="location" width="100%"> -->
             <img class="info-icons" src="{{ 'CEREMONY-DETAILS.LocalPoint' | translate }}" alt="location" width="100%">
         </div>
         <div class="col">
-           <!--    <img class="info-icons" src="./assets/img/clock.svg" alt="clock" width="100%"> -->
+            <!--    <img class="info-icons" src="./assets/img/clock.svg" alt="clock" width="100%"> -->
             <img class="info-icons" src="{{ 'CEREMONY-DETAILS.Clock' | translate }}" alt="clock" width="100%">
         </div>
         <div class="col">
-           <!--    <img class="info-icons" src="./assets/img/calendar-green.svg" alt="calendar" width="100%"> -->
+            <!--    <img class="info-icons" src="./assets/img/calendar-green.svg" alt="calendar" width="100%"> -->
             <img class="info-icons" src="{{ 'CEREMONY-DETAILS.Calendar' | translate }}" alt="calendar" width="100%">
         </div>
     </div>
@@ -44,43 +45,46 @@
             {{ 'CEREMONY-DETAILS.contact' | translate }} <b>{{ ceremonyDetails.forester_name }}</b>
             <div class="row icons">
                 <div class="col">
-                 <!--    <img class="share-icons" src="./assets/img/whatsapp-logo.svg" alt="tree" width=""
+                    <!--    <img class="share-icons" src="./assets/img/whatsapp-logo.svg" alt="tree" width=""
                         (click)="sendWhatsapp()"> -->
-                        <img class="share-icons" src="{{ 'CEREMONY-DETAILS.WhatsAppImeges' | translate }}" alt="tree" width=""
-                        (click)="sendWhatsapp()"> 
+                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.WhatsAppImeges' | translate }}" alt="tree"
+                        width="" (click)="sendWhatsapp()">
                 </div>
                 <div class="col">
-                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.ChatImg' | translate }}" alt="tree" (click)="sendSms()"
-                        style="height: 47px!important;">
-                      <!--  <img class="share-icons" src="./assets/img/chat.png" alt="tree" (click)="sendSms()"
+                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.ChatImg' | translate }}" alt="tree"
+                        (click)="sendSms()" style="height: 47px!important;">
+                    <!--  <img class="share-icons" src="./assets/img/chat.png" alt="tree" (click)="sendSms()"
                         style="height: 47px!important;"> -->
                     <!-- <img class="share-icons" src="./assets/img/sms.png" alt="tree" (click)="sendSms()"
                             style="height: 47px!important;"> -->
                 </div>
                 <div class="col">
-                   <!-- <img class="share-icons" src="./assets/img/phone-icon.png" alt="tree" (click)="callForester()">-->
-                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.PhoneImg' | translate }}" alt="tree" (click)="callForester()">
+                    <!-- <img class="share-icons" src="./assets/img/phone-icon.png" alt="tree" (click)="callForester()">-->
+                    <img class="share-icons" src="{{ 'CEREMONY-DETAILS.PhoneImg' | translate }}" alt="tree"
+                        (click)="callForester()">
                 </div>
-            </div> 
+            </div>
         </div>
 
         <div class="contact-info">
             <!-- Or -->
-            {{ 'CEREMONY-DETAILS.or' | translate }} 
+            {{ 'CEREMONY-DETAILS.or' | translate }}
             <br>
             <!-- contact our office -->
-            {{ 'CEREMONY-DETAILS.contact-office' | translate }} 
+            {{ 'CEREMONY-DETAILS.contact-office' | translate }}
             <div class="row icons">
                 <div class="col">
                     <!-- <span class="" *ngIf="usingPc" style="font-size: 30px;font-weight: 800;">
                             02-658-3384
-                          </span>  --> 
-                   <!--  <img class="office-phone" src="./assets/img/phone2.png" (click)="callOffice()"> -->
-                    <img class="office-phone" src="{{ 'CEREMONY-DETAILS.PhoneImg2' | translate }}" (click)="callOffice()">
+                          </span>  -->
+                    <!--  <img class="office-phone" src="./assets/img/phone2.png" (click)="callOffice()"> -->
+                    <img class="office-phone" src="{{ 'CEREMONY-DETAILS.PhoneImg2' | translate }}"
+                        (click)="callOffice()">
                 </div>
                 <div class="col">
-                  <!--  <img class="envelope-icon" src="./assets/img/envelope.svg" alt="tree" (click)="sendEmail()">-->
-                    <img class="envelope-icon" src="{{ 'CEREMONY-DETAILS.EnvelopeImg' | translate }}" alt="tree" (click)="sendEmail()">
+                    <!--  <img class="envelope-icon" src="./assets/img/envelope.svg" alt="tree" (click)="sendEmail()">-->
+                    <img class="envelope-icon" src="{{ 'CEREMONY-DETAILS.EnvelopeImg' | translate }}" alt="tree"
+                        (click)="sendEmail()">
                 </div>
             </div>
         </div>
@@ -102,14 +106,15 @@
             <div class="small-text">
                 {{ 'CEREMONY-DETAILS.zoom' | translate }}
                 <!-- please make sure to download and sign in to the -->
-              <!--  <br>
+                <!--  <br>
                 {{ 'CEREMONY-DETAILS.zoom' | translate }}
                  Zoom app before the planting event. -->
             </div>
             <div class="row icons">
                 <div class="col">
-                  <!--  <img class="" src="./assets/img/zoom.png" alt="zoom" width="70px" (click)=openZoom()>-->
-                    <img class="" src="{{ 'CEREMONY-DETAILS.ZoomImg' | translate }}" alt="zoom" width="70px" (click)=openZoom()>
+                    <!--  <img class="" src="./assets/img/zoom.png" alt="zoom" width="70px" (click)=openZoom()>-->
+                    <img class="" src="{{ 'CEREMONY-DETAILS.ZoomImg' | translate }}" alt="zoom" width="70px"
+                        (click)=openZoom()>
                 </div>
             </div>
         </div>
@@ -130,7 +135,7 @@
             </button>
         </div>
 
-        
+
 
     </div>
 
@@ -138,16 +143,15 @@
 
         <div class="edit-text" *ngIf="editCertificateText">
             <!-- <label for="certificateText" class="sm-title">Certificate Text:</label> -->
-           
-            <textarea class="certificateText" #textarea id="textarea" name="certificateText"
-            rows="5" cols="40" maxlength="260"  cols="6" rows="5"
-            [(ngModel)]="ceremonyDetails.CertificateText">
+
+            <textarea class="certificateText" #textarea id="textarea" name="certificateText" rows="5" cols="40"
+                maxlength="260" cols="6" rows="5" [(ngModel)]="ceremonyDetails.CertificateText">
             <!-- {{ceremonyDetails.CertificateText}} -->
         </textarea>
             <div class="small-text" style="color:black; margin:-5px 0 0 0;">
                 {{ 'CEREMONY-DETAILS.certificate2' | translate }}
                 <!-- You could personalize your own certificate up to 250 letters. -->
-              </div>  
+            </div>
         </div>
     </div>
 
@@ -171,63 +175,53 @@
 <jw-modal id="error-modal" style="display:none">
     <div class="errorMsg">{{errMsg}}</div>
     <!-- <hr> -->
-    <button (click)="closeModal('error-modal');" class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+    <button (click)="closeModal('error-modal');"
+        class="btn btn-success popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
 </jw-modal>
 
 
-<jw-modal id="certificate-modal" style="display:none;">  
+<jw-modal id="certificate-modal" style="display:none;">
     <div class="certificate-img">
         <div width="280" height="90" class="canvas" *ngIf="!editCertificateText">
             {{ceremonyDetails.CertificateText}}
         </div>
-    </div>  
-    <div class="btn-wrapper" *ngIf="!editCertificateText">    
+    </div>
+    <div class="btn-wrapper" *ngIf="!editCertificateText">
         <button (click)="closeModal('certificate-modal');" class="btn btn-primary popup-ok-btn"
-        style="margin:0px 0 0 0;">{{ 'close' | translate }}</button>
+            style="margin:0px 0 0 0;">{{ 'close' | translate }}</button>
         <button (click)="editCertificate();" class="btn btn-success popup-ok-btn"
-        style="margin:0px 0 0 0; float: right;">{{ 'edit' | translate }}</button>
+            style="margin:0px 0 0 0; float: right;">{{ 'edit' | translate }}</button>
     </div>
     <div class="btn-wrapper" *ngIf="editCertificateText">
         <button (click)="closeModal('certificate-modal');" class="btn btn-primary popup-ok-btn"
-        style="margin:0px 0 0 0;">{{ 'cancel' | translate }}</button>
+            style="margin:0px 0 0 0;">{{ 'cancel' | translate }}</button>
         <button (click)="confirmCertificate();" class="btn btn-success popup-ok-btn"
-        style="margin:0px 0 0 0; float: right;">{{ 'confirm' | translate }}</button>
+            style="margin:0px 0 0 0; float: right;">{{ 'confirm' | translate }}</button>
     </div>
-    
+
 
 </jw-modal>
 
-<jw-modal id="prayer-modal" style="display:none;">  
+<jw-modal id="prayer-modal" style="display:none;">
     <div class="planting-prayer">
-    </div>  
+    </div>
 
     <!-- 30-7-2020 add other lang !!!   -->
 
-    <div class="btn-wrapper">    
+    <div class="btn-wrapper">
         <button (click)="closeModal('prayer-modal');" class="btn btn-primary popup-ok-btn"
-        style="margin:0px 0 0 0;">{{ 'close' | translate }}</button>        
-    </div>    
+            style="margin:0px 0 0 0;">{{ 'close' | translate }}</button>
+    </div>
 </jw-modal>
 
 <jw-modal id="certificate-modal2" class="Certificatepopup2" style="display:none;">
     <div class="certificate-img2">
-      <div width="280" height="90" class="canvas2">
-        {{ceremonyDetails.CertificateText}}
-       </div> 
+        <div width="280" height="90" class="canvas2">
+            {{ceremonyDetails.CertificateText}}
+        </div>
     </div>
-   <div>
-    <button (click)="closeModal('certificate-modal2');"  style="margin:0px 0 0 0;"
-    class="btn divbtnYes certiftext col-12 pad0 centertext popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
-   </div>
-       
-    </jw-modal>
-
-
-<!-- <div class="">
-    <img class="share-icons" src="./assets/img/facebook-icon.svg" alt="tree" width="100%" (click)=shareViaFacebook()>
-</div> -->
-
-<!-- <div class="">
-            follow us
-            <img class="" src="./assets/img/instagram.jfif" alt="instagram" width="50px" (click)=openInstagram()>
-        </div> -->
+    <div>
+        <button (click)="closeModal('certificate-modal2');" style="margin:0px 0 0 0;"
+            class="btn divbtnYes certiftext col-12 pad0 centertext popup-ok-btn">{{ 'OK-BUTTON' | translate }}</button>
+    </div>
+</jw-modal>

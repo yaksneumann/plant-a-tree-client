@@ -45,17 +45,20 @@ export class DonationDetailsComponent implements OnInit {
   invalidTime: boolean = false;
   itemAvailTime: any;
   DateVal: any;
-  personalCertificate: boolean;
+  personalCertificate: boolean = false;
   //cirtificate = false;
   id: string;
   radioId: string;
-  headingCss = {
-    opacity: '0.7'
-  };
+  // headingCss = {
+  //   opacity: '0.7'
+  // };
   bodycss = {
     height: '120vh'
   };
-  disableds: string = "true";
+  confirmed: boolean = false;
+  submited: boolean = false;
+
+
   quest1: number = 0;
   quest2: number = 1;
   LocalDate: string;
@@ -129,10 +132,10 @@ export class DonationDetailsComponent implements OnInit {
     this.Radionbut = "./assets/img/FullRadion.svg";
     this.quest1 = 1;
 
-    this.headingCss = {
-      opacity: '1'
-    };
-    this.disableds = "";
+    // this.headingCss = {
+    //   opacity: '1'
+    // };
+    this.confirmed = true;
   }
 
   calculateSum(trees: number, caps: number, boxes: number) {
@@ -141,8 +144,9 @@ export class DonationDetailsComponent implements OnInit {
   }
 
   onPayNow() {
-    if ( this.disableds != "") {
-      alert('please confirm')
+    this.submited = true;
+    if (!this.confirmed) {     
+      //alert('please confirm')
       return false;
     }
     localStorage.setItem("totalSum", JSON.stringify(this.totalSum));
@@ -217,7 +221,7 @@ export class DonationDetailsComponent implements OnInit {
     },
       error => {
         this.spinner.hide();
-        console.log({ error })
+        console.log({ error });
         this.errMsg = error.message;
         if (error.statusText == "Unknown Error") {
           this.errMsg = 'Sorry, there is some connection problem, please try again';

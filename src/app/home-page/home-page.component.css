@@ -218,3 +218,9 @@
         font-size: 1.3em !important;
     }
 }
+
+@media (min-width:825px){
+    .marginPc{
+       margin-top: 10px !important;
+    }
+}

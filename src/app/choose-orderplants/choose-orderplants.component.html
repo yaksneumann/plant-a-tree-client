@@ -104,7 +104,8 @@
             <input ngbDatepicker type="text" readonly #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
               [markDisabled]="isDisabled" class="font09em form-control date treeprices shadows FONTWID700 textleft"
               id="date" name="date" ngModel [(ngModel)]="dateId" (ngModelChange)="onDateChange($event, d)"
-              style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();" placeholder="{{IsraelDate}}">
+              style="color: #000700" firstDayOfWeek="7" (click)="d.toggle(); $event.stopPropagation();" 
+              placeholder="{{IsraelDate}}">
             <!--
              new - > placeholder="{{IsraelDate}}"
                old ->  placeholder="{{LocalDate}}"> -->

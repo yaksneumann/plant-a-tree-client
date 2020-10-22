@@ -191,7 +191,6 @@ export class DonorsDetailsComponent implements OnInit {
       // this.router.navigate(['donation-details']);
       //24-6-20
       this.router.navigate(['cirtificate']);
-      
     }
     else {
       if (this.errMsg != '') {
